@@ -1,6 +1,6 @@
 <pre class='metadata'>
 Title: Overview of the ResearcherPod specifications
-Shortname: orchestrator
+Shortname: overview
 Level: 1
 Status: LS
 URL: https://mellonscholarlycommunication.github.io/spec-overview
