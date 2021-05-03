@@ -1,16 +1,117 @@
 <pre class='metadata'>
-Title: Your Spec Title
-Shortname: your-spec
+Title: Overview of the ResearcherPod specifications
+Shortname: orchestrator
 Level: 1
 Status: LS
-URL: http://example.com/url-this-spec-will-live-at
-Editor: Your Name, Your Company http://example.com/your-company, your-email@example.com, http://example.com/your-personal-website
-Abstract: A short description of your spec, one or two sentences.
+URL: https://mellonscholarlycommunication.github.io/spec-overview
+Editor: Miel Vander Sande, meemoo - [Flemish Institute for Archiving](https://meemoo.be), miel.vandersande@meemoo.be
+Editor: Patrick Hochstenbach, Ghent University, patrick.hochstenbach@ugent.be
+Editor: Ruben Dedecker, Ghent University, ruben.dedecker@ugent.be
+Editor: Jeroen Werbrouck, Ghent University, Jeroen.Werbrouck@ugent.be
+Abstract: This specification describes the implementation requirements for the Ochestrator component.
+Markup Shorthands: markdown yes
 </pre>
+
+Set of documents {#set}
+=======================
+
+This document is one of the specifications produced by the **ResearcherPod** and **ErfgoedPod** project:
+
+1. [Overview](/spec-overview/) (this document)
+1. [Orchestrator](/spec-orchestrator/) 
 
 Introduction {#intro}
 =====================
 
-Introduction here.
+Issue: todo
 
-Test build: d929bb9
+Definitions {#definitions}
+===========
+
+The specifications use the following defined terms:
+
+Issue(MellonScholarlyCommunication/orchestrator#6): replace the term Policy by Rulebook to avoid confusion?
+
+: <dfn export>Actor</dfn>
+:: A entity (person, application or service) that participates in the network.
+: <dfn export>Artefact</dfn>
+:: A digital object such as a file or document that serves as the object of exchange between actors and therefore is the smallest divisable unit on the network.
+: <dfn export>Human Agent</dfn>
+:: A person that operates directly as an [=Actor=] on the network.
+: <dfn export>Autonomous Agent</dfn>
+:: An intelligent software instance that operates on an [=Actor=]'s behalf but without any interference of that [=Actor=].
+: <dfn export>Maintainer</dfn>
+:: A [=Human Agent=] that can manually perform actions on the network using a [=Dashboard=] application.
+:: Usually a person employed by an organisation (e.g., a Cultural Heritage Institution) to maintain data and datasets owned by that organisation. 
+: <dfn export>Data Pod</dfn>
+:: As defined by [[solid-protocol]], a <a href="https://solidproject.org/TR/protocol#data-pod">Data Pod</a> is a place for storing documents, with mechanisms for controlling who can access what.
+: <dfn export>Inbox</dfn>
+:: An [[!LDP]] resource where others can POST Linked Data Notifications [[!LDN]] in order to notify the actor of a change an artefact's lifecycle.
+: <dfn export>Artefact Lifecycle Event Log</dfn>
+:: An HTTP resource served by an actor (e.g., as a resource in the [=Data Pod=]) that represents a log of occurred lifecycle events related to artefacts known by the actor.
+:: Artefacts are considered known when they reside in the actor's [=Data Pod=] or if the actor has been made aware via [[!LDN]].
+: <dfn export>Service Hub</dfn>
+:: An [=Actor=] that provides a service to other actors in the network. It is a <a href="https://solidproject.org/TR/protocol#solid-app">Solid app</a> and serves an [=Inbox=].
+: <dfn export>Policy</dfn>
+:: A set of machine-readable business rules that instruct the [=Orchestrator=] on what actions to take in response to a trigger such as incoming notifications, perceived changes in the data, or manual invocation by an [=Actor=].
+: <dfn export>Dashboard</dfn>
+:: A user application and <a href="https://solidproject.org/TR/protocol#solid-app">Solid app</a> that enables users to interact with the contents of the [=Data Pod=], the [=Orchestrator=], or other [=Actors=] in the Digital Heritage Network. 
+: <dfn export>Orchestrator</dfn> 
+:: An [=Autonomous Agent=] dedicated to a single [=Data Pod=], [=Service Hub=], or any other actor hosting the [=Artefact Lifecycle Event Log=] and a [=Inbox=] resources. It interprets and executes business rules described in a [=policy=].
+
+
+Work items {#work-items}
+=====================
+
+<table>
+    <caption>Technical Reports</caption>
+    <thead>
+        <tr>
+        <th>Work Item</th>
+        <th>Repository</th>
+        <th>Current Stage</th>
+        <th>Next Stage</th>
+        <th>Target</th>
+        <th>Expected Completion</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+        <td><a href="/spec-orchestrator/" rel="cito:citesForInformation">Orchestrator for a decentralized Web network</a></td>
+        <td><a href="https://github.com/mellonscholarlycommunication/spec-orchestrator">https://github.com/mellonscholarlycommunication/spec-orchestrator</a></td>
+        <td>Editor’s Draft</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        </tr>
+    </tbody>
+
+    <tfoot>
+        <tr>
+        <td colspan="6"></td>
+        </tr>
+    </tfoot>
+              
+</table>
+
+<pre class=biblio>
+{
+	"solid-protocol": {
+		"authors": [
+			"Sarven Capadisli",
+			"Tim Berners-Lee",
+			"Ruben Verborgh",
+			"Kjetil Kjernsmo",
+			"Justin Bingham",
+			"Dmitri Zagidulin"
+		],
+		"href": "https://solidproject.org/TR/protocol/",
+		"title": "The Solid Protocol",
+		"status": "Editor’s Draft",
+		"publisher": "Solid project",
+		"deliveredBy": [
+			"https://www.w3.org/community/solid/"
+		]
+	}
+}
+</pre>
