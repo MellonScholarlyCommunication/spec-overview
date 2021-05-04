@@ -8,7 +8,7 @@ Editor: Miel Vander Sande, meemoo - [Flemish Institute for Archiving](https://me
 Editor: Patrick Hochstenbach, Ghent University, patrick.hochstenbach@ugent.be
 Editor: Ruben Dedecker, Ghent University, ruben.dedecker@ugent.be
 Editor: Jeroen Werbrouck, Ghent University, Jeroen.Werbrouck@ugent.be
-Abstract: This specification describes the implementation requirements for the Ochestrator component.
+Abstract: This document introduces a set of technical reports that facilitate the implementation of a decentralized data exchange ecosystem using Solid.
 Markup Shorthands: markdown yes
 </pre>
 
@@ -18,19 +18,34 @@ Set of documents {#set}
 This document is one of the specifications produced by the **ResearcherPod** and **ErfgoedPod** project:
 
 1. [Overview](/spec-overview/) (this document)
-1. [Orchestrator](/spec-orchestrator/) 
+2. [Orchestrator](/spec-orchestrator/) 
+3. [Data Pod](/spec-datapod/)
+4. [Rule language](/spec-rulelanguage/)
+5. [Artefact Lifecycle Event Log](/spec-eventlog/)
+
 
 Introduction {#intro}
 =====================
 
-Issue: todo
+This document introduces a set of technical reports that facilitate the implementation of a decentralized data exchange ecosystem using [[solid-protocol]].
+Essentially,
+these reports focusses on two generic problems common to decentalized Web networks:
+
+- executing and automating business processes over a distributed set of actors.
+- discovering and collecting lifecycle information that is distributed over the network.
+
+This work aims to complement the [[solid-tr]] with a concrete framework for building a semi-automated decentralized network for a specific use case or domain.
+It is joint output from two aligned projects: 
+
+- ResearcherPod: a project funded by the [Andrew W. Mellon foundation](https://mellon.org/) that explores an alternative scholarly communication system that is researcher-centric, institution-enabled, and aligned with Decentralized Web concepts and technologies.
+- ErfgoedPod: a collaboration between [Netwerk Digitaal Erfgoed](https://netwerkdigitaalerfgoed.nl), [meemoo - Flemish Institute for Archiving](https://meemoo.be) and [Ghent University - IDLab](http://idlab.ugent.be) to investigate the feasability of applying [Solid](https://solidproject.org/) and Decentralized Web concepts to establish a sustainable exchange network for digital heritage data.
 
 Definitions {#definitions}
 ===========
 
-The specifications use the following defined terms:
+The following defined terms are used across all specifications:
 
-Issue(MellonScholarlyCommunication/orchestrator#6): replace the term Policy by Rulebook to avoid confusion?
+Issue(6): replace the term Policy by Rulebook to avoid confusion?
 
 : <dfn export>Actor</dfn>
 :: A entity (person, application or service) that participates in the network.
@@ -63,26 +78,55 @@ Issue(MellonScholarlyCommunication/orchestrator#6): replace the term Policy by R
 Work items {#work-items}
 =====================
 
+The following table provides an overview on all technical reports and subject matter that is being worked on.
+The reports incorporated have been discussed among the project members and are constructed as project deliverables. 
+During the course of these projects, the information in these documents may be subject to change, therefore please see each document’s publication status and versions for further details. 
+Of course, you are invited to [contribute]() any feedback, comments, or questions you might have.
+
 <table>
     <caption>Technical Reports</caption>
     <thead>
         <tr>
-        <th>Work Item</th>
-        <th>Repository</th>
-        <th>Current Stage</th>
-        <th>Next Stage</th>
-        <th>Target</th>
-        <th>Expected Completion</th>
+            <th>Work Item</th>
+            <th>Repository</th>
+            <th>Current Stage</th>
+            <th>Next Stage</th>
+            <th>Target</th>
+            <th>Expected Completion</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-        <td><a href="/spec-orchestrator/" rel="cito:citesForInformation">Orchestrator for a decentralized Web network</a></td>
-        <td><a href="https://github.com/mellonscholarlycommunication/spec-orchestrator">https://github.com/mellonscholarlycommunication/spec-orchestrator</a></td>
-        <td>Editor’s Draft</td>
-        <td>N/A</td>
-        <td>N/A</td>
-        <td>N/A</td>
+            <td><a href="/spec-orchestrator/" rel="cito:citesForInformation">Specification of the Orchestrator component.</a></td>
+            <td><a href="https://github.com/mellonscholarlycommunication/spec-orchestrator">https://github.com/mellonscholarlycommunication/spec-orchestrator</a></td>
+            <td>Editor’s Draft</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+        </tr>
+        <tr>
+            <td><a href="/spec-datapod/" rel="cito:citesForInformation">Implementation guidelines and additional requirements for Solid data pods.</a></td>
+            <td><a href="https://github.com/mellonscholarlycommunication/spec-datapod">https://github.com/mellonscholarlycommunication/spec-datapod</a></td>
+            <td>Editor’s Draft</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+        </tr>
+        <tr>
+            <td><a href="/spec-rulelanguage/" rel="cito:citesForInformation">Specification of the rule language to create executable business processes.</a></td>
+            <td><a href="https://github.com/mellonscholarlycommunication/spec-rulelanguage">https://github.com/mellonscholarlycommunication/spec-rulelanguage</a></td>
+            <td>Editor’s Draft</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+        </tr>
+        <tr>
+            <td><a href="/spec-eventlog/" rel="cito:citesForInformation">Implementation requirements for the Artefact Lifecycle Event Log.</a></td>
+            <td><a href="https://github.com/mellonscholarlycommunication/spec-datapod">https://github.com/mellonscholarlycommunication/spec-datapod</a></td>
+            <td>Editor’s Draft</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
         </tr>
     </tbody>
 
@@ -108,6 +152,14 @@ Work items {#work-items}
 		"href": "https://solidproject.org/TR/protocol/",
 		"title": "The Solid Protocol",
 		"status": "Editor’s Draft",
+		"publisher": "Solid project",
+		"deliveredBy": [
+			"https://www.w3.org/community/solid/"
+		]
+	},
+    "solid-tr": {
+		"href": "https://solidproject.org/TR/",
+		"title": "Solid Technical Reports",
 		"publisher": "Solid project",
 		"deliveredBy": [
 			"https://www.w3.org/community/solid/"
