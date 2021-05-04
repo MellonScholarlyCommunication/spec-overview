@@ -1223,7 +1223,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 5f7b0e20, updated Tue Aug 18 15:46:28 2020 -0700" name="generator">
   <link href="https://mellonscholarlycommunication.github.io/spec-overview" rel="canonical">
-  <meta content="3753dcc7f51263b1ad656d3efe5c84e2a39aaa59" name="document-revision">
+  <meta content="8c13cb75d232b53a2e7be0f55488051a0a7a906c" name="document-revision">
 <style>/* style-autolinks */
 
 .css.css, .property.property, .descriptor.descriptor {
@@ -1412,7 +1412,7 @@ dfn > a.self-link::before      { content: "#"; }</style>
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Overview of the ResearcherPod specifications</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Standard, <time class="dt-updated" datetime="2021-05-03">3 May 2021</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Standard, <time class="dt-updated" datetime="2021-05-04">4 May 2021</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1430,7 +1430,7 @@ dfn > a.self-link::before      { content: "#"; }</style>
    <div data-fill-with="warning"></div>
    <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" src="https://licensebuttons.net/p/zero/1.0/80x15.png"></a> To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 3 May 2021,
+In addition, as of 4 May 2021,
 the editors have made this specification available under the <a href="http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
 Parts of this work may be from another specification document.  If so, those parts are instead covered by the license of that specification document. </p>
@@ -1438,7 +1438,7 @@ Parts of this work may be from another specification document.  If so, those par
   </div>
   <div class="p-summary" data-fill-with="abstract">
    <h2 class="no-num no-toc no-ref heading settled" id="abstract"><span class="content">Abstract</span></h2>
-   <p>This specification describes the implementation requirements for the Ochestrator component.</p>
+   <p>This document introduces a set of technical reports that facilitate the implementation of a decentralized data exchange ecosystem using Solid.</p>
   </div>
   <div data-fill-with="at-risk"></div>
   <nav data-fill-with="table-of-contents" id="toc">
@@ -1471,12 +1471,34 @@ Parts of this work may be from another specification document.  If so, those par
      <p><a href="/spec-overview/">Overview</a> (this document)</p>
     <li data-md>
      <p><a href="/spec-orchestrator/">Orchestrator</a></p>
+    <li data-md>
+     <p><a href="/spec-datapod/">Data Pod</a></p>
+    <li data-md>
+     <p><a href="/spec-rulelanguage/">Rule language</a></p>
+    <li data-md>
+     <p><a href="/spec-eventlog/">Artefact Lifecycle Event Log</a></p>
    </ol>
    <h2 class="heading settled" data-level="2" id="intro"><span class="secno">2. </span><span class="content">Introduction</span><a class="self-link" href="#intro"></a></h2>
-   <p class="issue" id="issue-ea5cb8ff"><a class="self-link" href="#issue-ea5cb8ff"></a> todo</p>
+   <p>This document introduces a set of technical reports that facilitate the implementation of a decentralized data exchange ecosystem using <a data-link-type="biblio" href="#biblio-solid-protocol">[solid-protocol]</a>.
+Essentially,
+these reports focusses on two generic problems common to decentalized Web networks:</p>
+   <ul>
+    <li data-md>
+     <p>executing and automating business processes over a distributed set of actors.</p>
+    <li data-md>
+     <p>discovering and collecting lifecycle information that is distributed over the network.</p>
+   </ul>
+   <p>This work aims to complement the <a data-link-type="biblio" href="#biblio-solid-tr">[solid-tr]</a> with a concrete framework for building a semi-automated decentralized network for a specific use case or domain.
+It is joint output from two aligned projects:</p>
+   <ul>
+    <li data-md>
+     <p>ResearcherPod: a project funded by the <a href="https://mellon.org/">Andrew W. Mellon foundation</a> that explores an alternative scholarly communication system that is researcher-centric, institution-enabled, and aligned with Decentralized Web concepts and technologies.</p>
+    <li data-md>
+     <p>ErfgoedPod: a collaboration between <a href="https://netwerkdigitaalerfgoed.nl">Netwerk Digitaal Erfgoed</a>, <a href="https://meemoo.be">meemoo - Flemish Institute for Archiving</a> and <a href="http://idlab.ugent.be">Ghent University - IDLab</a> to investigate the feasability of applying <a href="https://solidproject.org/">Solid</a> and Decentralized Web concepts to establish a sustainable exchange network for digital heritage data.</p>
+   </ul>
    <h2 class="heading settled" data-level="3" id="definitions"><span class="secno">3. </span><span class="content">Definitions</span><a class="self-link" href="#definitions"></a></h2>
-   <p>The specifications use the following defined terms:</p>
-   <p class="issue" id="issue-f4d7681a"><a class="self-link" href="#issue-f4d7681a"></a> replace the term Policy by Rulebook to avoid confusion? <a href="https://github.com/MellonScholarlyCommunication/orchestrator/issues/6">&lt;https://github.com/MellonScholarlyCommunication/orchestrator/issues/6></a></p>
+   <p>The following defined terms are used across all specifications:</p>
+   <p class="issue" id="issue-f4d7681a"><a class="self-link" href="#issue-f4d7681a"></a> replace the term Policy by Rulebook to avoid confusion? <a href="https://github.com/MellonScholarlyCommunication/spec-overview/issues/6">&lt;https://github.com/MellonScholarlyCommunication/spec-overview/issues/6></a></p>
    <dl>
     <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="actor">Actor</dfn>
     <dd data-md>
@@ -1520,6 +1542,10 @@ Parts of this work may be from another specification document.  If so, those par
      <p>An <a data-link-type="dfn" href="#autonomous-agent" id="ref-for-autonomous-agent">Autonomous Agent</a> dedicated to a single <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod③">Data Pod</a>, <a data-link-type="dfn" href="#service-hub" id="ref-for-service-hub">Service Hub</a>, or any other actor hosting the <a data-link-type="dfn" href="#artefact-lifecycle-event-log" id="ref-for-artefact-lifecycle-event-log">Artefact Lifecycle Event Log</a> and a <a data-link-type="dfn" href="#inbox" id="ref-for-inbox①">Inbox</a> resources. It interprets and executes business rules described in a <a data-link-type="dfn" href="#policy" id="ref-for-policy">policy</a>.</p>
    </dl>
    <h2 class="heading settled" data-level="4" id="work-items"><span class="secno">4. </span><span class="content">Work items</span><a class="self-link" href="#work-items"></a></h2>
+   <p>The following table provides an overview on all technical reports and subject matter that is being worked on.
+The reports incorporated have been discussed among the project members and are constructed as project deliverables. 
+During the course of these projects, the information in these documents may be subject to change, therefore please see each document’s publication status and versions for further details. 
+Of course, you are invited to [contribute]() any feedback, comments, or questions you might have.</p>
    <table>
     <caption>Technical Reports</caption>
     <thead>
@@ -1532,8 +1558,29 @@ Parts of this work may be from another specification document.  If so, those par
       <th>Expected Completion
     <tbody>
      <tr>
-      <td><a href="/spec-orchestrator/" rel="cito:citesForInformation">Orchestrator for a decentralized Web network</a>
+      <td><a href="/spec-orchestrator/" rel="cito:citesForInformation">Specification of the Orchestrator component.</a>
       <td><a href="https://github.com/mellonscholarlycommunication/spec-orchestrator">https://github.com/mellonscholarlycommunication/spec-orchestrator</a>
+      <td>Editor’s Draft
+      <td>N/A
+      <td>N/A
+      <td>N/A
+     <tr>
+      <td><a href="/spec-datapod/" rel="cito:citesForInformation">Implementation guidelines and additional requirements for Solid data pods.</a>
+      <td><a href="https://github.com/mellonscholarlycommunication/spec-datapod">https://github.com/mellonscholarlycommunication/spec-datapod</a>
+      <td>Editor’s Draft
+      <td>N/A
+      <td>N/A
+      <td>N/A
+     <tr>
+      <td><a href="/spec-rulelanguage/" rel="cito:citesForInformation">Specification of the rule language to create executable business processes.</a>
+      <td><a href="https://github.com/mellonscholarlycommunication/spec-rulelanguage">https://github.com/mellonscholarlycommunication/spec-rulelanguage</a>
+      <td>Editor’s Draft
+      <td>N/A
+      <td>N/A
+      <td>N/A
+     <tr>
+      <td><a href="/spec-eventlog/" rel="cito:citesForInformation">Implementation requirements for the Artefact Lifecycle Event Log.</a>
+      <td><a href="https://github.com/mellonscholarlycommunication/spec-datapod">https://github.com/mellonscholarlycommunication/spec-datapod</a>
       <td>Editor’s Draft
       <td>N/A
       <td>N/A
@@ -1719,11 +1766,12 @@ Parts of this work may be from another specification document.  If so, those par
   <dl>
    <dt id="biblio-solid-protocol">[SOLID-PROTOCOL]
    <dd>Sarven Capadisli; et al. <a href="https://solidproject.org/TR/protocol/">The Solid Protocol</a>. Editor’s Draft. URL: <a href="https://solidproject.org/TR/protocol/">https://solidproject.org/TR/protocol/</a>
+   <dt id="biblio-solid-tr">[SOLID-TR]
+   <dd><a href="https://solidproject.org/TR/">Solid Technical Reports</a>. URL: <a href="https://solidproject.org/TR/">https://solidproject.org/TR/</a>
   </dl>
   <h2 class="no-num no-ref heading settled" id="issues-index"><span class="content">Issues Index</span><a class="self-link" href="#issues-index"></a></h2>
   <div style="counter-reset:issue">
-   <div class="issue"> todo<a href="#issue-ea5cb8ff"> ↵ </a></div>
-   <div class="issue"> replace the term Policy by Rulebook to avoid confusion? <a href="https://github.com/MellonScholarlyCommunication/orchestrator/issues/6">&lt;https://github.com/MellonScholarlyCommunication/orchestrator/issues/6></a><a href="#issue-f4d7681a"> ↵ </a></div>
+   <div class="issue"> replace the term Policy by Rulebook to avoid confusion? <a href="https://github.com/MellonScholarlyCommunication/spec-overview/issues/6">&lt;https://github.com/MellonScholarlyCommunication/spec-overview/issues/6></a><a href="#issue-f4d7681a"> ↵ </a></div>
   </div>
   <aside class="dfn-panel" data-for="actor">
    <b><a href="#actor">#actor</a></b><b>Referenced in:</b>
