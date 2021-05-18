@@ -22,6 +22,7 @@ This document is one of the specifications produced by the **ResearcherPod** and
 3. [Data Pod](/spec-datapod/)
 4. [Rule language](/spec-rulelanguage/)
 5. [Artefact Lifecycle Event Log](/spec-eventlog/)
+6. [Notifications](/spec-notifications/)
 
 
 Introduction {#intro}
@@ -122,7 +123,15 @@ Of course, you are invited to [contribute]() any feedback, comments, or question
         </tr>
         <tr>
             <td><a href="/spec-eventlog/" rel="cito:citesForInformation">Implementation requirements for the Artefact Lifecycle Event Log.</a></td>
-            <td><a href="https://github.com/mellonscholarlycommunication/spec-datapod">https://github.com/mellonscholarlycommunication/spec-datapod</a></td>
+            <td><a href="https://github.com/mellonscholarlycommunication/spec-datapod">https://github.com/mellonscholarlycommunication/spec-eventlog</a></td>
+            <td>Editor’s Draft</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+        </tr>
+        <tr>
+            <td><a href="/spec-notifications/" rel="cito:citesForInformation">Specification of the possible notifications that can be used in the network.</a></td>
+            <td><a href="https://github.com/mellonscholarlycommunication/spec-notifications">https://github.com/mellonscholarlycommunication/spec-notifications</a></td>
             <td>Editor’s Draft</td>
             <td>N/A</td>
             <td>N/A</td>
