@@ -28,7 +28,7 @@ table tr:hover td {
 table th, table td {
   color: #999;
   border: 1px solid #eee;
-  padding: 12px 35px;
+  padding: 12px 12px;
   border-collapse: collapse;
 }
 table th {
