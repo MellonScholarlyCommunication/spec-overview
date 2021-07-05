@@ -2,7 +2,7 @@
 Title: Overview of the ResearcherPod specifications
 Shortname: overview
 Level: 1
-Status: DREAM
+Status: LD
 URL: https://mellonscholarlycommunication.github.io/spec-overview
 Editor: Miel Vander Sande, meemoo - [Flemish Institute for Archiving](https://meemoo.be), miel.vandersande@meemoo.be
 Editor: Patrick Hochstenbach, Ghent University, patrick.hochstenbach@ugent.be
@@ -11,6 +11,47 @@ Editor: Jeroen Werbrouck, Ghent University, Jeroen.Werbrouck@ugent.be
 Abstract: This document introduces a set of technical reports that facilitate the implementation of a decentralized data exchange ecosystem using Solid.
 Markup Shorthands: markdown yes
 </pre>
+
+<style>
+table {
+  margin: 25px auto;
+  border-collapse: collapse;
+  border: 1px solid #eee;
+  border-bottom: 2px solid #005A9C;
+}
+table tr:hover {
+  background: #f4f4f4;
+}
+table tr:hover td {
+  color: #555;
+}
+table th, table td {
+  color: #999;
+  border: 1px solid #eee;
+  padding: 12px 12px;
+  border-collapse: collapse;
+}
+table th {
+  background: #005A9C;
+  color: #fff;
+}
+table th.last {
+  border-right: none;
+}
+</style>
+
+Set of documents {#set}
+=======================
+
+This document is one of the specifications produced by the **ResearcherPod** and **ErfgoedPod** project:
+
+1. [Overview](/spec-overview/) (this document)
+2. [Orchestrator](/spec-orchestrator/) 
+3. [Data Pod](/spec-datapod/)
+4. [Rule language](/spec-rulelanguage/)
+5. [Artefact Lifecycle Event Log](/spec-eventlog/)
+6. [Notifications](/spec-notifications/)
+
 
 Introduction {#intro}
 =====================
@@ -34,7 +75,7 @@ Work items {#work-items}
 The following table provides an overview on all technical reports and subject matter that is being worked on.
 The reports incorporated have been discussed among the project members and are constructed as project deliverables.
 During the course of these projects, the information in these documents may be subject to change, therefore please see each document’s publication status and versions for further details.
-Of course, you are invited to [contribute]() any feedback, comments, or questions you might have.
+Of course, you are invited to [contribute](https://github.com/MellonScholarlyCommunication/spec-overview/issues) any feedback, comments, or questions you might have.
 
 <table>
     <caption>Technical Reports</caption>
@@ -89,6 +130,14 @@ Of course, you are invited to [contribute]() any feedback, comments, or question
             <td>N/A</td>
             <td>N/A</td>
         </tr>
+        <tr>
+            <td><a href="/spec-notifications/" rel="cito:citesForInformation">Specification of the possible notifications that can be used in the network.</a></td>
+            <td><a href="https://github.com/mellonscholarlycommunication/spec-notifications">spec-notifications</a></td>
+            <td>Editor’s Draft</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+        </tr>
     </tbody>
 
     <tfoot>
@@ -118,26 +167,25 @@ Issue(6): replace the term Policy by Rulebook to avoid confusion?
 :: A [=Human Agent=] that can manually perform actions on the network using a [=Dashboard=] application.
 :: Usually a person employed by an organisation (e.g., a Cultural Heritage Institution) to maintain data and datasets owned by that organisation.
 : <dfn export>Data Pod</dfn>
-:: As defined by [[solid-protocol]], a <a href="https://solidproject.org/TR/protocol#data-pod">Data Pod</a> is a place for storing documents, with mechanisms for controlling who can access what.
+:: As defined by [[solid-protocol]], a [[solid-protocol#data-pod|Data Pod]] is a place for storing documents, with mechanisms for controlling who can access what.
 : <dfn export>Inbox</dfn>
 :: An [[!LDP]] resource where others can POST Linked Data Notifications [[!LDN]] in order to notify the actor of a change an artefact's lifecycle.
 : <dfn export>Artefact Lifecycle Event Log</dfn>
 :: An HTTP resource served by an actor (e.g., as a resource in the [=Data Pod=]) that represents a log of occurred lifecycle events related to artefacts known by the actor.
 :: Artefacts are considered known when they reside in the actor's [=Data Pod=] or if the actor has been made aware via [[!LDN]].
 : <dfn export>Service Hub</dfn>
-:: An [=Actor=] that provides a service to other actors in the network. It is a <a href="https://solidproject.org/TR/protocol#solid-app">Solid app</a> and serves an [=Inbox=].
+:: An [=Actor=] that provides a service to other actors in the network. It is a [[solid-protocol#solid-app|Solid App]] and serves an [=Inbox=].
 : <dfn export>Policy</dfn>
 :: A set of machine-readable business rules that instruct the [=Orchestrator=] on what actions to take in response to a trigger such as incoming notifications, perceived changes in the data, or manual invocation by an [=Actor=].
 : <dfn export>Dashboard</dfn>
-:: A user application and <a href="https://solidproject.org/TR/protocol#solid-app">Solid app</a> that enables users to interact with the contents of the [=Data Pod=], the [=Orchestrator=], or other [=Actors=] in the Digital Heritage Network.
+:: A user application and [[solid-protocol#solid-app|Solid App]] that enables users to interact with the contents of the [=Data Pod=], the [=Orchestrator=], or other [=Actors=] in the Digital Heritage Network.
 : <dfn export>Orchestrator</dfn>
 :: An [=Autonomous Agent=] dedicated to a single [=Data Pod=], [=Service Hub=], or any other actor hosting the [=Artefact Lifecycle Event Log=] and a [=Inbox=] resources. It interprets and executes business rules described in a [=policy=].
 : <dfn export>App</dfn>
-:: An App is an [=Autonomous Agent=] dedicated to an [=Actor=] that hosts a [=Data Pod=]. The App can write to the
-[=Data Pod=] unsupervised by the [=Human Agent=] and is not limited to the [=Inbox=] or [=Artefact Lifecycle Event Log=].
+:: An App is an [=Autonomous Agent=] dedicated to an [=Actor=] that hosts a [=Data Pod=]. The App can write to the [=Data Pod=] unsupervised by the [=Human Agent=] and is not limited to the [=Inbox=] or [=Artefact Lifecycle Event Log=].
 
 
-Difference between the Dashboard, App and Orchestrator
+Difference between the Dashboard, App and Orchestrator {#differences}
 =======================================================
 
 In our specifications three agents communicate with the **Data Pod** with different privileges: the **Orchestrator**,
@@ -152,19 +200,26 @@ these Actors could be treated as separate entities:
 
 With this regard:
 
-: App
-:: The App is a headless Autonomous Agent that doesn't need a Human Agent to execute write operations on the Data Pod.
-It is a trusted application for the Maintainer <s>that could in principle update any artifact on the Data Pod</s>. This application
-could run as a background service on the computer of the maintainer and be online as long as the computer is connected
-to a network.
-: Dashboard
-:: The Dashboard is an Agent that responds to feedback from an Human Agent. Typically this Dashboard runs in a browser
-can be in an online or offline modus when a browser is running on the computer of the maintainer with one of the browser
-tabs opened with the dashboard application.
-: Orchestrator
-:: The Orchestrator is an Autonomous Agent that can read the (Scholarly) **Inbox** of the **Data Pod** and append to
-the **Artefact Lifecycle Event Log**. Guided by policies expressed as business rules, the **Orchestrator** also communicates with the Scholar Community network using
-the **Scholarly Communication Notification protocol** implementing **Policies**.
+<table>
+  <tr>
+    <th>App
+    <td>
+    The App is a headless Autonomous Agent that doesn't need a Human Agent to execute write operations on the Data Pod.
+    It is a trusted application for the Maintainer <s>that could in principle update any artifact on the Data Pod</s>. 
+    This application could run as a background service on the computer of the maintainer and be online as long as the computer is connected to a network.
+  <tr>
+    <th>Dashboard
+    <td>
+    The Dashboard is an Agent that responds to feedback from an Human Agent. Typically this Dashboard runs in a browser
+    can be in an online or offline modus when a browser is running on the computer of the maintainer with one of the browser
+    tabs opened with the dashboard application.
+  <tr>
+    <th>Orchestrator
+    <td>
+    The Orchestrator is an Autonomous Agent that can read the (Scholarly) **Inbox** of the **Data Pod** and append to
+    the **Artefact Lifecycle Event Log**. Guided by policies expressed as business rules, the **Orchestrator** also communicates with the Scholar Community network using
+    the **Scholarly Communication Notification protocol** implementing **Policies**.
+</table>
 
 <img src="images/mellon-orchestrator-solar.svg" width="40%">
 
@@ -213,30 +268,27 @@ It could contain enough metadata for simple workflows. In general out of band co
 could be needed to perform all required steps.
 
 All notifications are send to all **Actors** in the network in the form of
- Linked Data Notifications [[!LDN]] using the ActivityStreams [[!AS2]]
-vocabulary.
+Linked Data Notifications [[!LDN]] using the [[!activitystreams-vocabulary|ActivityStreams 2.0]] vocabulary.
 
 In our use cases we use 5 types of AS2 notifications in line with the
 [COAR Notify](https://notify.coar-repositories.org/patterns/) project.
 
 : **Offer**
-:: The `Offer` notification is used when one system offers one of its resources to
-an other system to conduct some activity.
+:: The `Offer` notification is used when one system offers one of its resources to an other system to conduct some activity.
 
 : **Undo**
 :: The `Undo` notification is used to retract an offer made in a previous notification.
 
 : **Accept**
 :: The `Accept` notification is a response to an `Offer` made in a previous notification.
-It indicates that the offer is accepted.
+:: It indicates that the offer is accepted.
 
 : **Reject**
 :: The `Reject` notificaion is a response to an `Offer` made in a previous notification.
-It indicates that the offer is rejected.
+:: It indicates that the offer is rejected.
 
 : **Announce**
-:: The `Announce` notification is used to announce the outcome of an activity: typically
-to announce the availability of a new (scholarly) artefact.
+:: The `Announce` notification is used to announce the outcome of an activity: typically to announce the availability of a new (scholarly) artefact.
 
 <pre class=biblio>
 {
@@ -257,20 +309,13 @@ to announce the availability of a new (scholarly) artefact.
 			"https://www.w3.org/community/solid/"
 		]
 	},
-    "solid-tr": {
+  "solid-tr": {
 		"href": "https://solidproject.org/TR/",
 		"title": "Solid Technical Reports",
 		"publisher": "Solid project",
 		"deliveredBy": [
 			"https://www.w3.org/community/solid/"
 		]
-	},
-  {
-    "AS2": {
-    "href": "https://www.w3.org/ns/activitystreams",
-    "title": "ActivityStreams 2.0 Terms" ,
-    "publisher": "W3C"
-    }
-  }
+	}
 }
 </pre>
