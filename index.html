@@ -1223,7 +1223,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 5f7b0e20, updated Tue Aug 18 15:46:28 2020 -0700" name="generator">
   <link href="https://mellonscholarlycommunication.github.io/spec-overview" rel="canonical">
-  <meta content="3fb9a12cce09a5c5df6dd36ed625b55b791e9815" name="document-revision">
+  <meta content="a353da723e7eee47a85d55c2d42f85645a6d9e59" name="document-revision">
 <style>
 table {
   margin: 25px auto;
@@ -1555,49 +1555,48 @@ Of course, you are invited to <a href="https://github.com/MellonScholarlyCommuni
       <td>Editor’s Draft
       <td>N/A
       <td>N/A
-      <td>N/A
+      <td>Q3 2021
      <tr>
       <td><a href="/spec-orchestrator/" rel="cito:citesForInformation">Specification of the Orchestrator component.</a>
       <td><a href="https://github.com/mellonscholarlycommunication/spec-orchestrator">spec-orchestrator</a>
       <td>Editor’s Draft
       <td>N/A
       <td>N/A
-      <td>N/A
+      <td>Q4 2021
      <tr>
       <td><a href="/spec-datapod/" rel="cito:citesForInformation">Implementation guidelines and additional requirements for Solid data pods.</a>
       <td><a href="https://github.com/mellonscholarlycommunication/spec-datapod">spec-datapod</a>
       <td>Editor’s Draft
       <td>N/A
       <td>N/A
-      <td>N/A
+      <td>Q4 2021
      <tr>
       <td><a href="/spec-rulelanguage/" rel="cito:citesForInformation">Specification of the rule language to create executable business processes.</a>
       <td><a href="https://github.com/mellonscholarlycommunication/spec-rulelanguage">spec-rulelanguage</a>
       <td>Editor’s Draft
       <td>N/A
       <td>N/A
-      <td>N/A
+      <td>2022
      <tr>
       <td><a href="/spec-eventlog/" rel="cito:citesForInformation">Implementation requirements for the Artefact Lifecycle Event Log.</a>
       <td><a href="https://github.com/mellonscholarlycommunication/spec-datapod">spec-datapod</a>
       <td>Editor’s Draft
       <td>N/A
       <td>N/A
-      <td>N/A
+      <td>2022
      <tr>
       <td><a href="/spec-notifications/" rel="cito:citesForInformation">Specification of the possible notifications that can be used in the network.</a>
       <td><a href="https://github.com/mellonscholarlycommunication/spec-notifications">spec-notifications</a>
       <td>Editor’s Draft
       <td>N/A
       <td>N/A
-      <td>N/A
+      <td>2022
     <tfoot>
      <tr>
       <td colspan="6">
    </table>
    <h2 class="heading settled" data-level="4" id="definitions"><span class="secno">4. </span><span class="content">Definitions</span><a class="self-link" href="#definitions"></a></h2>
    <p>The following defined terms are used across all specifications:</p>
-   <p class="issue" id="issue-f4d7681a"><a class="self-link" href="#issue-f4d7681a"></a> replace the term Policy by Rulebook to avoid confusion? <a href="https://github.com/MellonScholarlyCommunication/spec-overview/issues/6">&lt;https://github.com/MellonScholarlyCommunication/spec-overview/issues/6></a></p>
    <dl>
     <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="actor">Actor</dfn>
     <dd data-md>
@@ -1630,7 +1629,7 @@ Of course, you are invited to <a href="https://github.com/MellonScholarlyCommuni
     <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="service-hub">Service Hub</dfn>
     <dd data-md>
      <p>An <a data-link-type="dfn" href="#actor" id="ref-for-actor③">Actor</a> that provides a service to other actors in the network. It is a <a href="https://solidproject.org/TR/protocol/#solid-app">Solid App</a> and serves an <a data-link-type="dfn" href="#inbox" id="ref-for-inbox">Inbox</a>.</p>
-    <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="policy">Policy</dfn>
+    <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="rulebook">Rulebook</dfn>
     <dd data-md>
      <p>A set of machine-readable business rules that instruct the <a data-link-type="dfn" href="#orchestrator" id="ref-for-orchestrator">Orchestrator</a> on what actions to take in response to a trigger such as incoming notifications, perceived changes in the data, or manual invocation by an <a data-link-type="dfn" href="#actor" id="ref-for-actor④">Actor</a>.</p>
     <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="dashboard">Dashboard</dfn>
@@ -1638,7 +1637,7 @@ Of course, you are invited to <a href="https://github.com/MellonScholarlyCommuni
      <p>A user application and <a href="https://solidproject.org/TR/protocol/#solid-app">Solid App</a> that enables users to interact with the contents of the <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod②">Data Pod</a>, the <a data-link-type="dfn" href="#orchestrator" id="ref-for-orchestrator①">Orchestrator</a>, or other <a data-link-type="dfn" href="#actor" id="ref-for-actor⑤">Actors</a> in the Digital Heritage Network.</p>
     <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="orchestrator">Orchestrator</dfn>
     <dd data-md>
-     <p>An <a data-link-type="dfn" href="#autonomous-agent" id="ref-for-autonomous-agent">Autonomous Agent</a> dedicated to a single <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod③">Data Pod</a>, <a data-link-type="dfn" href="#service-hub" id="ref-for-service-hub">Service Hub</a>, or any other actor hosting the <a data-link-type="dfn" href="#artefact-lifecycle-event-log" id="ref-for-artefact-lifecycle-event-log">Artefact Lifecycle Event Log</a> and a <a data-link-type="dfn" href="#inbox" id="ref-for-inbox①">Inbox</a> resources. It interprets and executes business rules described in a <a data-link-type="dfn" href="#policy" id="ref-for-policy">policy</a>.</p>
+     <p>An <a data-link-type="dfn" href="#autonomous-agent" id="ref-for-autonomous-agent">Autonomous Agent</a> dedicated to a single <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod③">Data Pod</a>, <a data-link-type="dfn" href="#service-hub" id="ref-for-service-hub">Service Hub</a>, or any other actor hosting the <a data-link-type="dfn" href="#artefact-lifecycle-event-log" id="ref-for-artefact-lifecycle-event-log">Artefact Lifecycle Event Log</a> and a <a data-link-type="dfn" href="#inbox" id="ref-for-inbox①">Inbox</a> resources. It interprets and executes business rules described in a <a data-link-type="dfn" href="#rulebook" id="ref-for-rulebook">rulebook</a>.</p>
     <dt data-md><dfn data-dfn-type="dfn" data-export id="app">App<a class="self-link" href="#app"></a></dfn>
     <dd data-md>
      <p>An App is an <a data-link-type="dfn" href="#autonomous-agent" id="ref-for-autonomous-agent①">Autonomous Agent</a> dedicated to an <a data-link-type="dfn" href="#actor" id="ref-for-actor⑥">Actor</a> that hosts a <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod④">Data Pod</a>. The App can write to the <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod⑤">Data Pod</a> unsupervised by the <a data-link-type="dfn" href="#human-agent" id="ref-for-human-agent①">Human Agent</a> and is not limited to the <a data-link-type="dfn" href="#inbox" id="ref-for-inbox②">Inbox</a> or <a data-link-type="dfn" href="#artefact-lifecycle-event-log" id="ref-for-artefact-lifecycle-event-log①">Artefact Lifecycle Event Log</a>.</p>
@@ -1900,7 +1899,7 @@ Linked Data Notifications <a data-link-type="biblio" href="#biblio-ldn">[LDN]</a
    <li><a href="#inbox">Inbox</a><span>, in §4</span>
    <li><a href="#maintainer">Maintainer</a><span>, in §4</span>
    <li><a href="#orchestrator">Orchestrator</a><span>, in §4</span>
-   <li><a href="#policy">Policy</a><span>, in §4</span>
+   <li><a href="#rulebook">Rulebook</a><span>, in §4</span>
    <li><a href="#service-hub">Service Hub</a><span>, in §4</span>
   </ul>
   <h2 class="no-num no-ref heading settled" id="references"><span class="content">References</span><a class="self-link" href="#references"></a></h2>
@@ -1924,7 +1923,6 @@ Linked Data Notifications <a data-link-type="biblio" href="#biblio-ldn">[LDN]</a
   </dl>
   <h2 class="no-num no-ref heading settled" id="issues-index"><span class="content">Issues Index</span><a class="self-link" href="#issues-index"></a></h2>
   <div style="counter-reset:issue">
-   <div class="issue"> replace the term Policy by Rulebook to avoid confusion? <a href="https://github.com/MellonScholarlyCommunication/spec-overview/issues/6">&lt;https://github.com/MellonScholarlyCommunication/spec-overview/issues/6></a><a href="#issue-f4d7681a"> ↵ </a></div>
    <div class="issue"> Are the Rules and Inbox necesearily part of the Data Pod or can they exist as separate resources? <a href="https://github.com/MellonScholarlyCommunication/spec-overview/issues/5">&lt;https://github.com/MellonScholarlyCommunication/spec-overview/issues/5></a><a href="#issue-dce4218e"> ↵ </a></div>
    <div class="issue"> todo<a href="#issue-ea5cb8ff"> ↵ </a></div>
    <div class="issue"> todo<a href="#issue-ea5cb8ff①"> ↵ </a></div>
@@ -1971,10 +1969,10 @@ Linked Data Notifications <a data-link-type="biblio" href="#biblio-ldn">[LDN]</a
     <li><a href="#ref-for-service-hub">4. Definitions</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="policy">
-   <b><a href="#policy">#policy</a></b><b>Referenced in:</b>
+  <aside class="dfn-panel" data-for="rulebook">
+   <b><a href="#rulebook">#rulebook</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-policy">4. Definitions</a>
+    <li><a href="#ref-for-rulebook">4. Definitions</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dashboard">
