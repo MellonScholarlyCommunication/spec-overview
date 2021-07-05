@@ -2,7 +2,7 @@
 Title: Overview of the ResearcherPod specifications
 Shortname: overview
 Level: 1
-Status: LS
+Status: LD
 URL: https://mellonscholarlycommunication.github.io/spec-overview
 Editor: Miel Vander Sande, meemoo - [Flemish Institute for Archiving](https://meemoo.be), miel.vandersande@meemoo.be
 Editor: Patrick Hochstenbach, Ghent University, patrick.hochstenbach@ugent.be
@@ -64,10 +64,89 @@ these reports focusses on two generic problems common to decentalized Web networ
 - discovering and collecting lifecycle information that is distributed over the network.
 
 This work aims to complement the [[solid-tr]] with a concrete framework for building a semi-automated decentralized network for a specific use case or domain.
-It is joint output from two aligned projects: 
+It is joint output from two aligned projects:
 
 - ResearcherPod: a project funded by the [Andrew W. Mellon foundation](https://mellon.org/) that explores an alternative scholarly communication system that is researcher-centric, institution-enabled, and aligned with Decentralized Web concepts and technologies.
 - ErfgoedPod: a collaboration between [Netwerk Digitaal Erfgoed](https://netwerkdigitaalerfgoed.nl), [meemoo - Flemish Institute for Archiving](https://meemoo.be) and [Ghent University - IDLab](http://idlab.ugent.be) to investigate the feasability of applying [Solid](https://solidproject.org/) and Decentralized Web concepts to establish a sustainable exchange network for digital heritage data.
+
+Work items {#work-items}
+=====================
+
+The following table provides an overview on all technical reports and subject matter that is being worked on.
+The reports incorporated have been discussed among the project members and are constructed as project deliverables.
+During the course of these projects, the information in these documents may be subject to change, therefore please see each document’s publication status and versions for further details.
+Of course, you are invited to [contribute](https://github.com/MellonScholarlyCommunication/spec-overview/issues) any feedback, comments, or questions you might have.
+
+<table>
+    <caption>Technical Reports</caption>
+    <thead>
+        <tr>
+            <th>Work Item</th>
+            <th>Repository</th>
+            <th>Current Stage</th>
+            <th>Next Stage</th>
+            <th>Target</th>
+            <th>Expected Completion</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><a href="/spec-overview/" rel="cito:citesForInformation">This document.</a></td>
+          <td><a href="https://github.com/mellonscholarlycommunication/spec-overview">spec-overview</a></td>
+          <td>Editor’s Draft</td>
+          <td>N/A</td>
+          <td>N/A</td>
+          <td>N/A</td>
+        </tr>
+        <tr>
+            <td><a href="/spec-orchestrator/" rel="cito:citesForInformation">Specification of the Orchestrator component.</a></td>
+            <td><a href="https://github.com/mellonscholarlycommunication/spec-orchestrator">spec-orchestrator</a></td>
+            <td>Editor’s Draft</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+        </tr>
+        <tr>
+            <td><a href="/spec-datapod/" rel="cito:citesForInformation">Implementation guidelines and additional requirements for Solid data pods.</a></td>
+            <td><a href="https://github.com/mellonscholarlycommunication/spec-datapod">spec-datapod</a></td>
+            <td>Editor’s Draft</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+        </tr>
+        <tr>
+            <td><a href="/spec-rulelanguage/" rel="cito:citesForInformation">Specification of the rule language to create executable business processes.</a></td>
+            <td><a href="https://github.com/mellonscholarlycommunication/spec-rulelanguage">spec-rulelanguage</a></td>
+            <td>Editor’s Draft</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+        </tr>
+        <tr>
+            <td><a href="/spec-eventlog/" rel="cito:citesForInformation">Implementation requirements for the Artefact Lifecycle Event Log.</a></td>
+            <td><a href="https://github.com/mellonscholarlycommunication/spec-datapod">spec-datapod</a></td>
+            <td>Editor’s Draft</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+        </tr>
+        <tr>
+            <td><a href="/spec-notifications/" rel="cito:citesForInformation">Specification of the possible notifications that can be used in the network.</a></td>
+            <td><a href="https://github.com/mellonscholarlycommunication/spec-notifications">spec-notifications</a></td>
+            <td>Editor’s Draft</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+        </tr>
+    </tbody>
+
+    <tfoot>
+        <tr>
+        <td colspan="6"></td>
+        </tr>
+    </tfoot>
+
+</table>
 
 Definitions {#definitions}
 ===========
@@ -86,94 +165,141 @@ Issue(6): replace the term Policy by Rulebook to avoid confusion?
 :: An intelligent software instance that operates on an [=Actor=]'s behalf but without any interference of that [=Actor=].
 : <dfn export>Maintainer</dfn>
 :: A [=Human Agent=] that can manually perform actions on the network using a [=Dashboard=] application.
-:: Usually a person employed by an organisation (e.g., a Cultural Heritage Institution) to maintain data and datasets owned by that organisation. 
+:: Usually a person employed by an organisation (e.g., a Cultural Heritage Institution) to maintain data and datasets owned by that organisation.
 : <dfn export>Data Pod</dfn>
-:: As defined by [[solid-protocol]], a <a href="https://solidproject.org/TR/protocol#data-pod">Data Pod</a> is a place for storing documents, with mechanisms for controlling who can access what.
+:: As defined by [[solid-protocol]], a [[solid-protocol#data-pod|Data Pod]] is a place for storing documents, with mechanisms for controlling who can access what.
 : <dfn export>Inbox</dfn>
 :: An [[!LDP]] resource where others can POST Linked Data Notifications [[!LDN]] in order to notify the actor of a change an artefact's lifecycle.
 : <dfn export>Artefact Lifecycle Event Log</dfn>
 :: An HTTP resource served by an actor (e.g., as a resource in the [=Data Pod=]) that represents a log of occurred lifecycle events related to artefacts known by the actor.
 :: Artefacts are considered known when they reside in the actor's [=Data Pod=] or if the actor has been made aware via [[!LDN]].
 : <dfn export>Service Hub</dfn>
-:: An [=Actor=] that provides a service to other actors in the network. It is a <a href="https://solidproject.org/TR/protocol#solid-app">Solid app</a> and serves an [=Inbox=].
+:: An [=Actor=] that provides a service to other actors in the network. It is a [[solid-protocol#solid-app|Solid App]] and serves an [=Inbox=].
 : <dfn export>Policy</dfn>
 :: A set of machine-readable business rules that instruct the [=Orchestrator=] on what actions to take in response to a trigger such as incoming notifications, perceived changes in the data, or manual invocation by an [=Actor=].
 : <dfn export>Dashboard</dfn>
-:: A user application and <a href="https://solidproject.org/TR/protocol#solid-app">Solid app</a> that enables users to interact with the contents of the [=Data Pod=], the [=Orchestrator=], or other [=Actors=] in the Digital Heritage Network. 
-: <dfn export>Orchestrator</dfn> 
+:: A user application and [[solid-protocol#solid-app|Solid App]] that enables users to interact with the contents of the [=Data Pod=], the [=Orchestrator=], or other [=Actors=] in the Digital Heritage Network.
+: <dfn export>Orchestrator</dfn>
 :: An [=Autonomous Agent=] dedicated to a single [=Data Pod=], [=Service Hub=], or any other actor hosting the [=Artefact Lifecycle Event Log=] and a [=Inbox=] resources. It interprets and executes business rules described in a [=policy=].
+: <dfn export>App</dfn>
+:: An App is an [=Autonomous Agent=] dedicated to an [=Actor=] that hosts a [=Data Pod=]. The App can write to the [=Data Pod=] unsupervised by the [=Human Agent=] and is not limited to the [=Inbox=] or [=Artefact Lifecycle Event Log=].
 
 
-Work items {#work-items}
-=====================
+Difference between the Dashboard, App and Orchestrator {#differences}
+=======================================================
 
-The following table provides an overview on all technical reports and subject matter that is being worked on.
-The reports incorporated have been discussed among the project members and are constructed as project deliverables. 
-During the course of these projects, the information in these documents may be subject to change, therefore please see each document’s publication status and versions for further details. 
-Of course, you are invited to [contribute]() any feedback, comments, or questions you might have.
+In our specifications three agents communicate with the **Data Pod** with different privileges: the **Orchestrator**,
+the **Dashboard** and the **App**. While in real applications these agents could overlap or might not be required at all (in
+some cases), in this document they are treated as separate entities to help the discussion. Some reasons why
+these Actors could be treated as separate entities:
+
+- privileges needed to access the **Data Pod**
+- requirements needed to receive direct feedback from a **Human Agent**
+- requirements needed to permanently be **online**
+- requirements needed to understand the **Scholarly Communication Notification protocol** and **Policies**
+
+With this regard:
 
 <table>
-    <caption>Technical Reports</caption>
-    <thead>
-        <tr>
-            <th>Work Item</th>
-            <th>Repository</th>
-            <th>Current Stage</th>
-            <th>Next Stage</th>
-            <th>Target</th>
-            <th>Expected Completion</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><a href="/spec-orchestrator/" rel="cito:citesForInformation">Specification of the Orchestrator component.</a></td>
-            <td><a href="https://github.com/mellonscholarlycommunication/spec-orchestrator">https://github.com/mellonscholarlycommunication/spec-orchestrator</a></td>
-            <td>Editor’s Draft</td>
-            <td>N/A</td>
-            <td>N/A</td>
-            <td>N/A</td>
-        </tr>
-        <tr>
-            <td><a href="/spec-datapod/" rel="cito:citesForInformation">Implementation guidelines and additional requirements for Solid data pods.</a></td>
-            <td><a href="https://github.com/mellonscholarlycommunication/spec-datapod">https://github.com/mellonscholarlycommunication/spec-datapod</a></td>
-            <td>Editor’s Draft</td>
-            <td>N/A</td>
-            <td>N/A</td>
-            <td>N/A</td>
-        </tr>
-        <tr>
-            <td><a href="/spec-rulelanguage/" rel="cito:citesForInformation">Specification of the rule language to create executable business processes.</a></td>
-            <td><a href="https://github.com/mellonscholarlycommunication/spec-rulelanguage">https://github.com/mellonscholarlycommunication/spec-rulelanguage</a></td>
-            <td>Editor’s Draft</td>
-            <td>N/A</td>
-            <td>N/A</td>
-            <td>N/A</td>
-        </tr>
-        <tr>
-            <td><a href="/spec-eventlog/" rel="cito:citesForInformation">Implementation requirements for the Artefact Lifecycle Event Log.</a></td>
-            <td><a href="https://github.com/mellonscholarlycommunication/spec-datapod">https://github.com/mellonscholarlycommunication/spec-eventlog</a></td>
-            <td>Editor’s Draft</td>
-            <td>N/A</td>
-            <td>N/A</td>
-            <td>N/A</td>
-        </tr>
-        <tr>
-            <td><a href="/spec-notifications/" rel="cito:citesForInformation">Specification of the possible notifications that can be used in the network.</a></td>
-            <td><a href="https://github.com/mellonscholarlycommunication/spec-notifications">https://github.com/mellonscholarlycommunication/spec-notifications</a></td>
-            <td>Editor’s Draft</td>
-            <td>N/A</td>
-            <td>N/A</td>
-            <td>N/A</td>
-        </tr>
-    </tbody>
-
-    <tfoot>
-        <tr>
-        <td colspan="6"></td>
-        </tr>
-    </tfoot>
-              
+  <tr>
+    <th>App
+    <td>
+    The App is a headless Autonomous Agent that doesn't need a Human Agent to execute write operations on the Data Pod.
+    It is a trusted application for the Maintainer <s>that could in principle update any artifact on the Data Pod</s>. 
+    This application could run as a background service on the computer of the maintainer and be online as long as the computer is connected to a network.
+  <tr>
+    <th>Dashboard
+    <td>
+    The Dashboard is an Agent that responds to feedback from an Human Agent. Typically this Dashboard runs in a browser
+    can be in an online or offline modus when a browser is running on the computer of the maintainer with one of the browser
+    tabs opened with the dashboard application.
+  <tr>
+    <th>Orchestrator
+    <td>
+    The Orchestrator is an Autonomous Agent that can read the (Scholarly) **Inbox** of the **Data Pod** and append to
+    the **Artefact Lifecycle Event Log**. Guided by policies expressed as business rules, the **Orchestrator** also communicates with the Scholar Community network using
+    the **Scholarly Communication Notification protocol** implementing **Policies**.
 </table>
+
+<img src="images/mellon-orchestrator-solar.svg" width="40%">
+
+The three Actors can be seen as a mini solar system with the **Data Pod** as the Sun. The **App** is a fully trusted agent that runs very near to
+the data pod (in level of trust). The **Orchestrator** has very limited access rights to the data pod. The main
+task of the Orchestrator is to update the event log and execute policies in order to talk the Scholarly Communication Notification
+protocol (read/send messages from/to the corrrect Service Hubs).
+The **Dashboard** sits in between, it has control over the **Data Pod** but might (always) need user input to update the pod.
+Communication between the App/DashBoard and the Orchestrator happens via the Data Pod's Inbox.
+
+The networks below demonstrates the CRUD privileges imagined for the different actors in this document. The first
+network demonstrates a typical Solid setup where the Dashboard is a single page application that has direct access
+to the Data Pod and the App is more a background process running in the same computer as the Maintainer.
+
+<div><img src="images/mellon-crud-app.svg" width="80%"></div>
+<i>CRUD operations in case the DashBoard is single-page application and the App a background task</i>
+
+Issue(5): Are the Rules and Inbox necesearily part of the Data Pod or can they exist as separate resources?
+
+The second network demonstrates a more classic setup with a browser Dashboard controlled by a server App which uses a
+Data Pod as backend storage.
+
+<div><img src="images/mellon-crud.svg" width="80%"></div>
+<i>CRUD operations in case the Dashoard and App is a classic client/server application</i>
+
+
+Communication between Data Pods and domain-specific networks
+============================================================
+
+## Communication between Data Pod and Scholarly Community network
+
+Notifications can be sent from the researcher environment to **Service Hub** environments.
+For instance, in case of a request to review an artefact that resides in the **Data Pod**, an
+appropriate notification can be sent to a review **Service Hub**. The **Service Hub** can respond,
+for example, accepting or rejecting the review request, and, in the latter case, to relay
+the result of the review.
+
+The **Orchestrator** sends notifications in response to triggers that result from the execution of
+Policies - implemented as business rules - that are associated with the **Data Pod**. The **Orchestrator**
+receives notifications in response to the ones it sent. The **Orchestrator** records information
+contained in both outgoing and incoming notifications in the **Artefact Lifecycle Event Log**.
+
+The notifications are regarded as a high-level approach to automatically coordinate the distributed
+execution of the crucial functions of scholarly communication. The notifications merely ensure that the
+respective functions are in effect executed as prescribed by Policies, but do not attempt to
+automate the actual fullfilment of the function itself. For instance, when an `Offer` is sent to a Review Service
+we don't envision that message contains all the steps to fully automate the submission process.
+It could contain enough metadata for simple workflows. In general out of band communication
+could be needed to perform all required steps.
+
+All notifications are send to all **Actors** in the network in the form of
+Linked Data Notifications [[!LDN]] using the [[!activitystreams-vocabulary|ActivityStreams 2.0]] vocabulary.
+
+In our use cases we use 5 types of AS2 notifications in line with the
+[COAR Notify](https://notify.coar-repositories.org/patterns/) project.
+
+: Offer
+:: The `Offer` notification is used when one system offers one of its resources to an other system to conduct some activity.
+
+: Undo
+:: The `Undo` notification is used to retract an offer made in a previous notification.
+
+: Accept
+:: The `Accept` notification is a response to an `Offer` made in a previous notification.
+:: It indicates that the offer is accepted.
+
+: Reject
+:: The `Reject` notificaion is a response to an `Offer` made in a previous notification.
+:: It indicates that the offer is rejected.
+
+: Announce
+:: The `Announce` notification is used to announce the outcome of an activity: typically to announce the availability of a new (scholarly) artefact.
+
+## Communication between Data Pod and Cultural Heritage network
+
+Issue: todo
+
+## Communication between Data Pod and Building Construction network
+
+Issue: todo
 
 <pre class=biblio>
 {
@@ -194,7 +320,7 @@ Of course, you are invited to [contribute]() any feedback, comments, or question
 			"https://www.w3.org/community/solid/"
 		]
 	},
-    "solid-tr": {
+  "solid-tr": {
 		"href": "https://solidproject.org/TR/",
 		"title": "Solid Technical Reports",
 		"publisher": "Solid project",
