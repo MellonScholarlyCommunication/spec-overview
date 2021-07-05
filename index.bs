@@ -245,8 +245,11 @@ Data Pod as backend storage.
 <div><img src="images/mellon-crud.svg" width="80%"></div>
 <i>CRUD operations in case the Dashoard and App is a classic client/server application</i>
 
-Communication between Data Pod and Scholarly Community network
-==============================================================
+
+Communication between Data Pods and domain-specific networks
+============================================================
+
+## Communication between Data Pod and Scholarly Community network
 
 Notifications can be sent from the researcher environment to **Service Hub** environments.
 For instance, in case of a request to review an artefact that resides in the **Data Pod**, an
@@ -289,6 +292,14 @@ In our use cases we use 5 types of AS2 notifications in line with the
 
 : Announce
 :: The `Announce` notification is used to announce the outcome of an activity: typically to announce the availability of a new (scholarly) artefact.
+
+## Communication between Data Pod and Cultural Heritage network
+
+Issue: todo
+
+## Communication between Data Pod and Building Construction network
+
+Issue: todo
 
 <pre class=biblio>
 {
