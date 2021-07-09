@@ -1223,7 +1223,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 5f7b0e20, updated Tue Aug 18 15:46:28 2020 -0700" name="generator">
   <link href="https://mellonscholarlycommunication.github.io/spec-overview" rel="canonical">
-  <meta content="a353da723e7eee47a85d55c2d42f85645a6d9e59" name="document-revision">
+  <meta content="65fc41fd65eeadd7b4d2c14f5ae4b476481fe450" name="document-revision">
 <style>
 table {
   margin: 25px auto;
@@ -1439,7 +1439,7 @@ dfn > a.self-link::before      { content: "#"; }</style>
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Overview of the ResearcherPod specifications</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Document, <time class="dt-updated" datetime="2021-07-05">5 July 2021</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Document, <time class="dt-updated" datetime="2021-07-09">9 July 2021</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1457,7 +1457,7 @@ dfn > a.self-link::before      { content: "#"; }</style>
    <div data-fill-with="warning"></div>
    <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" src="https://licensebuttons.net/p/zero/1.0/80x15.png"></a> To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 5 July 2021,
+In addition, as of 9 July 2021,
 the editors have made this specification available under the <a href="http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
 Parts of this work may be from another specification document.  If so, those parts are instead covered by the license of that specification document. </p>
@@ -1601,18 +1601,21 @@ Of course, you are invited to <a href="https://github.com/MellonScholarlyCommuni
     <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="actor">Actor</dfn>
     <dd data-md>
      <p>A entity (person, application or service) that participates in the network.</p>
-    <dt data-md><dfn data-dfn-type="dfn" data-export id="artefact">Artefact<a class="self-link" href="#artefact"></a></dfn>
+    <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="artefact">Artefact</dfn>
     <dd data-md>
      <p>A digital object such as a file or document that serves as the object of exchange between actors and therefore is the smallest divisable unit on the network.</p>
+    <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="artefact-lifecycle-event">Artefact Lifecycle Event</dfn>
+    <dd data-md>
+     <p>An event that resulted from an <a data-link-type="dfn" href="#actor" id="ref-for-actor">actor</a> performing an activity related to an <a data-link-type="dfn" href="#artefact" id="ref-for-artefact">artefact</a> and impacts its lifecycle.</p>
     <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="human-agent">Human Agent</dfn>
     <dd data-md>
-     <p>A person that operates directly as an <a data-link-type="dfn" href="#actor" id="ref-for-actor">Actor</a> on the network.</p>
+     <p>A person that operates directly as an <a data-link-type="dfn" href="#actor" id="ref-for-actor①">actor</a> on the network.</p>
     <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="autonomous-agent">Autonomous Agent</dfn>
     <dd data-md>
-     <p>An intelligent software instance that operates on an <a data-link-type="dfn" href="#actor" id="ref-for-actor①">Actor</a>'s behalf but without any interference of that <a data-link-type="dfn" href="#actor" id="ref-for-actor②">Actor</a>.</p>
+     <p>An intelligent software instance that operates on an <a data-link-type="dfn" href="#actor" id="ref-for-actor②">actor</a>'s behalf but without any interference of that <a data-link-type="dfn" href="#actor" id="ref-for-actor③">actor</a>.</p>
     <dt data-md><dfn data-dfn-type="dfn" data-export id="maintainer">Maintainer<a class="self-link" href="#maintainer"></a></dfn>
     <dd data-md>
-     <p>A <a data-link-type="dfn" href="#human-agent" id="ref-for-human-agent">Human Agent</a> that can manually perform actions on the network using a <a data-link-type="dfn" href="#dashboard" id="ref-for-dashboard">Dashboard</a> application.</p>
+     <p>A <a data-link-type="dfn" href="#human-agent" id="ref-for-human-agent">human agent</a> that can manually perform actions on the network using a <a data-link-type="dfn" href="#dashboard" id="ref-for-dashboard">dashboard</a> application.</p>
     <dd data-md>
      <p>Usually a person employed by an organisation (e.g., a Cultural Heritage Institution) to maintain data and datasets owned by that organisation.</p>
     <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="data-pod">Data Pod</dfn>
@@ -1620,27 +1623,27 @@ Of course, you are invited to <a href="https://github.com/MellonScholarlyCommuni
      <p>As defined by <a data-link-type="biblio" href="#biblio-solid-protocol">[solid-protocol]</a>, a <a href="https://solidproject.org/TR/protocol/#data-pod">Data Pod</a> is a place for storing documents, with mechanisms for controlling who can access what.</p>
     <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="inbox">Inbox</dfn>
     <dd data-md>
-     <p>An <a data-link-type="biblio" href="#biblio-ldp">[LDP]</a> resource where others can POST Linked Data Notifications <a data-link-type="biblio" href="#biblio-ldn">[LDN]</a> in order to notify the actor of a change an artefact’s lifecycle.</p>
+     <p>An <a data-link-type="biblio" href="#biblio-ldp">[LDP]</a> resource where others can POST <a data-link-type="biblio" href="#biblio-ldn">Linked Data Notifications</a> in order to notify the actor of a change an artefact’s lifecycle.</p>
     <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="artefact-lifecycle-event-log">Artefact Lifecycle Event Log</dfn>
     <dd data-md>
-     <p>An HTTP resource served by an actor (e.g., as a resource in the <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod">Data Pod</a>) that represents a log of occurred lifecycle events related to artefacts known by the actor.</p>
+     <p>An HTTP resource served by an actor (e.g., as a resource in the <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod">data pod</a>) that represents a log of occurred <a data-link-type="dfn" href="#artefact-lifecycle-event" id="ref-for-artefact-lifecycle-event">artefact lifecycle events</a> related to <a data-link-type="dfn" href="#artefact" id="ref-for-artefact①">artefacts</a> known by the <a data-link-type="dfn" href="#actor" id="ref-for-actor④">actor</a>.</p>
     <dd data-md>
-     <p>Artefacts are considered known when they reside in the actor’s <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod①">Data Pod</a> or if the actor has been made aware via <a data-link-type="biblio" href="#biblio-ldn">[LDN]</a>.</p>
+     <p>Artefacts are considered known when they reside in the actor’s <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod①">data pod</a> or if the actor has been made aware via <a data-link-type="biblio" href="#biblio-ldn">[LDN]</a>.</p>
     <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="service-hub">Service Hub</dfn>
     <dd data-md>
-     <p>An <a data-link-type="dfn" href="#actor" id="ref-for-actor③">Actor</a> that provides a service to other actors in the network. It is a <a href="https://solidproject.org/TR/protocol/#solid-app">Solid App</a> and serves an <a data-link-type="dfn" href="#inbox" id="ref-for-inbox">Inbox</a>.</p>
+     <p>An <a data-link-type="dfn" href="#actor" id="ref-for-actor⑤">actor</a> that provides a service to other actors in the network. It is a <a href="https://solidproject.org/TR/protocol/#solid-app">Solid App</a> and serves an <a data-link-type="dfn" href="#inbox" id="ref-for-inbox">inbox</a>.</p>
     <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="rulebook">Rulebook</dfn>
     <dd data-md>
-     <p>A set of machine-readable business rules that instruct the <a data-link-type="dfn" href="#orchestrator" id="ref-for-orchestrator">Orchestrator</a> on what actions to take in response to a trigger such as incoming notifications, perceived changes in the data, or manual invocation by an <a data-link-type="dfn" href="#actor" id="ref-for-actor④">Actor</a>.</p>
+     <p>A set of machine-readable business rules that instruct the <a data-link-type="dfn" href="#orchestrator" id="ref-for-orchestrator">orchestrator</a> on what actions to take in response to a trigger such as incoming notifications, perceived changes in the data, or manual invocation by an <a data-link-type="dfn" href="#actor" id="ref-for-actor⑥">actor</a>.</p>
     <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="dashboard">Dashboard</dfn>
     <dd data-md>
-     <p>A user application and <a href="https://solidproject.org/TR/protocol/#solid-app">Solid App</a> that enables users to interact with the contents of the <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod②">Data Pod</a>, the <a data-link-type="dfn" href="#orchestrator" id="ref-for-orchestrator①">Orchestrator</a>, or other <a data-link-type="dfn" href="#actor" id="ref-for-actor⑤">Actors</a> in the Digital Heritage Network.</p>
+     <p>A user application and <a href="https://solidproject.org/TR/protocol/#solid-app">Solid App</a> that enables users to interact with the contents of the <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod②">Data Pod</a>, the <a data-link-type="dfn" href="#orchestrator" id="ref-for-orchestrator①">Orchestrator</a>, or other <a data-link-type="dfn" href="#actor" id="ref-for-actor⑦">Actors</a> in the Digital Heritage Network.</p>
     <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="orchestrator">Orchestrator</dfn>
     <dd data-md>
-     <p>An <a data-link-type="dfn" href="#autonomous-agent" id="ref-for-autonomous-agent">Autonomous Agent</a> dedicated to a single <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod③">Data Pod</a>, <a data-link-type="dfn" href="#service-hub" id="ref-for-service-hub">Service Hub</a>, or any other actor hosting the <a data-link-type="dfn" href="#artefact-lifecycle-event-log" id="ref-for-artefact-lifecycle-event-log">Artefact Lifecycle Event Log</a> and a <a data-link-type="dfn" href="#inbox" id="ref-for-inbox①">Inbox</a> resources. It interprets and executes business rules described in a <a data-link-type="dfn" href="#rulebook" id="ref-for-rulebook">rulebook</a>.</p>
+     <p>An <a data-link-type="dfn" href="#autonomous-agent" id="ref-for-autonomous-agent">autonomous agent</a> dedicated to a single <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod③">data pod</a>, <a data-link-type="dfn" href="#service-hub" id="ref-for-service-hub">service hub</a>, or any other actor hosting the <a data-link-type="dfn" href="#artefact-lifecycle-event-log" id="ref-for-artefact-lifecycle-event-log">artefact lifecycle event log</a> and a <a data-link-type="dfn" href="#inbox" id="ref-for-inbox①">inbox</a> resources. It interprets and executes business rules described in a <a data-link-type="dfn" href="#rulebook" id="ref-for-rulebook">rulebook</a>.</p>
     <dt data-md><dfn data-dfn-type="dfn" data-export id="app">App<a class="self-link" href="#app"></a></dfn>
     <dd data-md>
-     <p>An App is an <a data-link-type="dfn" href="#autonomous-agent" id="ref-for-autonomous-agent①">Autonomous Agent</a> dedicated to an <a data-link-type="dfn" href="#actor" id="ref-for-actor⑥">Actor</a> that hosts a <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod④">Data Pod</a>. The App can write to the <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod⑤">Data Pod</a> unsupervised by the <a data-link-type="dfn" href="#human-agent" id="ref-for-human-agent①">Human Agent</a> and is not limited to the <a data-link-type="dfn" href="#inbox" id="ref-for-inbox②">Inbox</a> or <a data-link-type="dfn" href="#artefact-lifecycle-event-log" id="ref-for-artefact-lifecycle-event-log①">Artefact Lifecycle Event Log</a>.</p>
+     <p>An App is an <a data-link-type="dfn" href="#autonomous-agent" id="ref-for-autonomous-agent①">autonomous agent</a> dedicated to an <a data-link-type="dfn" href="#actor" id="ref-for-actor⑧">actor</a> that hosts a <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod④">data pod</a>. The App can write to the <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod⑤">data pod</a> unsupervised by the <a data-link-type="dfn" href="#human-agent" id="ref-for-human-agent①">human agent</a> and is not limited to the <a data-link-type="dfn" href="#inbox" id="ref-for-inbox②">inbox</a> or <a data-link-type="dfn" href="#artefact-lifecycle-event-log" id="ref-for-artefact-lifecycle-event-log①">artefact lifecycle event log</a>.</p>
    </dl>
    <h2 class="heading settled" data-level="5" id="differences"><span class="secno">5. </span><span class="content">Difference between the Dashboard, App and Orchestrator</span><a class="self-link" href="#differences"></a></h2>
    <p>In our specifications three agents communicate with the <strong>Data Pod</strong> with different privileges: the <strong>Orchestrator</strong>,
@@ -1891,6 +1894,7 @@ Linked Data Notifications <a data-link-type="biblio" href="#biblio-ldn">[LDN]</a
    <li><a href="#actor">Actor</a><span>, in §4</span>
    <li><a href="#app">App</a><span>, in §4</span>
    <li><a href="#artefact">Artefact</a><span>, in §4</span>
+   <li><a href="#artefact-lifecycle-event">Artefact Lifecycle Event</a><span>, in §4</span>
    <li><a href="#artefact-lifecycle-event-log">Artefact Lifecycle Event Log</a><span>, in §4</span>
    <li><a href="#autonomous-agent">Autonomous Agent</a><span>, in §4</span>
    <li><a href="#dashboard">Dashboard</a><span>, in §4</span>
@@ -1930,7 +1934,19 @@ Linked Data Notifications <a data-link-type="biblio" href="#biblio-ldn">[LDN]</a
   <aside class="dfn-panel" data-for="actor">
    <b><a href="#actor">#actor</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-actor">4. Definitions</a> <a href="#ref-for-actor①">(2)</a> <a href="#ref-for-actor②">(3)</a> <a href="#ref-for-actor③">(4)</a> <a href="#ref-for-actor④">(5)</a> <a href="#ref-for-actor⑤">(6)</a> <a href="#ref-for-actor⑥">(7)</a>
+    <li><a href="#ref-for-actor">4. Definitions</a> <a href="#ref-for-actor①">(2)</a> <a href="#ref-for-actor②">(3)</a> <a href="#ref-for-actor③">(4)</a> <a href="#ref-for-actor④">(5)</a> <a href="#ref-for-actor⑤">(6)</a> <a href="#ref-for-actor⑥">(7)</a> <a href="#ref-for-actor⑦">(8)</a> <a href="#ref-for-actor⑧">(9)</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="artefact">
+   <b><a href="#artefact">#artefact</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-artefact">4. Definitions</a> <a href="#ref-for-artefact①">(2)</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="artefact-lifecycle-event">
+   <b><a href="#artefact-lifecycle-event">#artefact-lifecycle-event</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-artefact-lifecycle-event">4. Definitions</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="human-agent">
