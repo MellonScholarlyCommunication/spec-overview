@@ -138,6 +138,14 @@ Of course, you are invited to [contribute](https://github.com/MellonScholarlyCom
             <td>N/A</td>
             <td>2022</td>
         </tr>
+        <tr>
+            <td><a href="/spec-collector/" rel="cito:citesForInformation">Specification of the Collector component.</a></td>
+            <td><a href="https://github.com/mellonscholarlycommunication/spec-collector">spec-collector</a></td>
+            <td>Editor’s Draft</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>2022</td>
+        </tr>
     </tbody>
 
     <tfoot>
