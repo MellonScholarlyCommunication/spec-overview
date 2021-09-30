@@ -1,27 +1,24 @@
-# Requirements Template
+# Overview of specifications
 
-This is the template for requirements published by Netwerk Digitaal Erfgoed.
+TODO intro
 
-Requirements are written in Markdown and transformed to HTML using the
-[Bikeshed preprocessor](https://tabatkins.github.io/bikeshed/).
+## Specifications
 
-## Generate HTML
+- [Orchestrator](https://github.com/MellonScholarlyCommunication/spec-orchestrator)
+- [Notifications](https://github.com/MellonScholarlyCommunication/spec-notifications)
+- [Datapod](https://github.com/MellonScholarlyCommunication/spec-datapod)
+- [Eventlog](https://github.com/MellonScholarlyCommunication/spec-eventlog)
+- [Collector](https://github.com/MellonScholarlyCommunication/spec-collector)
+- [Rule language](https://github.com/MellonScholarlyCommunication/spec-rulelanguage)
 
-To view HTML output locally (using a [Docker container](https://github.com/netwerk-digitaal-erfgoed/bikeshed-docker)),
-run:
+## Labels
 
-```bash
-make spec
-```
+These are the labels that are used in the repos of the specifications mentioned above.
 
-and open the `index.html` file:
-
-```bash
-open index.html
-```
-
-Alternatively, to update the HTML every time you make changes to [the source document](index.bs):
-
-```bash
-make watch
-```
+- `discussion`: This issue is a discussion.
+- `question`: This issue is a question.
+- `enhancement`: This issue is an enhancement to the specification.
+- `priority-high`: The priority of this issue is high.
+- `priority-medium`: The priority of this issue is high.
+- `priority-low`: The priority of this issue is high.
+ 
