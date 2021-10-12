@@ -4,7 +4,7 @@ Shortname: overview
 Level: 1
 Status: LD
 URL: https://mellonscholarlycommunication.github.io/spec-overview
-Editor: Miel Vander Sande, meemoo - [Flemish Institute for Archiving](https://meemoo.be), miel.vandersande@meemoo.be
+Editor: Miel Vander Sande, [meemoo - Flemish Institute for Archives](https://meemoo.be), miel.vandersande@meemoo.be
 Editor: Patrick Hochstenbach, Ghent University, patrick.hochstenbach@ugent.be
 Editor: Ruben Dedecker, Ghent University, ruben.dedecker@ugent.be
 Editor: Jeroen Werbrouck, Ghent University, Jeroen.Werbrouck@ugent.be
@@ -189,6 +189,8 @@ The following defined terms are used across all specifications:
 :: A user application and [[solid-protocol#solid-app|Solid App]] that enables users to interact with the contents of the [=Data Pod=], the [=Orchestrator=], or other [=Actors=] in the Digital Heritage Network.
 : <dfn export>Orchestrator</dfn>
 :: An [=autonomous agent=] dedicated to a single [=data pod=], [=service hub=], or any other actor hosting the [=artefact lifecycle event log=] and a [=inbox=] resources. It interprets and executes business rules described in a [=rulebook=].
+: <dfn export>Collector</dfn>
+:: An [=autonomous agent=] that asynchronously collects lifecycle information from [=artefact lifecycle event logs=] hosted by [=data pods=], [=service hubs=], or any other actor.
 : <dfn export>App</dfn>
 :: An App is an [=autonomous agent=] dedicated to an [=actor=] that hosts a [=data pod=]. The App can write to the [=data pod=] unsupervised by the [=human agent=] and is not limited to the [=inbox=] or [=artefact lifecycle event log=].
 
