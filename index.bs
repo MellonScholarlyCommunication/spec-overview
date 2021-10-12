@@ -280,7 +280,7 @@ we don't envision that message contains all the steps to fully automate the subm
 It could contain enough metadata for simple workflows. In general out of band communication
 could be needed to perform all required steps.
 
-All notifications are send to all **Actors** in the network in the form of
+All notifications are send to all [=Actors=] in the network in the form of
 Linked Data Notifications [[!LDN]] using the [[!activitystreams-vocabulary|ActivityStreams 2.0]] vocabulary.
 
 In our use cases we use 5 types of AS2 notifications in line with the
