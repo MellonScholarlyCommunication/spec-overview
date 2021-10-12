@@ -1223,7 +1223,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 5f7b0e20, updated Tue Aug 18 15:46:28 2020 -0700" name="generator">
   <link href="https://mellonscholarlycommunication.github.io/spec-overview" rel="canonical">
-  <meta content="32be2846844c91aaf5190afca91bc0f5523288da" name="document-revision">
+  <meta content="514128c9dd7f77abbab6bfe1fbc0ab9a31649127" name="document-revision">
 <style>
 table {
   margin: 25px auto;
@@ -1619,9 +1619,12 @@ Of course, you are invited to <a href="https://github.com/MellonScholarlyCommuni
     <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="human-agent">Human Agent</dfn>
     <dd data-md>
      <p>A person that operates directly as an <a data-link-type="dfn" href="#actor" id="ref-for-actor①">actor</a> on the network.</p>
+    <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="software-agent">Software Agent</dfn>
+    <dd data-md>
+     <p>A software application that operates on an <a data-link-type="dfn" href="#actor" id="ref-for-actor②">actor</a>'s behalf.</p>
     <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="autonomous-agent">Autonomous Agent</dfn>
     <dd data-md>
-     <p>An intelligent software instance that operates on an <a data-link-type="dfn" href="#actor" id="ref-for-actor②">actor</a>'s behalf but without any interference of that <a data-link-type="dfn" href="#actor" id="ref-for-actor③">actor</a>.</p>
+     <p>An intelligent <a data-link-type="dfn" href="#software-agent" id="ref-for-software-agent">software agent</a> that operates on an <a data-link-type="dfn" href="#actor" id="ref-for-actor③">actor</a>'s behalf but without any interference of that <a data-link-type="dfn" href="#actor" id="ref-for-actor④">actor</a>.</p>
     <dt data-md><dfn data-dfn-type="dfn" data-export id="maintainer">Maintainer<a class="self-link" href="#maintainer"></a></dfn>
     <dd data-md>
      <p>A <a data-link-type="dfn" href="#human-agent" id="ref-for-human-agent">human agent</a> that can manually perform actions on the network using a <a data-link-type="dfn" href="#dashboard" id="ref-for-dashboard">dashboard</a> application.</p>
@@ -1635,89 +1638,88 @@ Of course, you are invited to <a href="https://github.com/MellonScholarlyCommuni
      <p>An <a data-link-type="biblio" href="#biblio-ldp">[LDP]</a> resource where others can POST <a data-link-type="biblio" href="#biblio-ldn">Linked Data Notifications</a> in order to notify the actor of a change an artefact’s lifecycle.</p>
     <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="artefact-lifecycle-event-log">Artefact Lifecycle Event Log</dfn>
     <dd data-md>
-     <p>An HTTP resource served by an actor (e.g., as a resource in the <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod">data pod</a>) that represents a log of occurred <a data-link-type="dfn" href="#artefact-lifecycle-event" id="ref-for-artefact-lifecycle-event">artefact lifecycle events</a> related to <a data-link-type="dfn" href="#artefact" id="ref-for-artefact①">artefacts</a> known by the <a data-link-type="dfn" href="#actor" id="ref-for-actor④">actor</a>.</p>
+     <p>An HTTP resource served by an actor (e.g., as a resource in the <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod">data pod</a>) that represents a log of occurred <a data-link-type="dfn" href="#artefact-lifecycle-event" id="ref-for-artefact-lifecycle-event">artefact lifecycle events</a> related to <a data-link-type="dfn" href="#artefact" id="ref-for-artefact①">artefacts</a> known by the <a data-link-type="dfn" href="#actor" id="ref-for-actor⑤">actor</a>.</p>
     <dd data-md>
      <p>Artefacts are considered known when they reside in the actor’s <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod①">data pod</a> or if the actor has been made aware via <a data-link-type="biblio" href="#biblio-ldn">[LDN]</a>.</p>
     <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="service-hub">Service Hub</dfn>
     <dd data-md>
-     <p>An <a data-link-type="dfn" href="#actor" id="ref-for-actor⑤">actor</a> that provides a service to other actors in the network. It is a <a href="https://solidproject.org/TR/protocol/#solid-app">Solid App</a> and serves an <a data-link-type="dfn" href="#inbox" id="ref-for-inbox">inbox</a>.</p>
+     <p>An <a data-link-type="dfn" href="#actor" id="ref-for-actor⑥">actor</a> that provides a service to other actors in the network. It is a <a href="https://solidproject.org/TR/protocol/#solid-app">Solid App</a> and serves an <a data-link-type="dfn" href="#inbox" id="ref-for-inbox">inbox</a>.</p>
     <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="rulebook">Rulebook</dfn>
     <dd data-md>
-     <p>A set of machine-readable business rules that instruct the <a data-link-type="dfn" href="#orchestrator" id="ref-for-orchestrator">orchestrator</a> on what actions to take in response to a trigger such as incoming notifications, perceived changes in the data, or manual invocation by an <a data-link-type="dfn" href="#actor" id="ref-for-actor⑥">actor</a>.</p>
+     <p>A set of machine-readable business rules that instruct the <a data-link-type="dfn" href="#orchestrator" id="ref-for-orchestrator">orchestrator</a> on what actions to take in response to a trigger such as incoming notifications, perceived changes in the data, or manual invocation by an <a data-link-type="dfn" href="#actor" id="ref-for-actor⑦">actor</a>.</p>
     <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="dashboard">Dashboard</dfn>
     <dd data-md>
-     <p>A user application and <a href="https://solidproject.org/TR/protocol/#solid-app">Solid App</a> that enables users to interact with the contents of the <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod②">Data Pod</a>, the <a data-link-type="dfn" href="#orchestrator" id="ref-for-orchestrator①">Orchestrator</a>, or other <a data-link-type="dfn" href="#actor" id="ref-for-actor⑦">Actors</a> in the Digital Heritage Network.</p>
+     <p>A user application and <a href="https://solidproject.org/TR/protocol/#solid-app">Solid App</a> that enables users to interact with the contents of the <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod②">Data Pod</a>, the <a data-link-type="dfn" href="#orchestrator" id="ref-for-orchestrator①">Orchestrator</a>, or other <a data-link-type="dfn" href="#actor" id="ref-for-actor⑧">Actors</a> in the Digital Heritage Network.</p>
     <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="orchestrator">Orchestrator</dfn>
     <dd data-md>
      <p>An <a data-link-type="dfn" href="#autonomous-agent" id="ref-for-autonomous-agent">autonomous agent</a> dedicated to a single <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod③">data pod</a>, <a data-link-type="dfn" href="#service-hub" id="ref-for-service-hub">service hub</a>, or any other actor hosting the <a data-link-type="dfn" href="#artefact-lifecycle-event-log" id="ref-for-artefact-lifecycle-event-log">artefact lifecycle event log</a> and a <a data-link-type="dfn" href="#inbox" id="ref-for-inbox①">inbox</a> resources. It interprets and executes business rules described in a <a data-link-type="dfn" href="#rulebook" id="ref-for-rulebook">rulebook</a>.</p>
     <dt data-md><dfn data-dfn-type="dfn" data-export id="collector">Collector<a class="self-link" href="#collector"></a></dfn>
     <dd data-md>
      <p>An <a data-link-type="dfn" href="#autonomous-agent" id="ref-for-autonomous-agent①">autonomous agent</a> that asynchronously collects lifecycle information from <a data-link-type="dfn" href="#artefact-lifecycle-event-log" id="ref-for-artefact-lifecycle-event-log①">artefact lifecycle event logs</a> hosted by <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod④">data pods</a>, <a data-link-type="dfn" href="#service-hub" id="ref-for-service-hub①">service hubs</a>, or any other actor.</p>
-    <dt data-md><dfn data-dfn-type="dfn" data-export id="app">App<a class="self-link" href="#app"></a></dfn>
+    <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="app">App</dfn>
     <dd data-md>
-     <p>An App is an <a data-link-type="dfn" href="#autonomous-agent" id="ref-for-autonomous-agent②">autonomous agent</a> dedicated to an <a data-link-type="dfn" href="#actor" id="ref-for-actor⑧">actor</a> that hosts a <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod⑤">data pod</a>. The App can write to the <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod⑥">data pod</a> unsupervised by the <a data-link-type="dfn" href="#human-agent" id="ref-for-human-agent①">human agent</a> and is not limited to the <a data-link-type="dfn" href="#inbox" id="ref-for-inbox②">inbox</a> or <a data-link-type="dfn" href="#artefact-lifecycle-event-log" id="ref-for-artefact-lifecycle-event-log②">artefact lifecycle event log</a>.</p>
+     <p>An App is an <a data-link-type="dfn" href="#autonomous-agent" id="ref-for-autonomous-agent②">autonomous agent</a> dedicated to an <a data-link-type="dfn" href="#actor" id="ref-for-actor⑨">actor</a> that hosts a <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod⑤">data pod</a>. The App can write to the <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod⑥">data pod</a> unsupervised by the <a data-link-type="dfn" href="#human-agent" id="ref-for-human-agent①">human agent</a> and is not limited to the <a data-link-type="dfn" href="#inbox" id="ref-for-inbox②">inbox</a> or <a data-link-type="dfn" href="#artefact-lifecycle-event-log" id="ref-for-artefact-lifecycle-event-log②">artefact lifecycle event log</a>.</p>
    </dl>
    <h2 class="heading settled" data-level="5" id="differences"><span class="secno">5. </span><span class="content">Difference between the Dashboard, App and Orchestrator</span><a class="self-link" href="#differences"></a></h2>
-   <p>In our specifications three agents communicate with the <strong>Data Pod</strong> with different privileges: the <strong>Orchestrator</strong>,
-the <strong>Dashboard</strong> and the <strong>App</strong>. While in real applications these agents could overlap or might not be required at all (in
+   <p>In our specifications three agents communicate with the <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod⑦">Data Pod</a> with different privileges: the <a data-link-type="dfn" href="#orchestrator" id="ref-for-orchestrator②">Orchestrator</a>,
+the <a data-link-type="dfn" href="#dashboard" id="ref-for-dashboard①">Dashboard</a> and the <a data-link-type="dfn" href="#app" id="ref-for-app">App</a>. While in real applications these agents could overlap or might not be required at all (in
 some cases), in this document they are treated as separate entities to help the discussion. Some reasons why
 these Actors could be treated as separate entities:</p>
    <ul>
     <li data-md>
-     <p>privileges needed to access the <strong>Data Pod</strong></p>
+     <p>privileges needed to access the <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod⑧">Data Pod</a></p>
     <li data-md>
-     <p>requirements needed to receive direct feedback from a <strong>Human Agent</strong></p>
+     <p>requirements needed to receive direct feedback from a <a data-link-type="dfn" href="#human-agent" id="ref-for-human-agent②">Human Agent</a></p>
     <li data-md>
      <p>requirements needed to permanently be <strong>online</strong></p>
     <li data-md>
-     <p>requirements needed to understand the <strong>Scholarly Communication Notification protocol</strong> and <strong>Policies</strong></p>
+     <p>requirements needed to understand the <strong>Scholarly Communication Notification protocol</strong> and <a data-link-type="dfn" href="#rulebook" id="ref-for-rulebook①">Rulebooks</a></p>
    </ul>
    <p>With this regard:</p>
    <table>
     <tbody>
      <tr>
       <th>App 
-      <td> The App is a headless Autonomous Agent that doesn’t need a Human Agent to execute write operations on the Data Pod.
+      <td> The <a data-link-type="dfn" href="#app" id="ref-for-app①">App</a> is a headless <a data-link-type="dfn" href="#autonomous-agent" id="ref-for-autonomous-agent③">Autonomous Agent</a> that doesn’t need a Human Agent to execute write operations on the Data Pod.
     It is a trusted application for the Maintainer <s>that could in principle update any artifact on the Data Pod</s>. 
     This application could run as a background service on the computer of the maintainer and be online as long as the computer is connected to a network. 
      <tr>
       <th>Dashboard 
-      <td> The Dashboard is an Agent that responds to feedback from an Human Agent. Typically this Dashboard runs in a browser
+      <td> The <a data-link-type="dfn" href="#dashboard" id="ref-for-dashboard②">Dashboard</a> is a <a data-link-type="dfn" href="#software-agent" id="ref-for-software-agent①">Software Agent</a> that responds to feedback from an <a data-link-type="dfn" href="#human-agent" id="ref-for-human-agent③">Human Agent</a>. Typically this <a data-link-type="dfn" href="#dashboard" id="ref-for-dashboard③">Dashboard</a> runs in a browser
     can be in an online or offline modus when a browser is running on the computer of the maintainer with one of the browser
     tabs opened with the dashboard application. 
      <tr>
       <th>Orchestrator 
-      <td> The Orchestrator is an Autonomous Agent that can read the (Scholarly) <strong>Inbox</strong> of the <strong>Data Pod</strong> and append to
-    the <strong>Artefact Lifecycle Event Log</strong>. Guided by policies expressed as business rules, the <strong>Orchestrator</strong> also communicates with the Scholar Community network using
-    the <strong>Scholarly Communication Notification protocol</strong> implementing <strong>Policies</strong>. 
+      <td> The <a data-link-type="dfn" href="#orchestrator" id="ref-for-orchestrator③">Orchestrator</a> is an <a data-link-type="dfn" href="#autonomous-agent" id="ref-for-autonomous-agent④">Autonomous Agent</a> that can read the (Scholarly) <a data-link-type="dfn" href="#inbox" id="ref-for-inbox③">Inbox</a> of the <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod⑨">Data Pod</a> and append to
+    the <a data-link-type="dfn" href="#artefact-lifecycle-event-log" id="ref-for-artefact-lifecycle-event-log③">Artefact Lifecycle Event Log</a>. Guided by policies expressed as business rules, the <a data-link-type="dfn" href="#orchestrator" id="ref-for-orchestrator④">Orchestrator</a> also communicates with the Scholar Community network using
+    the <strong>Scholarly Communication Notification protocol</strong> implementing <a data-link-type="dfn" href="#rulebook" id="ref-for-rulebook②">Rulebooks</a>. 
    </table>
    <p><img src="images/mellon-orchestrator-solar.svg" width="40%"></p>
-   <p>The three Actors can be seen as a mini solar system with the <strong>Data Pod</strong> as the Sun. The <strong>App</strong> is a fully trusted agent that runs very near to
-the data pod (in level of trust). The <strong>Orchestrator</strong> has very limited access rights to the data pod. The main
+   <p>The three Actors can be seen as a mini solar system with the <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod①⓪">Data Pod</a> as the Sun. The <a data-link-type="dfn" href="#app" id="ref-for-app②">App</a> is a fully trusted agent that runs very near to
+the data pod (in level of trust). The <a data-link-type="dfn" href="#orchestrator" id="ref-for-orchestrator⑤">Orchestrator</a> has very limited access rights to the data pod. The main
 task of the Orchestrator is to update the event log and execute policies in order to talk the Scholarly Communication Notification
 protocol (read/send messages from/to the corrrect Service Hubs).
-The <strong>Dashboard</strong> sits in between, it has control over the <strong>Data Pod</strong> but might (always) need user input to update the pod.
+The <a data-link-type="dfn" href="#dashboard" id="ref-for-dashboard④">Dashboard</a> sits in between, it has control over the <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod①①">Data Pod</a> but might (always) need user input to update the pod.
 Communication between the App/DashBoard and the Orchestrator happens via the Data Pod’s Inbox.</p>
    <p>The networks below demonstrates the CRUD privileges imagined for the different actors in this document. The first
 network demonstrates a typical Solid setup where the Dashboard is a single page application that has direct access
 to the Data Pod and the App is more a background process running in the same computer as the Maintainer.</p>
    <div><img src="images/mellon-crud-app.svg" width="80%"></div>
     <i>CRUD operations in case the DashBoard is single-page application and the App a background task</i> 
-   <p class="issue" id="issue-dce4218e"><a class="self-link" href="#issue-dce4218e"></a> Are the Rules and Inbox necesearily part of the Data Pod or can they exist as separate resources? <a href="https://github.com/MellonScholarlyCommunication/spec-overview/issues/5">&lt;https://github.com/MellonScholarlyCommunication/spec-overview/issues/5></a></p>
    <p>The second network demonstrates a more classic setup with a browser Dashboard controlled by a server App which uses a
 Data Pod as backend storage.</p>
    <div><img src="images/mellon-crud.svg" width="80%"></div>
     <i>CRUD operations in case the Dashoard and App is a classic client/server application</i> 
    <h2 class="heading settled" data-level="6" id="communication-between-data-pods-and-domain-specific-networks"><span class="secno">6. </span><span class="content">Communication between Data Pods and domain-specific networks</span><a class="self-link" href="#communication-between-data-pods-and-domain-specific-networks"></a></h2>
    <h3 class="heading settled" data-level="6.1" id="communication-between-data-pod-and-scholarly-community-network"><span class="secno">6.1. </span><span class="content">Communication between Data Pod and Scholarly Community network</span><a class="self-link" href="#communication-between-data-pod-and-scholarly-community-network"></a></h3>
-   <p>Notifications can be sent from the researcher environment to <strong>Service Hub</strong> environments.
-For instance, in case of a request to review an artefact that resides in the <strong>Data Pod</strong>, an
-appropriate notification can be sent to a review <strong>Service Hub</strong>. The <strong>Service Hub</strong> can respond,
+   <p>Notifications can be sent from the researcher environment to <a data-link-type="dfn" href="#service-hub" id="ref-for-service-hub②">Service Hub</a> environments.
+For instance, in case of a request to review an artefact that resides in the <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod①②">Data Pod</a>, an
+appropriate notification can be sent to a review <a data-link-type="dfn" href="#service-hub" id="ref-for-service-hub③">Service Hub</a>. The <a data-link-type="dfn" href="#service-hub" id="ref-for-service-hub④">Service Hub</a> can respond,
 for example, accepting or rejecting the review request, and, in the latter case, to relay
 the result of the review.</p>
-   <p>The <strong>Orchestrator</strong> sends notifications in response to triggers that result from the execution of
-Policies - implemented as business rules - that are associated with the <strong>Data Pod</strong>. The <strong>Orchestrator</strong> receives notifications in response to the ones it sent. The <strong>Orchestrator</strong> records information
-contained in both outgoing and incoming notifications in the <strong>Artefact Lifecycle Event Log</strong>.</p>
+   <p>The <a data-link-type="dfn" href="#orchestrator" id="ref-for-orchestrator⑥">Orchestrator</a> sends notifications in response to triggers that result from the execution of
+Policies - implemented as business rules - that are associated with the <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod①③">Data Pod</a>. The <a data-link-type="dfn" href="#orchestrator" id="ref-for-orchestrator⑦">Orchestrator</a> receives notifications in response to the ones it sent. The <a data-link-type="dfn" href="#orchestrator" id="ref-for-orchestrator⑧">Orchestrator</a> records information
+contained in both outgoing and incoming notifications in the <a data-link-type="dfn" href="#artefact-lifecycle-event-log" id="ref-for-artefact-lifecycle-event-log④">Artefact Lifecycle Event Log</a>.</p>
    <p>The notifications are regarded as a high-level approach to automatically coordinate the distributed
 execution of the crucial functions of scholarly communication. The notifications merely ensure that the
 respective functions are in effect executed as prescribed by Policies, but do not attempt to
@@ -1918,6 +1920,7 @@ Linked Data Notifications <a data-link-type="biblio" href="#biblio-ldn">[LDN]</a
    <li><a href="#orchestrator">Orchestrator</a><span>, in §4</span>
    <li><a href="#rulebook">Rulebook</a><span>, in §4</span>
    <li><a href="#service-hub">Service Hub</a><span>, in §4</span>
+   <li><a href="#software-agent">Software Agent</a><span>, in §4</span>
   </ul>
   <h2 class="no-num no-ref heading settled" id="references"><span class="content">References</span><a class="self-link" href="#references"></a></h2>
   <h3 class="no-num no-ref heading settled" id="normative"><span class="content">Normative References</span><a class="self-link" href="#normative"></a></h3>
@@ -1940,14 +1943,13 @@ Linked Data Notifications <a data-link-type="biblio" href="#biblio-ldn">[LDN]</a
   </dl>
   <h2 class="no-num no-ref heading settled" id="issues-index"><span class="content">Issues Index</span><a class="self-link" href="#issues-index"></a></h2>
   <div style="counter-reset:issue">
-   <div class="issue"> Are the Rules and Inbox necesearily part of the Data Pod or can they exist as separate resources? <a href="https://github.com/MellonScholarlyCommunication/spec-overview/issues/5">&lt;https://github.com/MellonScholarlyCommunication/spec-overview/issues/5></a><a href="#issue-dce4218e"> ↵ </a></div>
    <div class="issue"> todo<a href="#issue-ea5cb8ff"> ↵ </a></div>
    <div class="issue"> todo<a href="#issue-ea5cb8ff①"> ↵ </a></div>
   </div>
   <aside class="dfn-panel" data-for="actor">
    <b><a href="#actor">#actor</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-actor">4. Definitions</a> <a href="#ref-for-actor①">(2)</a> <a href="#ref-for-actor②">(3)</a> <a href="#ref-for-actor③">(4)</a> <a href="#ref-for-actor④">(5)</a> <a href="#ref-for-actor⑤">(6)</a> <a href="#ref-for-actor⑥">(7)</a> <a href="#ref-for-actor⑦">(8)</a> <a href="#ref-for-actor⑧">(9)</a>
+    <li><a href="#ref-for-actor">4. Definitions</a> <a href="#ref-for-actor①">(2)</a> <a href="#ref-for-actor②">(3)</a> <a href="#ref-for-actor③">(4)</a> <a href="#ref-for-actor④">(5)</a> <a href="#ref-for-actor⑤">(6)</a> <a href="#ref-for-actor⑥">(7)</a> <a href="#ref-for-actor⑦">(8)</a> <a href="#ref-for-actor⑧">(9)</a> <a href="#ref-for-actor⑨">(10)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="artefact">
@@ -1966,54 +1968,79 @@ Linked Data Notifications <a data-link-type="biblio" href="#biblio-ldn">[LDN]</a
    <b><a href="#human-agent">#human-agent</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-human-agent">4. Definitions</a> <a href="#ref-for-human-agent①">(2)</a>
+    <li><a href="#ref-for-human-agent②">5. Difference between the Dashboard, App and Orchestrator</a> <a href="#ref-for-human-agent③">(2)</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="software-agent">
+   <b><a href="#software-agent">#software-agent</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-software-agent">4. Definitions</a>
+    <li><a href="#ref-for-software-agent①">5. Difference between the Dashboard, App and Orchestrator</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="autonomous-agent">
    <b><a href="#autonomous-agent">#autonomous-agent</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-autonomous-agent">4. Definitions</a> <a href="#ref-for-autonomous-agent①">(2)</a> <a href="#ref-for-autonomous-agent②">(3)</a>
+    <li><a href="#ref-for-autonomous-agent③">5. Difference between the Dashboard, App and Orchestrator</a> <a href="#ref-for-autonomous-agent④">(2)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="data-pod">
    <b><a href="#data-pod">#data-pod</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-data-pod">4. Definitions</a> <a href="#ref-for-data-pod①">(2)</a> <a href="#ref-for-data-pod②">(3)</a> <a href="#ref-for-data-pod③">(4)</a> <a href="#ref-for-data-pod④">(5)</a> <a href="#ref-for-data-pod⑤">(6)</a> <a href="#ref-for-data-pod⑥">(7)</a>
+    <li><a href="#ref-for-data-pod⑦">5. Difference between the Dashboard, App and Orchestrator</a> <a href="#ref-for-data-pod⑧">(2)</a> <a href="#ref-for-data-pod⑨">(3)</a> <a href="#ref-for-data-pod①⓪">(4)</a> <a href="#ref-for-data-pod①①">(5)</a>
+    <li><a href="#ref-for-data-pod①②">6.1. Communication between Data Pod and Scholarly Community network</a> <a href="#ref-for-data-pod①③">(2)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="inbox">
    <b><a href="#inbox">#inbox</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-inbox">4. Definitions</a> <a href="#ref-for-inbox①">(2)</a> <a href="#ref-for-inbox②">(3)</a>
+    <li><a href="#ref-for-inbox③">5. Difference between the Dashboard, App and Orchestrator</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="artefact-lifecycle-event-log">
    <b><a href="#artefact-lifecycle-event-log">#artefact-lifecycle-event-log</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-artefact-lifecycle-event-log">4. Definitions</a> <a href="#ref-for-artefact-lifecycle-event-log①">(2)</a> <a href="#ref-for-artefact-lifecycle-event-log②">(3)</a>
+    <li><a href="#ref-for-artefact-lifecycle-event-log③">5. Difference between the Dashboard, App and Orchestrator</a>
+    <li><a href="#ref-for-artefact-lifecycle-event-log④">6.1. Communication between Data Pod and Scholarly Community network</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="service-hub">
    <b><a href="#service-hub">#service-hub</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-service-hub">4. Definitions</a> <a href="#ref-for-service-hub①">(2)</a>
+    <li><a href="#ref-for-service-hub②">6.1. Communication between Data Pod and Scholarly Community network</a> <a href="#ref-for-service-hub③">(2)</a> <a href="#ref-for-service-hub④">(3)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="rulebook">
    <b><a href="#rulebook">#rulebook</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-rulebook">4. Definitions</a>
+    <li><a href="#ref-for-rulebook①">5. Difference between the Dashboard, App and Orchestrator</a> <a href="#ref-for-rulebook②">(2)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dashboard">
    <b><a href="#dashboard">#dashboard</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-dashboard">4. Definitions</a>
+    <li><a href="#ref-for-dashboard①">5. Difference between the Dashboard, App and Orchestrator</a> <a href="#ref-for-dashboard②">(2)</a> <a href="#ref-for-dashboard③">(3)</a> <a href="#ref-for-dashboard④">(4)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="orchestrator">
    <b><a href="#orchestrator">#orchestrator</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-orchestrator">4. Definitions</a> <a href="#ref-for-orchestrator①">(2)</a>
+    <li><a href="#ref-for-orchestrator②">5. Difference between the Dashboard, App and Orchestrator</a> <a href="#ref-for-orchestrator③">(2)</a> <a href="#ref-for-orchestrator④">(3)</a> <a href="#ref-for-orchestrator⑤">(4)</a>
+    <li><a href="#ref-for-orchestrator⑥">6.1. Communication between Data Pod and Scholarly Community network</a> <a href="#ref-for-orchestrator⑦">(2)</a> <a href="#ref-for-orchestrator⑧">(3)</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="app">
+   <b><a href="#app">#app</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-app">5. Difference between the Dashboard, App and Orchestrator</a> <a href="#ref-for-app①">(2)</a> <a href="#ref-for-app②">(3)</a>
    </ul>
   </aside>
 <script>/* script-dfn-panel */
