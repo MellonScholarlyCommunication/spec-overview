@@ -169,8 +169,10 @@ The following defined terms are used across all specifications:
 :: An event that resulted from an [=actor=] performing an activity related to an [=artefact=] and impacts its lifecycle.
 : <dfn export>Human Agent</dfn>
 :: A person that operates directly as an [=actor=] on the network.
+: <dfn export>Software Agent</dfn>
+:: A software application that operates on an [=actor=]'s behalf.
 : <dfn export>Autonomous Agent</dfn>
-:: An intelligent software instance that operates on an [=actor=]'s behalf but without any interference of that [=actor=].
+:: An intelligent [=software agent=] that operates on an [=actor=]'s behalf but without any interference of that [=actor=].
 : <dfn export>Maintainer</dfn>
 :: A [=human agent=] that can manually perform actions on the network using a [=dashboard=] application.
 :: Usually a person employed by an organisation (e.g., a Cultural Heritage Institution) to maintain data and datasets owned by that organisation.
@@ -198,15 +200,15 @@ The following defined terms are used across all specifications:
 Difference between the Dashboard, App and Orchestrator {#differences}
 =======================================================
 
-In our specifications three agents communicate with the **Data Pod** with different privileges: the **Orchestrator**,
-the **Dashboard** and the **App**. While in real applications these agents could overlap or might not be required at all (in
+In our specifications three agents communicate with the [=Data Pod=] with different privileges: the [=Orchestrator=],
+the [=Dashboard=] and the [=App=]. While in real applications these agents could overlap or might not be required at all (in
 some cases), in this document they are treated as separate entities to help the discussion. Some reasons why
 these Actors could be treated as separate entities:
 
-- privileges needed to access the **Data Pod**
-- requirements needed to receive direct feedback from a **Human Agent**
+- privileges needed to access the [=Data Pod=]
+- requirements needed to receive direct feedback from a [=Human Agent=]
 - requirements needed to permanently be **online**
-- requirements needed to understand the **Scholarly Communication Notification protocol** and **Policies**
+- requirements needed to understand the **Scholarly Communication Notification protocol** and [=Rulebooks=]
 
 With this regard:
 
@@ -214,30 +216,30 @@ With this regard:
   <tr>
     <th>App
     <td>
-    The App is a headless Autonomous Agent that doesn't need a Human Agent to execute write operations on the Data Pod.
+    The [=App=] is a headless [=Autonomous Agent=] that doesn't need a Human Agent to execute write operations on the Data Pod.
     It is a trusted application for the Maintainer <s>that could in principle update any artifact on the Data Pod</s>. 
     This application could run as a background service on the computer of the maintainer and be online as long as the computer is connected to a network.
   <tr>
     <th>Dashboard
     <td>
-    The Dashboard is an Agent that responds to feedback from an Human Agent. Typically this Dashboard runs in a browser
+    The [=Dashboard=] is a [=Software Agent=] that responds to feedback from an [=Human Agent=]. Typically this [=Dashboard=] runs in a browser
     can be in an online or offline modus when a browser is running on the computer of the maintainer with one of the browser
     tabs opened with the dashboard application.
   <tr>
     <th>Orchestrator
     <td>
-    The Orchestrator is an Autonomous Agent that can read the (Scholarly) **Inbox** of the **Data Pod** and append to
-    the **Artefact Lifecycle Event Log**. Guided by policies expressed as business rules, the **Orchestrator** also communicates with the Scholar Community network using
-    the **Scholarly Communication Notification protocol** implementing **Policies**.
+    The [=Orchestrator=] is an [=Autonomous Agent=] that can read the (Scholarly) [=Inbox=] of the [=Data Pod=] and append to
+    the [=Artefact Lifecycle Event Log=]. Guided by policies expressed as business rules, the [=Orchestrator=] also communicates with the Scholar Community network using
+    the **Scholarly Communication Notification protocol** implementing [=Rulebooks=].
 </table>
 
 <img src="images/mellon-orchestrator-solar.svg" width="40%">
 
-The three Actors can be seen as a mini solar system with the **Data Pod** as the Sun. The **App** is a fully trusted agent that runs very near to
-the data pod (in level of trust). The **Orchestrator** has very limited access rights to the data pod. The main
+The three Actors can be seen as a mini solar system with the [=Data Pod=] as the Sun. The [=App=] is a fully trusted agent that runs very near to
+the data pod (in level of trust). The [=Orchestrator=] has very limited access rights to the data pod. The main
 task of the Orchestrator is to update the event log and execute policies in order to talk the Scholarly Communication Notification
 protocol (read/send messages from/to the corrrect Service Hubs).
-The **Dashboard** sits in between, it has control over the **Data Pod** but might (always) need user input to update the pod.
+The [=Dashboard=] sits in between, it has control over the [=Data Pod=] but might (always) need user input to update the pod.
 Communication between the App/DashBoard and the Orchestrator happens via the Data Pod's Inbox.
 
 The networks below demonstrates the CRUD privileges imagined for the different actors in this document. The first
@@ -246,8 +248,6 @@ to the Data Pod and the App is more a background process running in the same com
 
 <div><img src="images/mellon-crud-app.svg" width="80%"></div>
 <i>CRUD operations in case the DashBoard is single-page application and the App a background task</i>
-
-Issue(5): Are the Rules and Inbox necesearily part of the Data Pod or can they exist as separate resources?
 
 The second network demonstrates a more classic setup with a browser Dashboard controlled by a server App which uses a
 Data Pod as backend storage.
@@ -261,16 +261,16 @@ Communication between Data Pods and domain-specific networks
 
 ## Communication between Data Pod and Scholarly Community network
 
-Notifications can be sent from the researcher environment to **Service Hub** environments.
-For instance, in case of a request to review an artefact that resides in the **Data Pod**, an
-appropriate notification can be sent to a review **Service Hub**. The **Service Hub** can respond,
+Notifications can be sent from the researcher environment to [=Service Hub=] environments.
+For instance, in case of a request to review an artefact that resides in the [=Data Pod=], an
+appropriate notification can be sent to a review [=Service Hub=]. The [=Service Hub=] can respond,
 for example, accepting or rejecting the review request, and, in the latter case, to relay
 the result of the review.
 
-The **Orchestrator** sends notifications in response to triggers that result from the execution of
-Policies - implemented as business rules - that are associated with the **Data Pod**. The **Orchestrator**
-receives notifications in response to the ones it sent. The **Orchestrator** records information
-contained in both outgoing and incoming notifications in the **Artefact Lifecycle Event Log**.
+The [=Orchestrator=] sends notifications in response to triggers that result from the execution of
+Policies - implemented as business rules - that are associated with the [=Data Pod=]. The [=Orchestrator=]
+receives notifications in response to the ones it sent. The [=Orchestrator=] records information
+contained in both outgoing and incoming notifications in the [=Artefact Lifecycle Event Log=].
 
 The notifications are regarded as a high-level approach to automatically coordinate the distributed
 execution of the crucial functions of scholarly communication. The notifications merely ensure that the
