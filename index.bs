@@ -93,57 +93,57 @@ Of course, you are invited to [contribute](https://github.com/MellonScholarlyCom
         <tr>
           <td><a href="/spec-overview/" rel="cito:citesForInformation">This document.</a></td>
           <td><a href="https://github.com/mellonscholarlycommunication/spec-overview">spec-overview</a></td>
-          <td>Editor’s Draft</td>
-          <td>N/A</td>
-          <td>N/A</td>
+          <td>Draft Technical Report</td>
+          <td>Technical Report</td>
+          <td>Technical Report</td>
           <td>Q3 2021</td>
         </tr>
         <tr>
             <td><a href="/spec-orchestrator/" rel="cito:citesForInformation">Specification of the Orchestrator component.</a></td>
             <td><a href="https://github.com/mellonscholarlycommunication/spec-orchestrator">spec-orchestrator</a></td>
-            <td>Editor’s Draft</td>
-            <td>N/A</td>
-            <td>N/A</td>
+            <td>Working Draft</td>
+            <td>Draft Technical Report</td>
+            <td>Technical Report</td>
             <td>Q4 2021</td>
         </tr>
         <tr>
             <td><a href="/spec-datapod/" rel="cito:citesForInformation">Implementation guidelines and additional requirements for Solid data pods.</a></td>
             <td><a href="https://github.com/mellonscholarlycommunication/spec-datapod">spec-datapod</a></td>
-            <td>Editor’s Draft</td>
-            <td>N/A</td>
-            <td>N/A</td>
+            <td>Working Draft</td>
+            <td>Draft Technical Report</td>
+            <td>Technical Report</td>
             <td>Q4 2021</td>
         </tr>
         <tr>
             <td><a href="/spec-rulelanguage/" rel="cito:citesForInformation">Specification of the rule language to create executable business processes.</a></td>
             <td><a href="https://github.com/mellonscholarlycommunication/spec-rulelanguage">spec-rulelanguage</a></td>
-            <td>Editor’s Draft</td>
-            <td>N/A</td>
-            <td>N/A</td>
+            <td>Working Draft</td>
+            <td>Draft Technical Report</td>
+            <td>Technical Report</td>
             <td>2022</td>
         </tr>
         <tr>
             <td><a href="/spec-eventlog/" rel="cito:citesForInformation">Implementation requirements for the Artefact Lifecycle Event Log.</a></td>
             <td><a href="https://github.com/mellonscholarlycommunication/spec-datapod">spec-datapod</a></td>
-            <td>Editor’s Draft</td>
-            <td>N/A</td>
-            <td>N/A</td>
+            <td>Working Draft</td>
+            <td>Draft Technical Report</td>
+            <td>Technical Report</td>
             <td>2022</td>
         </tr>
         <tr>
             <td><a href="/spec-notifications/" rel="cito:citesForInformation">Specification of the possible notifications that can be used in the network.</a></td>
             <td><a href="https://github.com/mellonscholarlycommunication/spec-notifications">spec-notifications</a></td>
-            <td>Editor’s Draft</td>
-            <td>N/A</td>
-            <td>N/A</td>
+            <td>Draft Technical Report</td>
+            <td>Technical Report</td>
+            <td>Technical Report</td>
             <td>2022</td>
         </tr>
         <tr>
             <td><a href="/spec-collector/" rel="cito:citesForInformation">Specification of the Collector component.</a></td>
             <td><a href="https://github.com/mellonscholarlycommunication/spec-collector">spec-collector</a></td>
-            <td>Editor’s Draft</td>
-            <td>N/A</td>
-            <td>N/A</td>
+            <td>Working Draft</td>
+            <td>Draft Technical Report</td>
+            <td>Technical Report</td>
             <td>2022</td>
         </tr>
     </tbody>
