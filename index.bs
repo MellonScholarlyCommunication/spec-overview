@@ -61,7 +61,12 @@ Essentially,
 these reports focus on two generic problems common to decentalized Web networks:
 
 - executing and automating business processes involving a distributed set of actors.
-- discovering and collecting lifecycle information that is distributed over the network.
+- discovering and collecting information that is distributed over the network.
+
+This discovery of information that is stored on a decentralized Web can be quite generic. In this project
+there is a particular focus on the discovery of lifecycle events to which the artefacts are subject.
+Examples of such a lifecycle events in the realm of scholarly publication is information about when and where
+articles have been cited, or peer-reviewed, or published in a journal, archived in a web archive.
 
 This work aims to complement the [[solid-tr]] with a concrete framework for building a semi-automated decentralized network for a specific use case or domain.
 It is joint output from two aligned projects:
@@ -159,7 +164,7 @@ Of course, you are invited to [contribute](https://github.com/MellonScholarlyCom
 Definitions {#definitions}
 ===========
 
-The following defined terms are used across all specifications:
+The following terms are used across all specifications:
 
 : <dfn export>Actor</dfn>
 :: An entity (person, application or service) that participates in the network.
@@ -172,19 +177,19 @@ The following defined terms are used across all specifications:
 : <dfn export>Software Agent</dfn>
 :: A software application that operates on an [=actor=]'s behalf.
 : <dfn export>Autonomous Agent</dfn>
-:: An intelligent [=software agent=] that operates on an [=actor=]'s behalf but without any interference of that [=actor=].
+:: An [=software agent=] that operates on an [=actor=]'s behalf but without any interference of that [=actor=].
 : <dfn export>Maintainer</dfn>
 :: A [=human agent=] that can manually perform actions on the network using a [=dashboard=] application.
 :: Usually a person employed by an organisation (e.g., a Cultural Heritage Institution) to maintain data and datasets owned by that organisation.
 : <dfn export>Data Pod</dfn>
 :: As defined by [[solid-protocol]], a [[solid-protocol#data-pod|Data Pod]] is a place for storing web resources, with mechanisms for controlling who can access what.
 : <dfn export>Inbox</dfn>
-:: An [[!LDP]] resource where others can POST [[!LDN|Linked Data Notifications]] in order to notify the actor of a change an artefact's lifecycle.
+:: An [[!LDP]] resource where actors can POST [[!LDN|Linked Data Notifications]] in order to send information pertaining an artefact to another actor, including lifecycle event information.
 : <dfn export>Artefact Lifecycle Event Log</dfn>
 :: An HTTP resource served by an actor (e.g., as a resource in the [=data pod=]) that represents a log of past [=artefact lifecycle events=] related to [=artefacts=] known by the [=actor=].
 :: Artefacts are considered known when they reside in the actor's [=data pod=] or if the actor has been made aware via [[!LDN]].
 : <dfn export>Service Hub</dfn>
-:: An [=actor=] that provides a service to other actors in the network. It is a [[solid-protocol#solid-app|Solid App]] and serves an [=inbox=].
+:: An [=actor=] that provides a services on artefacts that are made available in the network. It is a application that serves an [=inbox=].
 : <dfn export>Rulebook</dfn>
 :: A set of machine-readable business rules that instruct the [=orchestrator=] on what actions to take in response to a trigger such as incoming notifications, perceived changes in the data, or manual invocation by an [=actor=].
 : <dfn export>Dashboard</dfn>
@@ -192,7 +197,7 @@ The following defined terms are used across all specifications:
 : <dfn export>Orchestrator</dfn>
 :: An [=autonomous agent=] dedicated to a single [=data pod=], [=service hub=], or any other actor hosting the [=artefact lifecycle event log=] and a [=inbox=] resources. It interprets and executes business rules described in a [=rulebook=].
 : <dfn export>Collector</dfn>
-:: An [=autonomous agent=] that asynchronously collects lifecycle information from [=artefact lifecycle event logs=] hosted by [=data pods=], [=service hubs=], or any other actor.
+:: An [=autonomous agent=] that asynchronously collects information from [=artefact lifecycle event logs=] hosted by [=data pods=], [=service hubs=], or any other actor.
 : <dfn export>App</dfn>
 :: An App is an [=autonomous agent=] dedicated to an [=actor=] that hosts a [=data pod=]. The App can write to the [=data pod=] unsupervised by the [=human agent=] and is not limited to the [=inbox=] or [=artefact lifecycle event log=].
 
@@ -208,7 +213,7 @@ these Actors could be treated as separate entities:
 - privileges needed to access the [=Data Pod=]
 - requirements needed to receive direct feedback from a [=Human Agent=]
 - requirements needed to permanently be **online**
-- requirements needed to understand the **Scholarly Communication Notification protocol** and [=Rulebooks=]
+- requirements needed to correctly implement the [=Linked Data Notification=] protocol and [=Rulebooks=]
 
 With this regard:
 
@@ -229,16 +234,17 @@ With this regard:
     <th>Orchestrator
     <td>
     The [=Orchestrator=] is an [=Autonomous Agent=] that can read the (Scholarly) [=Inbox=] of the [=Data Pod=] and append to
-    the [=Artefact Lifecycle Event Log=]. Guided by policies expressed as business rules, the [=Orchestrator=] also communicates with the Scholar Community network using
-    the **Scholarly Communication Notification protocol** implementing [=Rulebooks=].
+    the [=Artefact Lifecycle Event Log=]. Guided by the [=Rulebook=], 
+    the [=Orchestrator=] communicates with the network using
+    the [=Linked Data Notifications=].
 </table>
 
 <img src="images/mellon-orchestrator-solar.svg" width="40%">
 
 The three Actors can be seen as a mini solar system with the [=Data Pod=] as the Sun. The [=App=] is a fully trusted agent that runs very near to
 the data pod (in level of trust). The [=Orchestrator=] has very limited access rights to the data pod. The main
-task of the Orchestrator is to update the event log and execute policies in order to talk the Scholarly Communication Notification
-protocol (read/send messages from/to the corrrect Service Hubs).
+task of the Orchestrator is to execute [=Rulebook=] and facilitate the communication protocol in the network 
+in the form of [=Linked Data Notifications=] (read/send messages from/to the corrrect Service Hubs).
 The [=Dashboard=] sits in between, it has control over the [=Data Pod=] but might (always) need user input to update the pod.
 Communication between the App/DashBoard and the Orchestrator happens via the Data Pod's Inbox.
 
