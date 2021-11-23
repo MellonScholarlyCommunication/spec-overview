@@ -244,7 +244,7 @@ With this regard:
 The three Actors can be seen as a mini solar system with the [=Data Pod=] as the Sun. The [=App=] is a fully trusted agent that runs very near to
 the data pod (in level of trust). The [=Orchestrator=] has very limited access rights to the data pod. The main
 task of the Orchestrator is to execute [=Rulebook=] and facilitate the communication protocol in the network 
-in the form of [=Linked Data Notifications=] (read/send messages from/to the corrrect Service Hubs).
+using [=Linked Data Notifications=] (read/send messages from/to the corrrect Service Hubs).
 The [=Dashboard=] sits in between, it has control over the [=Data Pod=] but might (always) need user input to update the pod.
 Communication between the App/DashBoard and the Orchestrator happens via the Data Pod's Inbox.
 
