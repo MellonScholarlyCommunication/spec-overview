@@ -198,16 +198,14 @@ The following terms are used across all specifications:
 :: An [=autonomous agent=] dedicated to a single [=data pod=], [=service hub=], or any other actor hosting the [=artefact lifecycle event log=] and a [=inbox=] resources. It interprets and executes business rules described in a [=rulebook=].
 : <dfn export>Collector</dfn>
 :: An [=autonomous agent=] that asynchronously collects information from [=artefact lifecycle event logs=] hosted by [=data pods=], [=service hubs=], or any other actor.
-: <dfn export>App</dfn>
-:: An App is an [=autonomous agent=] dedicated to an [=actor=] that hosts a [=data pod=]. The App can write to the [=data pod=] unsupervised by the [=human agent=] and is not limited to the [=inbox=] or [=artefact lifecycle event log=].
 
 
-Dashboard, App and Orchestrator {#differences}
+Dashboard and Orchestrator {#differences}
 =======================================================
 
-In our specifications three agents communicate with the [=Data Pod=] with different privileges: the [=Orchestrator=],
-the [=Dashboard=] and the [=App=]. While in real applications these agents could overlap or might not be required at all (in
-some cases), in this document they are treated as separate entities to help the discussion. Some reasons why
+In our specifications two agents interact directly with the [=Data Pod=] with different privileges: the [=Orchestrator=],
+and the [=Dashboard=]. While in real applications these agents could overlap or might not be required at all (in
+some use cases), in our specifications they are treated as separate entities to help the discussion. Some reasons why
 these Actors could be treated as separate entities:
 
 - privileges needed to access the [=Data Pod=]
@@ -218,12 +216,6 @@ these Actors could be treated as separate entities:
 With this regard:
 
 <table>
-  <tr>
-    <th>App
-    <td>
-    The [=App=] is a headless [=Autonomous Agent=] that doesn't need a Human Agent to execute write operations on the Data Pod.
-    It is a trusted application for the Maintainer <s>that could in principle update any artifact on the Data Pod</s>. 
-    This application could run as a background service on the computer of the maintainer and be online as long as the computer is connected to a network.
   <tr>
     <th>Dashboard
     <td>
@@ -239,27 +231,23 @@ With this regard:
     the [=Linked Data Notifications=].
 </table>
 
-<img src="images/mellon-orchestrator-solar.svg" width="40%">
-
-The three Actors can be seen as a mini solar system with the [=Data Pod=] as the Sun. The [=App=] is a fully trusted agent that runs very near to
-the data pod (in level of trust). The [=Orchestrator=] has very limited access rights to the data pod. The main
-task of the Orchestrator is to execute [=Rulebook=] and facilitate the communication protocol in the network 
-using [=Linked Data Notifications=] (read/send messages from/to the corrrect Service Hubs).
-The [=Dashboard=] sits in between, it has control over the [=Data Pod=] but might (always) need user input to update the pod.
-Communication between the App/DashBoard and the Orchestrator happens via the Data Pod's Inbox.
-
-The networks below demonstrates the CRUD privileges imagined for the different actors in this document. The first
+The network below demonstrates the CRUD privileges imagined for the different actors in this document. The first
 network demonstrates a typical Solid setup where the Dashboard is a single page application that has direct access
-to the Data Pod and the App is more a background process running in the same computer as the Maintainer.
+to the Data Pod. The Orchestrator is a software compontent that could be part of the Dashboard 
+process, but in general is meant to be running as seperate network service, always online
+working on behalf of the Data Pod Maintainer. There can be other applications in the 
+network (indicated by Something) that can read data from the Data Pod or send notifications to
+the Data Pod, but without requiring direct privileges to change artefacts on the Data Pod.
 
 <div><img src="images/mellon-crud-app.svg" width="80%"></div>
-<i>CRUD operations in case the DashBoard is single-page application and the App a background task</i>
+<i>CRUD operations in case the DashBoard is single-page application and Orchestrator a background task</i>
 
 The second network demonstrates a more classic setup with a browser Dashboard controlled by a server App which uses a
 Data Pod as backend storage.
 
 <div><img src="images/mellon-crud.svg" width="80%"></div>
-<i>CRUD operations in case the Dashoard and App is a classic client/server application</i>
+<i>CRUD operations in case the Dashoard and a Server App (which includes an 
+Orchestrator component) is a classic client/server application</i>
 
 
 Communication between Data Pods and domain-specific networks
