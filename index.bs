@@ -166,12 +166,19 @@ Definitions {#definitions}
 
 The following terms are used across all specifications:
 
+## Core concepts
+
 : <dfn export>Actor</dfn>
-:: An entity (person, application or service) that participates in the network.
+:: An entity (person, application or service) that actively participates in the network, holds a addressable network identity.
 : <dfn export>Artefact</dfn>
-:: A web resource such as a file or document that serves as the object of exchange between actors and therefore is the smallest divisable unit on the network.
+:: A web resource such as a file or document that serves as the object of exchange between [=actors=] and therefore is the smallest divisible unit on the network.
 : <dfn export>Artefact Lifecycle Event</dfn>
 :: An event that resulted from an [=actor=] performing an activity related to an [=artefact=] that impacts its lifecycle.
+
+## Types of actors
+
+: <dfn export>Agent</dfn>
+:: An entity that operates directly on the network.
 : <dfn export>Human Agent</dfn>
 :: A person that operates directly as an [=actor=] on the network.
 : <dfn export>Software Agent</dfn>
@@ -180,24 +187,30 @@ The following terms are used across all specifications:
 :: An [=software agent=] that operates on an [=actor=]'s behalf but without any interference of that [=actor=].
 : <dfn export>Maintainer</dfn>
 :: A [=human agent=] that can manually perform actions on the network using a [=dashboard=] application.
-:: Usually a person employed by an organisation (e.g., a Cultural Heritage Institution) to maintain data and datasets owned by that organisation.
+:: Usually a person employed by an organization (e.g., a Cultural Heritage Institution) to maintain data and datasets owned by that organization.
+
+## Actor roles
+
 : <dfn export>Data Pod</dfn>
 :: As defined by [[solid-protocol]], a [[solid-protocol#data-pod|Data Pod]] is a place for storing web resources, with mechanisms for controlling who can access what.
-: <dfn export>Inbox</dfn>
-:: An [[!LDP]] resource where actors can POST [[!LDN|Linked Data Notifications]] in order to send information pertaining an artefact to another actor, including lifecycle event information.
-: <dfn export>Artefact Lifecycle Event Log</dfn>
-:: An HTTP resource served by an actor (e.g., as a resource in the [=data pod=]) that represents a log of past [=artefact lifecycle events=] related to [=artefacts=] known by the [=actor=].
-:: Artefacts are considered known when they reside in the actor's [=data pod=] or if the actor has been made aware via [[!LDN]].
 : <dfn export>Service Hub</dfn>
-:: An [=actor=] that provides a services on artefacts that are made available in the network. It is a application that serves an LDN [=inbox=].
-: <dfn export>Rulebook</dfn>
-:: A set of machine-readable business rules that instruct the [=orchestrator=] on what actions to take in response to a trigger such as incoming notifications, perceived changes in the data, or manual invocation by an [=actor=].
+:: An [=actor=] that provides a services on [=artefacts=] that are made available in the network. It is a application that serves an LDN [=inbox=].
 : <dfn export>Dashboard</dfn>
-:: A user application and [[solid-protocol#solid-app|Solid App]] that enables users to interact with the contents of the [=Data Pod=], the [=Orchestrator=], or other [=Actors=] in the network.
+:: A user-facing [=software agent=] and [[solid-protocol#solid-app|Solid App]] that enables [=human agents=] to interact with the contents of the [=Data Pod=], the [=Orchestrator=], or other [=Actors=] in the network.
 : <dfn export>Orchestrator</dfn>
 :: An [=autonomous agent=] dedicated to a single [=data pod=], [=service hub=], or any other actor hosting the [=artefact lifecycle event log=] and a [=inbox=] resources. It interprets and executes business rules described in a [=rulebook=].
 : <dfn export>Collector</dfn>
 :: An [=autonomous agent=] that asynchronously collects information from [=artefact lifecycle event logs=] hosted by [=data pods=], [=service hubs=], or any other actor.
+
+## Resources
+
+: <dfn export>Inbox</dfn>
+:: An [[!LDP]] resource where actors can POST [[!LDN|Linked Data Notifications]] in order to send information pertaining an [=artefact=] to another [=actor=], including [=artefact lifecycle event=] information.
+: <dfn export>Artefact Lifecycle Event Log</dfn>
+:: An HTTP resource served by an actor (e.g., as a resource in the [=data pod=]) that represents a log of past [=artefact lifecycle events=] related to [=artefacts=] known by the [=actor=].
+:: Artefacts are considered known when they reside in the actor's [=data pod=] or if the actor has been made aware via [[!LDN]].
+: <dfn export>Rulebook</dfn>
+:: A set of machine-readable business rules that instruct the [=orchestrator=] on what actions to take in response to a trigger such as incoming notifications, perceived changes in the data, or manual invocation by an [=actor=].
 
 
 Dashboard and Orchestrator {#differences}
