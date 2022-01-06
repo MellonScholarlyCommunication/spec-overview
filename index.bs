@@ -58,7 +58,7 @@ Introduction {#intro}
 
 This document introduces a set of technical reports that facilitate the implementation of a decentralized data exchange ecosystem using [[solid-protocol]].
 Essentially,
-these reports focus on two generic problems common to decentalized Web networks:
+these reports focus on two generic problems common to decentralized Web networks:
 
 - executing and automating business processes involving a distributed set of actors.
 - discovering and collecting information that is distributed over the network.
@@ -266,6 +266,8 @@ Orchestrator component) is a classic client/server application</i>
 Communication between Data Pods and domain-specific networks
 ============================================================
 
+
+
 ## Communication between Data Pod and Scholarly Community network
 
 Notifications can be sent from the researcher environment to [=Service Hub=] environments.
@@ -282,7 +284,7 @@ contained in both outgoing and incoming notifications in the [=Artefact Lifecycl
 The notifications are regarded as a high-level approach to automatically coordinate the distributed
 execution of the crucial functions of scholarly communication. The notifications merely ensure that the
 respective functions are in effect executed as prescribed by the rulebook, but do not attempt to
-automate the actual fullfilment of the function itself. For instance, when an `Offer` is sent to a Review Service
+automate the actual fulfillment of the function itself. For instance, when an `Offer` is sent to a Review Service
 we don't envision that message contains all the steps to fully automate the submission process.
 It could contain enough metadata to enable simple workflows. In general out of band communication
 could be needed to perform all required steps.
@@ -292,7 +294,33 @@ Linked Data Notifications [[!LDN]] using the [[!activitystreams-vocabulary|Activ
 
 ## Communication between Data Pod and Cultural Heritage network
 
-Issue: todo
+In the digital heritage domain, 
+institutions that manage collections, such as museums or libraries, and
+service providers, such as object registrars, user-facing portals or digital archives,
+participate in a joint network with the goal of sharing digital metadata and objects effectively.
+Institutions maintain a [=Data Pod=] as primary exchange hub for metadata about their collections.
+End-user portals aims to collect thematic subsets from this selection of pods.
+In between, there is a layer of facilitating services that 
+
+- make data findable for portals and other applications, such as indexing metadata for search or disseminating collection information to other network members;
+- provide value-added services to institutions like enriching metadata by adding links to other collections, or doing digital preservation.
+
+Institutions use notifications to request services from the designated [=Service Hub=], eg. they can `Offer` a dataset to a enrichment service. 
+In addition, notifications are used by all parties to inform each other about relevant changes.
+A [=Service Hub=] can respond with, for example, an accept or reject of the request for digital preservation, or simply take note.
+The result of a service, ie. the object is preserved digitally for the long term, is a new piece of metadata that augments the object's lifecycle.
+This event can be communicated with a new notification to the institution that made the requested or other interested [=actors=] in the network. 
+
+Driven by a mix of policy derived from institutional and cooperation requirements,
+institutions follow processes that dictate when to request certain services, contact other [=actors=] and in what order.
+These processes can be declared in a [=rulebook=] and executed in an automated manner by an [=Orchestrator=].
+
+Services that help the chasm between the [=Data Pod=] and data consuming portals, can maintain a [=Data Pod=] of their own, 
+for storing and exposing derivatives to upper layers in the network. 
+For instance, 
+a [=Service Hub=] that collects datasets from institution's [=Data Pods=] to generate dataset summaries and enrichments can store these results.
+In turn, an end-user portal can use the data of this [=Service Hub=] to find [=Data Pods=] with relevant data. 
+
 
 <pre class=biblio>
 {
