@@ -1223,7 +1223,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 5f7b0e20, updated Tue Aug 18 15:46:28 2020 -0700" name="generator">
   <link href="https://mellonscholarlycommunication.github.io/spec-overview" rel="canonical">
-  <meta content="db6afff05de7485082af721ab056cf1584baef7f" name="document-revision">
+  <meta content="c08428e1b24292157009efaab40f6465d0a19f13" name="document-revision">
 <style>
 table {
   margin: 25px auto;
@@ -1439,14 +1439,13 @@ dfn > a.self-link::before      { content: "#"; }</style>
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Overview of the ResearcherPod specifications</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Document, <time class="dt-updated" datetime="2022-01-03">3 January 2022</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Document, <time class="dt-updated" datetime="2022-01-06">6 January 2022</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
      <dd><a class="u-url" href="https://mellonscholarlycommunication.github.io/spec-overview">https://mellonscholarlycommunication.github.io/spec-overview</a>
      <dt>Issue Tracking:
      <dd><a href="https://github.com/MellonScholarlyCommunication/spec-overview/issues/">GitHub</a>
-     <dd><a href="#issues-index">Inline In Spec</a>
      <dt class="editor">Editors:
      <dd class="editor p-author h-card vcard"><a class="p-name fn u-email email" href="mailto:miel.vandersande@meemoo.be">Miel Vander Sande</a> (<span class="p-org org"><a href="https://meemoo.be">meemoo - Flemish Institute for Archives</a></span>)
      <dd class="editor p-author h-card vcard"><a class="p-name fn u-email email" href="mailto:patrick.hochstenbach@ugent.be">Patrick Hochstenbach</a> (<span class="p-org org"><a href="https://knows.idlab.ugent.be">IDLab - Ghent University</a></span>)
@@ -1457,7 +1456,7 @@ dfn > a.self-link::before      { content: "#"; }</style>
    <div data-fill-with="warning"></div>
    <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" src="https://licensebuttons.net/p/zero/1.0/80x15.png"></a> To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 3 January 2022,
+In addition, as of 6 January 2022,
 the editors have made this specification available under the <a href="http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
 Parts of this work may be from another specification document.  If so, those parts are instead covered by the license of that specification document. </p>
@@ -1502,7 +1501,6 @@ Parts of this work may be from another specification document.  If so, those par
       <li><a href="#normative"><span class="secno"></span> <span class="content">Normative References</span></a>
       <li><a href="#informative"><span class="secno"></span> <span class="content">Informative References</span></a>
      </ol>
-    <li><a href="#issues-index"><span class="secno"></span> <span class="content">Issues Index</span></a>
    </ol>
   </nav>
   <main>
@@ -1527,7 +1525,7 @@ Parts of this work may be from another specification document.  If so, those par
    <h2 class="heading settled" data-level="2" id="intro"><span class="secno">2. </span><span class="content">Introduction</span><a class="self-link" href="#intro"></a></h2>
    <p>This document introduces a set of technical reports that facilitate the implementation of a decentralized data exchange ecosystem using <a data-link-type="biblio" href="#biblio-solid-protocol">[solid-protocol]</a>.
 Essentially,
-these reports focus on two generic problems common to decentalized Web networks:</p>
+these reports focus on two generic problems common to decentralized Web networks:</p>
    <ul>
     <li data-md>
      <p>executing and automating business processes involving a distributed set of actors.</p>
@@ -1738,14 +1736,39 @@ contained in both outgoing and incoming notifications in the <a data-link-type="
    <p>The notifications are regarded as a high-level approach to automatically coordinate the distributed
 execution of the crucial functions of scholarly communication. The notifications merely ensure that the
 respective functions are in effect executed as prescribed by the rulebook, but do not attempt to
-automate the actual fullfilment of the function itself. For instance, when an <code>Offer</code> is sent to a Review Service
+automate the actual fulfillment of the function itself. For instance, when an <code>Offer</code> is sent to a Review Service
 we don’t envision that message contains all the steps to fully automate the submission process.
 It could contain enough metadata to enable simple workflows. In general out of band communication
 could be needed to perform all required steps.</p>
    <p>All notifications are send to all <a data-link-type="dfn" href="#actor" id="ref-for-actor①①">Actors</a> in the network in the form of
 Linked Data Notifications <a data-link-type="biblio" href="#biblio-ldn">[LDN]</a> using the <a data-link-type="biblio" href="#biblio-activitystreams-vocabulary">ActivityStreams 2.0</a> vocabulary.</p>
    <h3 class="heading settled" data-level="6.2" id="communication-between-data-pod-and-cultural-heritage-network"><span class="secno">6.2. </span><span class="content">Communication between Data Pod and Cultural Heritage network</span><a class="self-link" href="#communication-between-data-pod-and-cultural-heritage-network"></a></h3>
-   <p class="issue" id="issue-ea5cb8ff"><a class="self-link" href="#issue-ea5cb8ff"></a> todo</p>
+   <p>In the digital heritage domain,
+institutions that manage collections, such as museums or libraries, and
+service providers, such as object registrars, user-facing portals or digital archives,
+participate in a joint network with the goal of sharing digital metadata and objects effectively.
+Institutions maintain a <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod①⓪">Data Pod</a> as primary exchange hub for metadata about their collections.
+End-user portals aims to collect thematic subsets from this selection of pods.
+In between, there is a layer of facilitating services that</p>
+   <ul>
+    <li data-md>
+     <p>make data findable for portals and other applications, such as indexing metadata for search or disseminating collection information to other network members;</p>
+    <li data-md>
+     <p>provide value-added services to institutions like enriching metadata by adding links to other collections, or doing digital preservation.</p>
+   </ul>
+   <p>Institutions use notifications to request services from the designated <a data-link-type="dfn" href="#service-hub" id="ref-for-service-hub⑤">Service Hub</a>, eg. they can <code>Offer</code> a dataset to a enrichment service.
+In addition, notifications are used by all parties to inform each other about relevant changes.
+A <a data-link-type="dfn" href="#service-hub" id="ref-for-service-hub⑥">Service Hub</a> can respond with, for example, an accept or reject of the request for digital preservation, or simply take note.
+The result of a service, ie. the object is preserved digitally for the long term, is a new piece of metadata that augments the object’s lifecycle.
+This event can be communicated with a new notification to the institution that made the requested or other interested <a data-link-type="dfn" href="#actor" id="ref-for-actor①②">actors</a> in the network.</p>
+   <p>Driven by a mix of policy derived from institutional and cooperation requirements,
+institutions follow processes that dictate when to request certain services, contact other <a data-link-type="dfn" href="#actor" id="ref-for-actor①③">actors</a> and in what order.
+These processes can be declared in a <a data-link-type="dfn" href="#rulebook" id="ref-for-rulebook③">rulebook</a> and executed in an automated manner by an <a data-link-type="dfn" href="#orchestrator" id="ref-for-orchestrator⑧">Orchestrator</a>.</p>
+   <p>Services that help the chasm between the <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod①①">Data Pod</a> and data consuming portals, can maintain a <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod①②">Data Pod</a> of their own,
+for storing and exposing derivatives to upper layers in the network. 
+For instance, 
+a <a data-link-type="dfn" href="#service-hub" id="ref-for-service-hub⑦">Service Hub</a> that collects datasets from institution’s <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod①③">Data Pods</a> to generate dataset summaries and enrichments can store these results.
+In turn, an end-user portal can use the data of this <a data-link-type="dfn" href="#service-hub" id="ref-for-service-hub⑧">Service Hub</a> to find <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod①④">Data Pods</a> with relevant data.</p>
    <h2 class="heading settled" data-level="7" id="acknowledgement"><span class="secno">7. </span><span class="content">Acknowledgement</span><a class="self-link" href="#acknowledgement"></a></h2>
    <p>We thank Herbert Van de Sompel, <a href="https://dans.knaw.nl/nl/">DANS + Ghent University</a>, hvdsomp@gmail.com
 for the valuable input during this project.</p>
@@ -1935,10 +1958,6 @@ for the valuable input during this project.</p>
    <dt id="biblio-solid-tr">[SOLID-TR]
    <dd><a href="https://solidproject.org/TR/">Solid Technical Reports</a>. URL: <a href="https://solidproject.org/TR/">https://solidproject.org/TR/</a>
   </dl>
-  <h2 class="no-num no-ref heading settled" id="issues-index"><span class="content">Issues Index</span><a class="self-link" href="#issues-index"></a></h2>
-  <div style="counter-reset:issue">
-   <div class="issue"> todo<a href="#issue-ea5cb8ff"> ↵ </a></div>
-  </div>
   <aside class="dfn-panel" data-for="actor">
    <b><a href="#actor">#actor</a></b><b>Referenced in:</b>
    <ul>
@@ -1947,6 +1966,7 @@ for the valuable input during this project.</p>
     <li><a href="#ref-for-actor⑥">4.3. Actor roles</a> <a href="#ref-for-actor⑦">(2)</a>
     <li><a href="#ref-for-actor⑧">4.4. Resources</a> <a href="#ref-for-actor⑨">(2)</a> <a href="#ref-for-actor①⓪">(3)</a>
     <li><a href="#ref-for-actor①①">6.1. Communication between Data Pod and Scholarly Community network</a>
+    <li><a href="#ref-for-actor①②">6.2. Communication between Data Pod and Cultural Heritage network</a> <a href="#ref-for-actor①③">(2)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="artefact">
@@ -1993,6 +2013,7 @@ for the valuable input during this project.</p>
     <li><a href="#ref-for-data-pod③">4.4. Resources</a> <a href="#ref-for-data-pod④">(2)</a>
     <li><a href="#ref-for-data-pod⑤">5. Dashboard and Orchestrator</a> <a href="#ref-for-data-pod⑥">(2)</a> <a href="#ref-for-data-pod⑦">(3)</a>
     <li><a href="#ref-for-data-pod⑧">6.1. Communication between Data Pod and Scholarly Community network</a> <a href="#ref-for-data-pod⑨">(2)</a>
+    <li><a href="#ref-for-data-pod①⓪">6.2. Communication between Data Pod and Cultural Heritage network</a> <a href="#ref-for-data-pod①①">(2)</a> <a href="#ref-for-data-pod①②">(3)</a> <a href="#ref-for-data-pod①③">(4)</a> <a href="#ref-for-data-pod①④">(5)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="service-hub">
@@ -2000,6 +2021,7 @@ for the valuable input during this project.</p>
    <ul>
     <li><a href="#ref-for-service-hub">4.3. Actor roles</a> <a href="#ref-for-service-hub①">(2)</a>
     <li><a href="#ref-for-service-hub②">6.1. Communication between Data Pod and Scholarly Community network</a> <a href="#ref-for-service-hub③">(2)</a> <a href="#ref-for-service-hub④">(3)</a>
+    <li><a href="#ref-for-service-hub⑤">6.2. Communication between Data Pod and Cultural Heritage network</a> <a href="#ref-for-service-hub⑥">(2)</a> <a href="#ref-for-service-hub⑦">(3)</a> <a href="#ref-for-service-hub⑧">(4)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dashboard">
@@ -2016,6 +2038,7 @@ for the valuable input during this project.</p>
     <li><a href="#ref-for-orchestrator①">4.4. Resources</a>
     <li><a href="#ref-for-orchestrator②">5. Dashboard and Orchestrator</a> <a href="#ref-for-orchestrator③">(2)</a> <a href="#ref-for-orchestrator④">(3)</a>
     <li><a href="#ref-for-orchestrator⑤">6.1. Communication between Data Pod and Scholarly Community network</a> <a href="#ref-for-orchestrator⑥">(2)</a> <a href="#ref-for-orchestrator⑦">(3)</a>
+    <li><a href="#ref-for-orchestrator⑧">6.2. Communication between Data Pod and Cultural Heritage network</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="inbox">
@@ -2038,6 +2061,7 @@ for the valuable input during this project.</p>
    <ul>
     <li><a href="#ref-for-rulebook">4.3. Actor roles</a>
     <li><a href="#ref-for-rulebook①">5. Dashboard and Orchestrator</a> <a href="#ref-for-rulebook②">(2)</a>
+    <li><a href="#ref-for-rulebook③">6.2. Communication between Data Pod and Cultural Heritage network</a>
    </ul>
   </aside>
 <script>/* script-dfn-panel */
