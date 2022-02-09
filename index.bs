@@ -101,7 +101,7 @@ Of course, you are invited to [contribute](https://github.com/MellonScholarlyCom
           <td>Draft Technical Report</td>
           <td>Technical Report</td>
           <td>Technical Report</td>
-          <td>Q3 2021</td>
+          <td>Q1 2022</td>
         </tr>
         <tr>
             <td><a href="/spec-orchestrator/" rel="cito:citesForInformation">Specification of the Orchestrator component.</a></td>
@@ -109,7 +109,7 @@ Of course, you are invited to [contribute](https://github.com/MellonScholarlyCom
             <td>Working Draft</td>
             <td>Draft Technical Report</td>
             <td>Technical Report</td>
-            <td>Q4 2021</td>
+            <td>Q4 2022</td>
         </tr>
         <tr>
             <td><a href="/spec-datapod/" rel="cito:citesForInformation">Implementation guidelines and additional requirements for Solid data pods.</a></td>
@@ -117,7 +117,7 @@ Of course, you are invited to [contribute](https://github.com/MellonScholarlyCom
             <td>Working Draft</td>
             <td>Draft Technical Report</td>
             <td>Technical Report</td>
-            <td>Q4 2021</td>
+            <td>Q4 2022</td>
         </tr>
         <tr>
             <td><a href="/spec-rulelanguage/" rel="cito:citesForInformation">Specification of the rule language to create executable business processes.</a></td>
@@ -125,7 +125,7 @@ Of course, you are invited to [contribute](https://github.com/MellonScholarlyCom
             <td>Working Draft</td>
             <td>Draft Technical Report</td>
             <td>Technical Report</td>
-            <td>2022</td>
+            <td>Q4 2022</td>
         </tr>
         <tr>
             <td><a href="/spec-eventlog/" rel="cito:citesForInformation">Implementation requirements for the Artefact Lifecycle Event Log.</a></td>
@@ -133,7 +133,7 @@ Of course, you are invited to [contribute](https://github.com/MellonScholarlyCom
             <td>Working Draft</td>
             <td>Draft Technical Report</td>
             <td>Technical Report</td>
-            <td>2022</td>
+            <td>Q2 2022</td>
         </tr>
         <tr>
             <td><a href="/spec-notifications/" rel="cito:citesForInformation">Specification of the possible notifications that can be used in the network.</a></td>
@@ -141,7 +141,7 @@ Of course, you are invited to [contribute](https://github.com/MellonScholarlyCom
             <td>Draft Technical Report</td>
             <td>Technical Report</td>
             <td>Technical Report</td>
-            <td>2022</td>
+            <td>Q1 2022</td>
         </tr>
         <tr>
             <td><a href="/spec-collector/" rel="cito:citesForInformation">Specification of the Collector component.</a></td>
@@ -149,7 +149,7 @@ Of course, you are invited to [contribute](https://github.com/MellonScholarlyCom
             <td>Working Draft</td>
             <td>Draft Technical Report</td>
             <td>Technical Report</td>
-            <td>2022</td>
+            <td>Q4 2022</td>
         </tr>
     </tbody>
 
@@ -219,7 +219,7 @@ The following terms are used across all specifications:
 :: A lifecycle event log is discoverable via an [=artefact=].
 
 : <dfn export>Filter</dfn>
-:: A filter is a boolean function that decides whether or not a notification belongs to the [=Lifecycle Event Log=] or not. 
+:: A filter is a boolean function that decides whether or not a notification belongs to the [=lifecycle event log=] or not. 
 
 : <dfn export>Dashboard</dfn>
 :: A user-facing [=artefact client=] that enables an [=agent=] to manually interact with other [=agents=] or [=artefact servers=] (eg. [=data pod=]) in the network.
@@ -243,10 +243,10 @@ and the [=Dashboard=]. While in real applications these agents could overlap or 
 some use cases), in our specifications they are treated as separate entities to help the discussion. Some reasons why
 these Actors could be treated as separate entities:
 
-- privileges needed to access the [=Data Pod=]
-- requirements needed to receive direct feedback from a [=Human Agent=]
+- privileges needed to access the [=data pod=]
+- requirements needed to receive direct feedback from an [=agent=]
 - requirements needed to permanently be **online**
-- requirements needed to correctly implement the [=Linked Data Notification=] protocol and [=Rulebooks=]
+- requirements needed to correctly implement [=notifications=] and [=rulebooks=]
 
 With this regard:
 
@@ -254,45 +254,51 @@ With this regard:
   <tr>
     <th>Dashboard
     <td>
-    The [=Dashboard=] is a [=Software Agent=] that responds to feedback from an [=Human Agent=]. Typically this [=Dashboard=] runs in a browser
+    The [=Dashboard=] is an [=artefact Client=] that responds to feedback from an [=agent=]. Typically, this [=Dashboard=] runs in a browser
     can be in an online or offline modus when a browser is running on the computer of the maintainer with one of the browser
     tabs opened with the dashboard application.
   <tr>
     <th>Orchestrator
     <td>
-    The [=Orchestrator=] is an [=Autonomous Agent=] that can read the (Scholarly) [=Inbox=] of the [=Data Pod=] and append to
-    the [=Artefact Lifecycle Event Log=]. Guided by the [=Rulebook=], 
+    The [=Orchestrator=] is an [=artefact Client=] that can read the (Scholarly) [=Inbox=] of the [=Data Pod=] and append to
+    the [=Lifecycle Event Log=]. Guided by the [=Rulebook=], 
     the [=Orchestrator=] communicates with the network using
-    the [=Linked Data Notifications=].
+    the [=Notifications=].
 </table>
 
 The network below demonstrates the CRUD privileges imagined for the different actors in this document. The first
-network demonstrates a typical Solid setup where the Dashboard is a single page application that has direct access
-to the Data Pod. The Orchestrator is a software compontent that could be part of the Dashboard 
-process, but in general is meant to be running as seperate network service, always online
-working on behalf of the Data Pod Maintainer. There can be other applications in the 
-network (indicated by Something) that can read data from the Data Pod or send notifications to
-the Data Pod, but without requiring direct privileges to change artefacts on the Data Pod.
+network demonstrates a typical Solid setup where the [=dashboard=] is a single page application that has direct access
+to the [=data pod=]. The [=Orchestrator=] is a software component that could be part of the [=dashboard=] 
+process, but in general is meant to be running as separate network service, always online
+working on behalf of the [=data pod owner=]. There can be other applications in the 
+network (indicated by Something) that can read data from the [=data pod=] or send [=notifications=] to
+the [=data pod=], but without requiring direct privileges to change artefacts on the [=data pod=].
 
-<div><img src="images/mellon-crud-app.svg" width="80%"></div>
-<i>CRUD operations in case the DashBoard is single-page application and Orchestrator a background task</i>
-
-The second network demonstrates a more classic setup with a browser Dashboard controlled by a server App which uses a
-Data Pod as backend storage.
-
-<div><img src="images/mellon-crud.svg" width="80%"></div>
-<i>CRUD operations in case the Dashoard and a Server App (which includes an 
-Orchestrator component) is a classic client/server application</i>
+<figure>
+  <img src="images/mellon-crud-app.svg" width="80%">
+  <caption>
+  CRUD operations in case the [=Dashboard=] is single-page application and [=Orchestrator=] a background task
+  </caption>
+</figure>
 
 
-Communication between Data Pods and domain-specific networks
+The second network demonstrates a more classic setup with a browser [=Dashboard=] controlled by a server App which uses a
+[=data pod=] as backend storage.
+
+<figure>
+  <img src="images/mellon-crud.svg" width="80%"></div>
+  <caption>
+  CRUD operations in case the [=Dashboard=] and a [=Service Hub=] (which also runs to an 
+  [=Orchestrator=] component) is a classic client/server application
+  </caption>
+</figure>
+
+Communication between Data Pods and domain-specific networks {#domain-specific-networks}
 ============================================================
 
+## Communication between Data Pod and Scholarly Community network ## {#scholarly-comm}
 
-
-## Communication between Data Pod and Scholarly Community network
-
-Notifications can be sent from the researcher environment to [=Service Hub=] environments.
+[=Notifications=] can be sent from the researcher environment to [=Service Hub=] environments.
 For instance, in case of a request to review an artefact that resides in the [=Data Pod=], an
 appropriate notification can be sent to a review [=Service Hub=]. The [=Service Hub=] can respond,
 for example, accepting or rejecting the review request, and, in the latter case, to relay
@@ -301,9 +307,9 @@ the result of the review.
 The [=Orchestrator=] sends notifications in response to triggers that result from the execution of
 the rulebook is associated with the [=Data Pod=]. The [=Orchestrator=]
 receives notifications in response to the ones it sent. The [=Orchestrator=] selectively records information
-contained in both outgoing and incoming notifications in the [=Artefact Lifecycle Event Log=].
+contained in both outgoing and incoming notifications in the [=Lifecycle Event Log=].
 
-The notifications are regarded as a high-level approach to automatically coordinate the distributed
+The [=notifications=] are regarded as a high-level approach to automatically coordinate the distributed
 execution of the crucial functions of scholarly communication. The notifications merely ensure that the
 respective functions are in effect executed as prescribed by the rulebook, but do not attempt to
 automate the actual fulfillment of the function itself. For instance, when an `Offer` is sent to a Review Service
@@ -311,12 +317,9 @@ we don't envision that message contains all the steps to fully automate the subm
 It could contain enough metadata to enable simple workflows. In general out of band communication
 could be needed to perform all required steps.
 
-All notifications are send to all [=Actors=] in the network in the form of
-Linked Data Notifications [[!ldn]] using the [[!activitystreams-vocabulary|ActivityStreams 2.0]] vocabulary.
+## Communication between Data Pod and Cultural Heritage network ## {#cultural-heritage}
 
-## Communication between Data Pod and Cultural Heritage network
-
-In the digital heritage domain, 
+In the cultural heritage domain, 
 institutions that manage collections, such as museums or libraries, and
 service providers, such as object registrars, user-facing portals or digital archives,
 participate in a joint network with the goal of sharing digital metadata and objects effectively.
@@ -331,10 +334,10 @@ Institutions use notifications to request services from the designated [=Service
 In addition, notifications are used by all parties to inform each other about relevant changes.
 A [=Service Hub=] can respond with, for example, an accept or reject of the request for digital preservation, or simply take note.
 The result of a service, ie. the object is preserved digitally for the long term, is a new piece of metadata that augments the object's lifecycle.
-This event can be communicated with a new notification to the institution that made the requested or other interested [=actors=] in the network. 
+This event can be communicated with a new notification to the institution that made the requested or other interested [=agents=] in the network. 
 
 Driven by a mix of policy derived from institutional and cooperation requirements,
-institutions follow processes that dictate when to request certain services, contact other [=actors=] and in what order.
+institutions follow processes that dictate when to request certain services, contact other [=agents=] and in what order.
 These processes can be declared in a [=rulebook=] and executed in an automated manner by an [=Orchestrator=].
 
 Services that help the chasm between the [=Data Pod=] and data consuming portals, can maintain a [=Data Pod=] of their own, 
@@ -402,7 +405,7 @@ In turn, an end-user portal can use the data of this [=Service Hub=] to find [=D
 }
 </pre>
 
-# Acknowledgement
+# Acknowledgement {#acknowledgement}
 
 We thank Herbert Van de Sompel, [DANS + Ghent University](https://dans.knaw.nl/nl/), hvdsomp@gmail.com
 for the valuable input during this project.
