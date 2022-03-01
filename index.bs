@@ -177,46 +177,54 @@ The following terms are used across all specifications:
 :: Agents actively participate in the network: they perform actions and can be identified or addressed (eg. through [=notification=]) by a [[webid]].
 
 : <dfn export>Artefact</dfn>
-:: An artefact is a [[solid-protocol#resource|resource]] such as a file or document that serves as the object of interaction between [=agents=].
+:: An artefact is a [[solid-protocol#resource|resource]] identified by its URL that serves as the main focus of interaction between [=agents=]. Examples are a digitized image in an archive, the webpage of a scientific publication, a digital representation of a cultural heritage object, or a data set in a repository. 
+:: Artefacts can be singular or can be of arbitrary complexity. How they are organized is outside the scope of this document and is dependent on the implementing community.
 
 : <dfn export>Notification</dfn>
 :: A notification is a message delivered from one [=agent=] to another using the [[ldn|Linked Data Notifications (LDN)]] protocol.
 :: Notifications are expressed in [[activitystreams-vocabulary|Activity Streams 2.0 (AS2.0)]] and carry an [=activity=] in their payload.
 
 : <dfn export>Activity</dfn>
-:: An activity describes some form of action related to an [=artefact=] or other activity that may happen, is currently happening, or has already happened.
+:: An activity describes some form of action directly or indirectly related to an [=artefact=] that may happen, is currently happening, or has already happened.
 :: Activities are conform with the [[activitystreams-vocabulary#activities|AS2.0 Activities]].
 
-: <dfn export>Artefact Server</dfn>
+: <dfn export>Server Node</dfn>
 :: An artefact server is a [[solid-protocol#http-server|HTTP Server]] that hosts three types of resources: [=inbox=], [=Lifecycle Event Log=], and [=artefact=].
 
-: <dfn export>Artefact Client</dfn>
-:: A [[solid-protocol#http-client|HTTP Client]] that consumes [[solid-protocol#resource|resources]] on the network.
+Issue: needs better name
+
+: <dfn export>Client Node</dfn>
+:: A [[solid-protocol#http-client|HTTP Client]] and [[ldn#sender|LDN Sender]] that consumes [[solid-protocol#resource|resources]] on the network and delivers [=notifications=].
+
+Issue: needs better name
 
 : <dfn export>Data Pod</dfn>
 :: From the [[solid-protocol]]: <i>a data pod is a place for storing documents, with mechanisms for controlling who can access what.</i>
-:: A data pod is an [=artefact server=] that is conform to the [[solid-protocol]]. It stores [=artefacts=] that are made available to the network.
+:: A data pod is an [=server node=] that conforms to the [[solid-protocol]] in order to make them available to the network.
 
 : <dfn export>Data Pod owner</dfn>
 :: From the [[solid-protocol]]: <i>an owner is a person or a social entity that is considered to have the rights and responsibilities of a data storage. An owner is identified by a URI, and implicitly has control over all data in a storage. An owner is first set at storage provisioning time and can be changed.</i>
 :: A data pod owner is an [=agent=] that is responsible for maintaining the data pod and its artefacts. The owner can be identified by its [[webid]] and reached via an [=inbox=]. 
+:: For example: in case the data pod stores scholarly artefacts, the owner is typically an author or contributor to these artefacts. In case the data pod stores digital heritage objects, the owner is typically the institution or the institutional employee that curates and maintains these collections. 
 
 : <dfn export>Service Hub</dfn>
-:: A service hub is an [=artefact server=] that provides value-added services for [=artefacts=] that are made available in the network.
+:: A service hub is an [=artefact server=] that provides value-added services for [=artefacts=] stored in [=data pods=].
 :: It can be a partial implementation of the [[solid-protocol]] that meets the [=artefact server=] requirements.
 
-: <dfn export>Service Hub maintainer</dfn>
+: <dfn export>Service Hub owner</dfn>
 :: A service hub maintainer is the [=agent=] responsible for maintaining the service hub and the service it provides. 
 :: The maintainer can be identified by its [[webid]] and reached via an [=inbox=]. 
 
 : <dfn export>Inbox</dfn>
-:: An inbox is a [[solid-protocol#resource|resource]] conform with the [[!ldn|Linked Data Notifications specification]].
-:: [=Agents=] can POST an [=activity=] in order to send information pertaining an [=artefact=] to another [=agent=], in order to inform the other party or request a service. 
+:: An inbox is a [[solid-protocol#resource|resource]] conform with the [[!ldn|Linked Data Notifications specification]]. In case the Inbox is hosted by a Data Pod, this is usually implemented by an [[ldp#ldpc-container|LDP Container]].
+:: [=Agents=] can POST an [=activity=] in order to send information pertaining to an [=artefact=] to another [=agent=], in order to inform the other party or request a service. 
 
 : <dfn export>Lifecycle Event Log</dfn>
 :: A lifecycle event log is an append-only public [[solid-protocol#resource|resource]] that exposes a series of lifecycle events related to artifacts stored and services provided by [=data pods=] and [=service hubs=].
 :: It constructs a view over an [=inbox=]'s contents that is determined by a [=filter=], allowing a selected subset of [=activities=] (eg. grouped per artefact) to be consumed.
 :: A lifecycle event log is discoverable via an [=artefact=].
+
+Issue: to be discussed
 
 : <dfn export>Filter</dfn>
 :: A filter is a boolean function that decides whether or not a notification belongs to the [=lifecycle event log=] or not. 
@@ -230,10 +238,10 @@ The following terms are used across all specifications:
 :: It interprets and executes business rules described in a [=rulebook=].
 
 : <dfn export>Rulebook</dfn>
-:: A set of machine-readable business rules that instruct the [=orchestrator=] on what actions to take in response to a trigger such as incoming [=notifications=], perceived changes in the data, or manual invocation by an [=agent=].
+:: A set of machine-readable business rules that instruct the [=orchestrator=] on what actions to take in response to incoming [=notifications=].
 
 : <dfn export>Collector</dfn>
-:: An automated [=artefact client=] that asynchronously collects information from [=lifecycle event logs=] hosted by [=data pods=], [=service hubs=], or any other [=artefact server=].
+:: An automated [=artefact client=] that collects information from [=lifecycle event logs=] hosted by [=data pods=], [=service hubs=], or any other [=artefact server=].
 
 Dashboard and Orchestrator {#differences}
 =======================================================
