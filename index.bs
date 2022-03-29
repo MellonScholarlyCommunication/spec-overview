@@ -49,7 +49,7 @@ This document is one of the specifications produced by the **ResearcherPod** and
 2. [Orchestrator](/spec-orchestrator/) 
 3. [Data Pod](/spec-datapod/)
 4. [Rule language](/spec-rulelanguage/)
-5. [Artefact Lifecycle Event Log](/spec-eventlog/)
+5. [Artifact Lifecycle Event Log](/spec-eventlog/)
 6. [Notifications](/spec-notifications/)
 7. [Collector](/spec-collector/)
 
@@ -64,7 +64,7 @@ these reports focus on two generic problems common to decentralized Web networks
 - discovering and collecting information that is distributed over the network.
 
 This discovery of information that is stored on a decentralized Web can be quite generic. In this project
-there is a particular focus on the discovery of lifecycle events to which the artefacts are subject.
+there is a particular focus on the discovery of lifecycle events to which the artifacts are subject.
 Examples of such a lifecycle events in the realm of scholarly publication is information about when and where
 articles have been cited, or peer-reviewed, or published in a journal, archived in a web archive.
 
@@ -128,7 +128,7 @@ Of course, you are invited to [contribute](https://github.com/MellonScholarlyCom
             <td>Q4 2022</td>
         </tr>
         <tr>
-            <td><a href="/spec-eventlog/" rel="cito:citesForInformation">Implementation requirements for the Artefact Lifecycle Event Log.</a></td>
+            <td><a href="/spec-eventlog/" rel="cito:citesForInformation">Implementation requirements for the Artifact Lifecycle Event Log.</a></td>
             <td><a href="https://github.com/mellonscholarlycommunication/spec-datapod">spec-datapod</a></td>
             <td>Working Draft</td>
             <td>Draft Technical Report</td>
@@ -173,41 +173,44 @@ Terminology {#definitions}
 The following terms are used across all specifications:
 
 : <dfn export>Agent</dfn>
-:: From [[solid-protocol]]: <i>an agent is a person, social entity, or software identified by a [[solid-protocol#uri|URI]]; e.g., a WebID denotes an agent [[webid]].</i> 
-:: Agents actively participate in the network: they perform actions and can be identified or addressed (eg. through [=notification=]) by a [[webid]].
+:: From [[solid-protocol]]: <i>an agent is a person, social entity, or software identified by a [[solid-protocol#uniform-resource-identifier|URI]]; e.g., a WebID denotes an agent [[webid]].</i> 
+:: Agents actively participate in the network: they perform actions, are identified by a [[webid]], and addressed through [=notification=].
 
-: <dfn export>Artefact</dfn>
-:: An artefact is a [[solid-protocol#resource|resource]] identified by an [[URL]] that serves as the main focus of interaction between [=agents=]. Examples are a digitized image in an archive, the webpage of a scientific publication, a digital representation of a cultural heritage object, or a data set in a repository. 
-:: Artefacts can be singular or can be of arbitrary complexity. How they are organized is outside the scope of this document and is dependent on the implementing community.
+: <dfn export>Artifact</dfn>
+:: An artifact is a [[solid-protocol#resource|resource]] identified by an [[solid-protocol#uniform-resource-identifier|URI]] that serves as the main focus of interaction between [=agents=]. Examples are a digitized image in an archive, the webpage of a scientific publication, a digital representation of a cultural heritage object, or a data set in a repository. 
+:: Artifacts can be atomic or arbitrarily complex. How they are organized is outside the scope of this document and is dependent on the implementing community.
 
 : <dfn export>Notification</dfn>
 :: A notification is a message delivered from one [=agent=] to another using the [[ldn|Linked Data Notifications (LDN)]] protocol.
-:: Notifications are expressed in [[activitystreams-vocabulary|Activity Streams 2.0 (AS2.0)]] and carry an [=activity=] in their payload.
+:: Notifications are expressed in [[activitystreams-vocabulary|Activity Streams 2.0 (AS2.0)]] and their payload describes an [=activity=].
 
 : <dfn export>Activity</dfn>
-:: An activity describes some form of action directly or indirectly related to an [=artefact=] that may happen, is currently happening, or has already happened.
+:: An activity describes some form of action directly or indirectly related to an [=artifact=] that is currently happening, or has already happened.
 :: Activities are conform with the [[activitystreams-vocabulary#activities|AS2.0 Activities]].
 
 : <dfn export>Node</dfn>
-:: A node is the main component in the network. It provides artefacts or artefact-related services, and is therefore able to communicate with other nodes. 
-:: A node is a [[solid-protocol#http-server|HTTP Server]] that hosts three types of resources: [=inbox=], [=Lifecycle Event Log=], and [=artefact=]. It is also an Linked Data Notifications [[ldn#receiver|Sender]], [[ldn#receiver|Receiver]] and [[ldn#receiver|Consumer]]. 
+:: A node is the main component in the network. It provides artifacts or artifact-related services to the network, and is able to communicate with other nodes. 
+:: A node is a [[solid-protocol#http-server|HTTP Server]] that hosts three types of resources: [=artifact=], [=inbox=], and [=Lifecycle Event Log=]. It is also an Linked Data Notifications [[ldn#receiver|Sender]], [[ldn#receiver|Receiver]] and [[ldn#receiver|Consumer]]. 
 
 : <dfn export>Inbox</dfn>
-:: An inbox is a [[solid-protocol#resource|resource]] conform with the [[!ldn|Linked Data Notifications specification]]. In case the Inbox is hosted by a Data Pod, this is usually implemented by an [[ldp#ldpc-container|LDP Container]].
-:: [=Agents=] can POST an [=activity=] in order to send information pertaining to an [=artefact=] to another [=agent=], in order to inform the other party or request a service. 
+:: An inbox is a [[solid-protocol#resource|resource]] conform with the [[!ldn|Linked Data Notifications specification]]. In case the [=node=] that hosts the inbox is a [=data pod=], this is usually implemented as an [[ldp#ldpc-container|LDP Container]].
+:: [=Agents=] can POST an [=activity=] in order to send information pertaining to an [=artifact=] to another [=agent=], in order to inform the other party or request a service. 
+
+: <dfn export>Lifecycle Event</dfn>
+:: A life cycle event is an [=activity=] pertaining to an [=artifact=] that somehow impacts the artifact's public lifecycle. It is communicated via a [=notification=] and that the [=node=] sending or receiving the notification deemed relevant to disclose. 
 
 : <dfn export>Lifecycle Event Log</dfn>
-:: A lifecycle event log is an append-only public [[solid-protocol#resource|resource]] that exposes a series of lifecycle events related to artifacts stored and services provided by [=data pods=] and [=service hubs=].
-:: It constructs a view over an [=inbox=]'s contents that is determined by a [=selector=], allowing a selected subset of [=activities=] (eg. grouped per artefact) to be consumed.
-:: A lifecycle event log is discoverable via an [=artefact=].
+:: A lifecycle event log is an append-only public [[solid-protocol#resource|resource]] that exposes a series of [=lifecycle events=] related to artifacts stored and services provided by [=nodes=].
+:: It constructs a view over an [=inbox=]'s contents that is determined by a [=selector=], allowing a selected subset of [=activities=] (eg. grouped per artifact) to be consumed.
+:: A lifecycle event log is discoverable via the [=artifact=] that the log pertains to.
 
 : <dfn export>Selector</dfn>
-:: A selector is a boolean function that decides whether or not a notification belongs to the [=lifecycle event log=] or not. 
+:: A selector is a boolean function that decides whether or not a [=activity=] belongs to the [=lifecycle event log=] or not. 
 
 : <dfn export>Collector</dfn>
-:: An automated Web application that collects information from [=lifecycle event logs=] hosted by [=data pods=], [=service hubs=], or any other [=artefact server=].
+:: An automated Web application that collects information from [=lifecycle event logs=] hosted by any [=node=].
 
-The following additional terms are specific to [=node=] implementations (eg. by using the [[solid-protocol]]):
+The following additional terms are specific to [=nodes=] that, in addition to meeting the minimal requirements, also implement the [[solid-protocol]]:
 
 <figure>
 <img src="./images/terminology-pod.svg" />
@@ -217,28 +220,28 @@ The following additional terms are specific to [=node=] implementations (eg. by 
 
 : <dfn export>Data Pod</dfn>
 :: From the [[solid-protocol]]: <i>a data pod is a place for storing documents, with mechanisms for controlling who can access what.</i>
-:: A data pod can be used to construct a [=Node=] that is conform to the [[solid-protocol]]. It stores [=artefacts=] that are made available to the network.
+:: A data pod can be used to construct a [=node=] that is conform to the [[solid-protocol]]. It stores [=artifacts=] that are made available to the network and is a Linked Data Notifications [[ldn#receiver|Receiver]].
 
 : <dfn export>Data Pod owner</dfn>
 :: From the [[solid-protocol]]: <i>an owner is a person or a social entity that is considered to have the rights and responsibilities of a data storage. An owner is identified by a URI, and implicitly has control over all data in a storage. An owner is first set at storage provisioning time and can be changed.</i>
-:: A data pod owner is an [=agent=] that is responsible for maintaining the data pod and its artefacts. The owner can be identified by its [[webid]] and reached via an [=inbox=]. 
-:: For example: in case the data pod stores scholarly artefacts, the owner is typically an author or contributor to these artefacts. In case the data pod stores digital heritage objects, the owner is typically the institution or the institutional employee that curates and maintains these collections. 
+:: A data pod owner is an [=agent=] that is responsible for maintaining the data pod and its artifacts. The owner can be identified by its [[webid]] and reached via an [=inbox=]. 
+:: For example: in case the data pod stores scholarly artifacts, the owner is typically an author or contributor to these artifacts. In case the data pod stores digital heritage objects, the owner is typically the institution or the institutional employee that curates and maintains these collections. 
 
 : <dfn export>Service Hub</dfn>
-:: A service hub is an [=node=] that provides value-added services for [=artefacts=] that are made available in the network.
-:: It can be a partial implementation of the [[solid-protocol]] that meets the [=node=] requirements.
+:: A service hub is a [=node=] that provides value-added services for [=artifacts=] that are made available in the network.
+:: It minimally meets the [=node=] requirements but can also be a (partial) implementation of the [[solid-protocol]].
 
 : <dfn export>Service Hub owner</dfn>
-:: A service hub maintainer is the [=agent=] responsible for maintaining the service hub and the service it provides. 
-:: The maintainer can be identified by its [[webid]] and reached via an [=inbox=]. 
+:: A service hub owner is the [=agent=] responsible for maintaining the service hub and the service it provides. 
+:: The owner can be identified by its [[webid]] and reached via an [=inbox=]. 
 
 : <dfn export>Dashboard</dfn>
-:: A user-facing Web application that enables an [=agent=] to manually interact with other [=agents=] or [=artefact servers=] (eg. [=data pod=]) in the network.
-:: Often, the dashboard will be a compliant [[solid-protocol#solid-app|Solid App]] implementation.
+:: The dashboard is a user-facing Web application that enables an [=agent=] to manually interact with other [=agents=] or [=nodes=] in the network. 
+:: The dashboard is a Linked Data Notifications [[ldn#receiver|Sender]] and [[ldn#receiver|Consumer]]. In case it is used to manage a [=data pod=], it will also be a compliant [[solid-protocol#solid-app|Solid App]] implementation.
 
 : <dfn export>Orchestrator</dfn>
-:: An autonomous Web application dedicated to a single [=data pod=], [=service hub=], or any other [=artefact server=].
-:: It interprets and executes business rules described in a [=rulebook=].
+:: The orchestrator is an autonomous Web application dedicated to a single [=node=]. It interprets and executes business rules described in a [=rulebook=].
+:: The orchestrator is also a Linked Data Notifications [[ldn#receiver|Sender]] and [[ldn#receiver|Consumer]].
 
 : <dfn export>Rulebook</dfn>
 :: A set of machine-readable business rules that instruct the [=orchestrator=] on what actions to take in response to incoming [=notifications=].
@@ -263,13 +266,13 @@ With this regard:
   <tr>
     <th>Dashboard
     <td>
-    The [=Dashboard=] is an [=artefact Client=] that responds to feedback from an [=agent=]. Typically, this [=Dashboard=] runs in a browser
+    The [=Dashboard=] responds to feedback from an [=agent=]. Typically, this [=Dashboard=] runs in a browser
     can be in an online or offline modus when a browser is running on the computer of the maintainer with one of the browser
     tabs opened with the dashboard application.
   <tr>
     <th>Orchestrator
     <td>
-    The [=Orchestrator=] is an [=artefact Client=] that can read the (Scholarly) [=Inbox=] of the [=Data Pod=] and append to
+    The [=Orchestrator=] can read the (Scholarly) [=Inbox=] of the [=Data Pod=] and append to
     the [=Lifecycle Event Log=]. Guided by the [=Rulebook=], 
     the [=Orchestrator=] communicates with the network using
     the [=Notifications=].
@@ -281,7 +284,7 @@ to the [=data pod=]. The [=Orchestrator=] is a software component that could be 
 process, but in general is meant to be running as separate network service, always online
 working on behalf of the [=data pod owner=]. There can be other applications in the 
 network (indicated by Something) that can read data from the [=data pod=] or send [=notifications=] to
-the [=data pod=], but without requiring direct privileges to change artefacts on the [=data pod=].
+the [=data pod=], but without requiring direct privileges to change artifacts on the [=data pod=].
 
 <figure>
   <img src="images/mellon-crud-app.svg" width="80%">
@@ -308,7 +311,7 @@ Communication between Data Pods and domain-specific networks {#domain-specific-n
 ## Communication between Data Pod and Scholarly Community network ## {#scholarly-comm}
 
 [=Notifications=] can be sent from the researcher environment to [=Service Hub=] environments.
-For instance, in case of a request to review an artefact that resides in the [=Data Pod=], an
+For instance, in case of a request to review an artifact that resides in the [=Data Pod=], an
 appropriate notification can be sent to a review [=Service Hub=]. The [=Service Hub=] can respond,
 for example, accepting or rejecting the review request, and, in the latter case, to relay
 the result of the review.
