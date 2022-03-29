@@ -201,8 +201,7 @@ The following terms are used across all specifications:
 
 : <dfn export>Lifecycle Event Log</dfn>
 :: A lifecycle event log is an append-only public [[solid-protocol#resource|resource]] that exposes a series of [=lifecycle events=] related to artifacts stored and services provided by [=nodes=].
-:: It constructs a view over an [=inbox=]'s contents that is determined by a [=selector=], allowing a selected subset of [=activities=] (eg. grouped per artifact) to be consumed.
-:: A lifecycle event log is discoverable via the [=artifact=] that the log pertains to.
+:: It constructs a view over an [=inbox=]'s contents that is determined by a [=selector=], allowing a selected subset of [=activities=] (eg. grouped per artifact) to be consumed. A [=node=] is responsible for making the lifecycle event log publicly discoverable.
 
 : <dfn export>Selector</dfn>
 :: A selector is a boolean function that decides whether or not a [=activity=] belongs to the [=lifecycle event log=] or not. 
