@@ -188,19 +188,31 @@ The following terms are used across all specifications:
 :: An activity describes some form of action directly or indirectly related to an [=artifact=] that is currently happening, or has already happened.
 :: Activities are conform with the [[activitystreams-vocabulary#activities|AS2.0 Activities]].
 
+: <dfn export>Service Result</dfn>
+:: A service result is any outcome of providing a value-added service for an [=artifact=]. 
+:: Service results can be [[solid-protocol#resource|resources]] that are made available at a network address or mentioned inline in an [=activity=] addressed to the [=agent=] owning the [=data node=] where the [=artifact=] is hosted.
+
 : <dfn export>Node</dfn>
 :: A node is the main component in the network. It provides artifacts or artifact-related services to the network, and is able to communicate with other nodes. 
-:: A node is a [[solid-protocol#http-server|HTTP Server]] that hosts three types of resources: [=artifact=], [=inbox=], and [=Lifecycle Event Log=]. It is also an Linked Data Notifications [[ldn#receiver|Sender]], [[ldn#receiver|Receiver]] and [[ldn#receiver|Consumer]]. 
+:: A node is a [[solid-protocol#http-server|HTTP Server]] that hosts two types of resources: an [=inbox=] and a [=Lifecycle Event Log=]. It is also an Linked Data Notifications [[ldn#receiver|Sender]], [[ldn#receiver|Receiver]] and [[ldn#receiver|Consumer]]. 
+
+: <dfn export>Data Node</dfn>
+:: A data node is a [=node=] that hosts [=artifacts=].
+
+: <dfn export>Service Node</dfn>
+:: A service node is a [=node=] that provides value-added services for [=artifacts=] hosted by [=data nodes=], but does not host [=artifacts=] itself. It can host [=service results=].
+:: A service node minimally meets the [=node=] requirements, but can also be a (partial) implementation of the [[solid-protocol]].
+:: Note that when a service node creates a new [=artifact=] as a result of providing a value-added service for an artifact, then this new [=artifact=] can be made available in the network in its own right and can itself become the subject of [=activities=]. At that point, however, the service node must have an associated [=data node=] via which the new [=artifact=] is made available.
 
 : <dfn export>Inbox</dfn>
 :: An inbox is a [[solid-protocol#resource|resource]] conform with the [[!ldn|Linked Data Notifications specification]]. In case the [=node=] that hosts the inbox is a [=data pod=], this is usually implemented as an [[ldp#ldpc-container|LDP Container]].
 :: [=Agents=] can POST an [=activity=] in order to send information pertaining to an [=artifact=] to another [=agent=], in order to inform the other party or request a service. 
 
 : <dfn export>Lifecycle Event</dfn>
-:: A life cycle event is an [=activity=] pertaining to an [=artifact=] that somehow impacts the artifact's public lifecycle. It is communicated via a [=notification=] and that the [=node=] sending or receiving the notification deemed relevant to disclose. 
+:: A life cycle event is an [=activity=] pertaining to an [=artifact=] that somehow impacts the artifact's public lifecycle. It is communicated via a [=notification=] and that the [=node=] sending or receiving the [=notification=] deemed relevant to disclose. 
 
 : <dfn export>Lifecycle Event Log</dfn>
-:: A lifecycle event log is an append-only public [[solid-protocol#resource|resource]] that exposes a series of [=lifecycle events=] related to artifacts stored and services provided by [=nodes=].
+:: A lifecycle event log is an append-only public [[solid-protocol#resource|resource]] that exposes a series of [=lifecycle events=] related to [=artifacts=] stored by [=data nodes=] and services provided by [=service nodes=].
 :: It constructs a view over an [=inbox=]'s contents that is determined by a [=selector=], allowing a selected subset of [=activities=] (eg. grouped per artifact) to be consumed. A [=node=] is responsible for making the lifecycle event log publicly discoverable.
 
 : <dfn export>Selector</dfn>
@@ -209,7 +221,7 @@ The following terms are used across all specifications:
 : <dfn export>Collector</dfn>
 :: An automated Web application that collects information from [=lifecycle event logs=] hosted by any [=node=].
 
-The following additional terms are specific to [=nodes=] that, in addition to meeting the minimal requirements, also implement the [[solid-protocol]]:
+The following additional terms are specific to [=data nodes=] that, in addition to meeting the minimal requirements, also implement the [[solid-protocol]]:
 
 <figure>
 <img src="./images/terminology-pod.svg" />
@@ -219,19 +231,15 @@ The following additional terms are specific to [=nodes=] that, in addition to me
 
 : <dfn export>Data Pod</dfn>
 :: From the [[solid-protocol]]: <i>a data pod is a place for storing documents, with mechanisms for controlling who can access what.</i>
-:: A data pod can be used to construct a [=node=] that is conform to the [[solid-protocol]]. It stores [=artifacts=] that are made available to the network and is a Linked Data Notifications [[ldn#receiver|Receiver]].
+:: A data pod can be used to construct a [=data node=] that is conform to the [[solid-protocol]]. It stores [=artifacts=] that are made available to the network and is a Linked Data Notifications [[ldn#receiver|Receiver]].
 
 : <dfn export>Data Pod owner</dfn>
 :: From the [[solid-protocol]]: <i>an owner is a person or a social entity that is considered to have the rights and responsibilities of a data storage. An owner is identified by a URI, and implicitly has control over all data in a storage. An owner is first set at storage provisioning time and can be changed.</i>
-:: A data pod owner is an [=agent=] that is responsible for maintaining the data pod and its artifacts. The owner can be identified by its [[webid]] and reached via an [=inbox=]. 
+:: A data pod owner is an [=agent=] that is responsible for maintaining the [=data pod=] and its [=artifacts=]. The owner can be identified by its [[webid]] and reached via an [=inbox=]. 
 :: For example: in case the data pod stores scholarly artifacts, the owner is typically an author or contributor to these artifacts. In case the data pod stores digital heritage objects, the owner is typically the institution or the institutional employee that curates and maintains these collections. 
 
-: <dfn export>Service Hub</dfn>
-:: A service hub is a [=node=] that provides value-added services for [=artifacts=] that are made available in the network.
-:: It minimally meets the [=node=] requirements but can also be a (partial) implementation of the [[solid-protocol]].
-
-: <dfn export>Service Hub owner</dfn>
-:: A service hub owner is the [=agent=] responsible for maintaining the service hub and the service it provides. 
+: <dfn export>Service Node owner</dfn>
+:: A service node owner is the [=agent=] responsible for maintaining the [=service node=] and the service it provides. 
 :: The owner can be identified by its [[webid]] and reached via an [=inbox=]. 
 
 : <dfn export>Dashboard</dfn>
@@ -239,7 +247,7 @@ The following additional terms are specific to [=nodes=] that, in addition to me
 :: The dashboard is a Linked Data Notifications [[ldn#receiver|Sender]] and [[ldn#receiver|Consumer]]. In case it is used to manage a [=data pod=], it will also be a compliant [[solid-protocol#solid-app|Solid App]] implementation.
 
 : <dfn export>Orchestrator</dfn>
-:: The orchestrator is an autonomous Web application dedicated to a single [=node=]. It interprets and executes business rules described in a [=rulebook=].
+:: The orchestrator is an autonomous Web application that operates on behalf of an agent [=agent=] and has access to a [=data pod=]. It interprets and executes business rules described in a [=rulebook=].
 :: The orchestrator is also a Linked Data Notifications [[ldn#receiver|Sender]] and [[ldn#receiver|Consumer]].
 
 : <dfn export>Rulebook</dfn>
