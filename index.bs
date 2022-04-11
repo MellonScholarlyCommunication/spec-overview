@@ -2,7 +2,7 @@
 Title: Overview of the ResearcherPod specifications
 Shortname: overview
 Level: 1
-Status: LD
+Status: TR
 URL: https://mellonscholarlycommunication.github.io/spec-overview
 Editor: Miel Vander Sande, [meemoo - Flemish Institute for Archives](https://meemoo.be), miel.vandersande@meemoo.be
 Editor: Patrick Hochstenbach, [IDLab - Ghent University](https://knows.idlab.ugent.be), patrick.hochstenbach@ugent.be
@@ -98,7 +98,7 @@ Of course, you are invited to [contribute](https://github.com/MellonScholarlyCom
         <tr>
           <td><a href="/spec-overview/" rel="cito:citesForInformation">This document.</a></td>
           <td><a href="https://github.com/mellonscholarlycommunication/spec-overview">spec-overview</a></td>
-          <td>Draft Technical Report</td>
+          <td>Technical Report</td>
           <td>Technical Report</td>
           <td>Technical Report</td>
           <td>Q1 2022</td>
