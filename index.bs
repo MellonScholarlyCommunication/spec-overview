@@ -166,8 +166,9 @@ Terminology {#definitions}
 
 <figure>
 <img src="./images/terminology.svg" />
-<caption>
-</caption>
+<figcaption>
+Terminology used in the specifications.
+</figcaption>
 </figure>
 
 The following terms are used across all specifications:
@@ -225,8 +226,9 @@ The following additional terms are specific to [=data nodes=] that, in addition 
 
 <figure>
 <img src="./images/terminology-pod.svg" />
-<caption>
-</caption>
+<figcaption>
+Terminology specific to [=data nodes=] implemented with [[solid-protocol|Solid]].
+</figcaption>
 </figure>
 
 : <dfn export>Data Pod</dfn>
@@ -285,9 +287,9 @@ the [=data pod=], but without requiring direct privileges to change artifacts on
 
 <figure>
   <img src="images/mellon-crud-app.svg" width="80%">
-  <caption>
+  <figcaption>
   CRUD operations in case the [=Dashboard=] is single-page application and [=Orchestrator=] a background task
-  </caption>
+  </figcaption>
 </figure>
 
 The second network demonstrates a more classic setup with a browser [=Dashboard=] controlled by a server application which uses a
@@ -295,10 +297,10 @@ The second network demonstrates a more classic setup with a browser [=Dashboard=
 
 <figure>
   <img src="images/mellon-crud.svg" width="80%"></div>
-  <caption>
+  <figcaption>
   CRUD operations in case the [=dashboard=] and a [=service node=] (which also runs to an 
   [=Orchestrator=] component) is a classic client/server application
-  </caption>
+  </figcaption>
 </figure>
 
 Communication between Data Pods and domain-specific networks {#domain-specific-networks}
