@@ -1223,7 +1223,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 5f7b0e20, updated Tue Aug 18 15:46:28 2020 -0700" name="generator">
   <link href="https://mellonscholarlycommunication.github.io/spec-overview" rel="canonical">
-  <meta content="17cbda8ddcacbf945e692b5a7f005c1f731920cf" name="document-revision">
+  <meta content="dd57127c7c2c5d8226c608ad8b1172b61b815480" name="document-revision">
 <style>
 table {
   margin: 25px auto;
@@ -1439,7 +1439,7 @@ dfn > a.self-link::before      { content: "#"; }</style>
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Overview of the ResearcherPod specifications</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Document, <time class="dt-updated" datetime="2022-04-11">11 April 2022</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Standard, <time class="dt-updated" datetime="2022-04-11">11 April 2022</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1556,7 +1556,7 @@ Of course, you are invited to <a href="https://github.com/MellonScholarlyCommuni
      <tr>
       <td><a href="/spec-overview/" rel="cito:citesForInformation">This document.</a>
       <td><a href="https://github.com/mellonscholarlycommunication/spec-overview">spec-overview</a>
-      <td>Draft Technical Report
+      <td>Technical Report
       <td>Technical Report
       <td>Technical Report
       <td>Q1 2022
@@ -1607,7 +1607,10 @@ Of course, you are invited to <a href="https://github.com/MellonScholarlyCommuni
       <td colspan="6">
    </table>
    <h2 class="heading settled" data-level="4" id="definitions"><span class="secno">4. </span><span class="content">Terminology</span><a class="self-link" href="#definitions"></a></h2>
-   <figure> <img src="./images/terminology.svg"> </figure>
+   <figure>
+     <img src="./images/terminology.svg"> 
+    <figcaption> Terminology used in the specifications. </figcaption>
+   </figure>
    <p>The following terms are used across all specifications:</p>
    <dl>
     <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="agent">Agent</dfn>
@@ -1671,13 +1674,16 @@ Of course, you are invited to <a href="https://github.com/MellonScholarlyCommuni
      <p>An automated Web application that collects information from <a data-link-type="dfn" href="#lifecycle-event-log" id="ref-for-lifecycle-event-log②">lifecycle event logs</a> hosted by any <a data-link-type="dfn" href="#node" id="ref-for-node⑥">node</a>.</p>
    </dl>
    <p>The following additional terms are specific to <a data-link-type="dfn" href="#data-node" id="ref-for-data-node④">data nodes</a> that, in addition to meeting the minimal requirements, also implement the <a data-link-type="biblio" href="#biblio-solid-protocol">[solid-protocol]</a>:</p>
-   <figure> <img src="./images/terminology-pod.svg"> </figure>
+   <figure>
+     <img src="./images/terminology-pod.svg"> 
+    <figcaption> Terminology specific to <a data-link-type="dfn" href="#data-node" id="ref-for-data-node⑤">data nodes</a> implemented with <a data-link-type="biblio" href="#biblio-solid-protocol">Solid</a>. </figcaption>
+   </figure>
    <dl>
     <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="data-pod">Data Pod</dfn>
     <dd data-md>
      <p>A data pod is a place for storing documents, with mechanisms for controlling who can access what (cited from <a data-link-type="biblio" href="#biblio-solid-protocol">[solid-protocol]</a>).</p>
     <dd data-md>
-     <p>A data pod can be used to construct a <a data-link-type="dfn" href="#data-node" id="ref-for-data-node⑤">data node</a> that is conform to the <a data-link-type="biblio" href="#biblio-solid-protocol">[solid-protocol]</a>. It stores <a data-link-type="dfn" href="#artifact" id="ref-for-artifact①②">artifacts</a> that are made available to the network and is a Linked Data Notifications <a href="https://www.w3.org/TR/ldn/#receiver">Receiver</a>.</p>
+     <p>A data pod can be used to construct a <a data-link-type="dfn" href="#data-node" id="ref-for-data-node⑥">data node</a> that is conform to the <a data-link-type="biblio" href="#biblio-solid-protocol">[solid-protocol]</a>. It stores <a data-link-type="dfn" href="#artifact" id="ref-for-artifact①②">artifacts</a> that are made available to the network and is a Linked Data Notifications <a href="https://www.w3.org/TR/ldn/#receiver">Receiver</a>.</p>
     <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="data-pod-owner">Data Pod owner</dfn>
     <dd data-md>
      <p>An owner is a person or a social entity that is considered to have the rights and responsibilities of a data storage. An owner is identified by a URI, and implicitly has control over all data in a storage. An owner is first set at storage provisioning time and can be changed (cited from <a data-link-type="biblio" href="#biblio-solid-protocol">[solid-protocol]</a>).</p>
@@ -1733,9 +1739,15 @@ It is always online and works on behalf of the <a data-link-type="dfn" href="#da
 Finally, there can be other applications in the 
 network (indicated by Something) that can read data from the <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod⑧">data pod</a> or send <a data-link-type="dfn" href="#notification" id="ref-for-notification⑥">notifications</a> to
 the <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod⑨">data pod</a>, but without requiring direct privileges to change artifacts on the <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod①⓪">data pod</a>.</p>
-   <figure> <img src="images/mellon-crud-app.svg" width="80%"> CRUD operations in case the <a data-link-type="dfn" href="#dashboard" id="ref-for-dashboard④">Dashboard</a> is single-page application and <a data-link-type="dfn" href="#orchestrator" id="ref-for-orchestrator⑤">Orchestrator</a> a background task </figure>
+   <figure>
+     <img src="images/mellon-crud-app.svg" width="80%"> 
+    <figcaption> CRUD operations in case the <a data-link-type="dfn" href="#dashboard" id="ref-for-dashboard④">Dashboard</a> is single-page application and <a data-link-type="dfn" href="#orchestrator" id="ref-for-orchestrator⑤">Orchestrator</a> a background task </figcaption>
+   </figure>
    <p>The second network demonstrates a more classic setup with a browser <a data-link-type="dfn" href="#dashboard" id="ref-for-dashboard⑤">Dashboard</a> controlled by a server application which uses a <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod①①">data pod</a> as backend storage.</p>
-   <figure> <img src="images/mellon-crud.svg" width="80%"> CRUD operations in case the <a data-link-type="dfn" href="#dashboard" id="ref-for-dashboard⑥">dashboard</a> and a <a data-link-type="dfn" href="#service-node" id="ref-for-service-node②">service node</a> (which also runs to an <a data-link-type="dfn" href="#orchestrator" id="ref-for-orchestrator⑥">Orchestrator</a> component) is a classic client/server application </figure>
+   <figure>
+     <img src="images/mellon-crud.svg" width="80%"> 
+    <figcaption> CRUD operations in case the <a data-link-type="dfn" href="#dashboard" id="ref-for-dashboard⑥">dashboard</a> and a <a data-link-type="dfn" href="#service-node" id="ref-for-service-node②">service node</a> (which also runs to an <a data-link-type="dfn" href="#orchestrator" id="ref-for-orchestrator⑥">Orchestrator</a> component) is a classic client/server application </figcaption>
+   </figure>
    <h2 class="heading settled" data-level="6" id="domain-specific-networks"><span class="secno">6. </span><span class="content">Communication between Data Pods and domain-specific networks</span><a class="self-link" href="#domain-specific-networks"></a></h2>
    <h3 class="heading settled" data-level="6.1" id="scholarly-comm"><span class="secno">6.1. </span><span class="content">Communication between Data Pod and Scholarly Community network</span><a class="self-link" href="#scholarly-comm"></a></h3>
    <p><a data-link-type="dfn" href="#notification" id="ref-for-notification⑦">Notifications</a> can be sent from the researcher environment to <a data-link-type="dfn" href="#service-node" id="ref-for-service-node③">Service Node</a> environments.
@@ -2015,7 +2027,7 @@ for the valuable input during this project.</p>
   <aside class="dfn-panel" data-for="data-node">
    <b><a href="#data-node">#data-node</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-data-node">4. Terminology</a> <a href="#ref-for-data-node①">(2)</a> <a href="#ref-for-data-node②">(3)</a> <a href="#ref-for-data-node③">(4)</a> <a href="#ref-for-data-node④">(5)</a> <a href="#ref-for-data-node⑤">(6)</a>
+    <li><a href="#ref-for-data-node">4. Terminology</a> <a href="#ref-for-data-node①">(2)</a> <a href="#ref-for-data-node②">(3)</a> <a href="#ref-for-data-node③">(4)</a> <a href="#ref-for-data-node④">(5)</a> <a href="#ref-for-data-node⑤">(6)</a> <a href="#ref-for-data-node⑥">(7)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="service-node">
