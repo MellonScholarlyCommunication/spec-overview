@@ -173,7 +173,7 @@ Terminology {#definitions}
 The following terms are used across all specifications:
 
 : <dfn export>Agent</dfn>
-:: From [[solid-protocol]]: <i>an agent is a person, social entity, or software identified by a [[solid-protocol#uniform-resource-identifier|URI]]; e.g., a WebID denotes an agent [[webid]].</i> 
+:: An agent is a person, social entity, or software identified by a [[solid-protocol#uniform-resource-identifier|URI]]; e.g., a WebID denotes an agent [[webid]] (cited from [[solid-protocol]]).
 :: Agents actively participate in the network: they perform actions, are identified by a [[webid]], and addressed through [=notification=].
 
 : <dfn export>Artifact</dfn>
@@ -230,11 +230,11 @@ The following additional terms are specific to [=data nodes=] that, in addition 
 </figure>
 
 : <dfn export>Data Pod</dfn>
-:: From the [[solid-protocol]]: <i>a data pod is a place for storing documents, with mechanisms for controlling who can access what.</i>
+:: A data pod is a place for storing documents, with mechanisms for controlling who can access what (cited from [[solid-protocol]]).
 :: A data pod can be used to construct a [=data node=] that is conform to the [[solid-protocol]]. It stores [=artifacts=] that are made available to the network and is a Linked Data Notifications [[ldn#receiver|Receiver]].
 
 : <dfn export>Data Pod owner</dfn>
-:: From the [[solid-protocol]]: <i>an owner is a person or a social entity that is considered to have the rights and responsibilities of a data storage. An owner is identified by a URI, and implicitly has control over all data in a storage. An owner is first set at storage provisioning time and can be changed.</i>
+:: An owner is a person or a social entity that is considered to have the rights and responsibilities of a data storage. An owner is identified by a URI, and implicitly has control over all data in a storage. An owner is first set at storage provisioning time and can be changed (cited from [[solid-protocol]]).
 :: A data pod owner is an [=agent=] that is responsible for maintaining the [=data pod=] and its [=artifacts=]. The owner can be identified by its [[webid]] and reached via an [=inbox=]. 
 :: For example: in case the data pod stores scholarly artifacts, the owner is typically an author or contributor to these artifacts. In case the data pod stores digital heritage objects, the owner is typically the institution or the institutional employee that curates and maintains these collections. 
 
@@ -257,39 +257,29 @@ The following additional terms are specific to [=data nodes=] that, in addition 
 Dashboard and Orchestrator {#differences}
 =======================================================
 
-In our specifications two agents interact directly with the [=Data Pod=] with different privileges: the [=Orchestrator=],
-and the [=Dashboard=]. While in real applications these agents could overlap or might not be required at all (in
-some use cases), in our specifications they are treated as separate entities to help the discussion. Some reasons why
-these Actors could be treated as separate entities:
+In a Solid implementation of these specifications, 
+two software applications interact directly with the [=Data Pod=] with different privileges: the [=Orchestrator=] and the [=Dashboard=]. 
+While these applications could overlap or might not be required at all (in
+some use cases), in our specifications they are treated as separate entities to help the discussion. 
+Some reasons why these applications could be treated as separate entities:
 
 - privileges needed to access the [=data pod=]
 - requirements needed to receive direct feedback from an [=agent=]
 - requirements needed to permanently be **online**
 - requirements needed to correctly implement [=notifications=] and [=rulebooks=]
 
-With this regard:
+Typically, the [=Dashboard=] runs in a browser and responds to feedback from an [=agent=].
+It can be in an online or offline modus, running on the computer of the [=agent=] in one of the browser tabs.
+The [=Orchestrator=], however, runs as a _always-on_ background-process or remote Web service. 
+Both can read the [=Inbox=] of the [=Data Pod=] and append to the [=Lifecycle Event Log=]. Both communicate with the network using the [=Notifications=].
+Only the [=Orchestrator=] is guided by a [=Rulebook=] and operates with little human intervention.
 
-<table>
-  <tr>
-    <th>Dashboard
-    <td>
-    The [=Dashboard=] responds to feedback from an [=agent=]. Typically, this [=Dashboard=] runs in a browser
-    can be in an online or offline modus when a browser is running on the computer of the maintainer with one of the browser
-    tabs opened with the dashboard application.
-  <tr>
-    <th>Orchestrator
-    <td>
-    The [=Orchestrator=] can read the (Scholarly) [=Inbox=] of the [=Data Pod=] and append to
-    the [=Lifecycle Event Log=]. Guided by the [=Rulebook=], 
-    the [=Orchestrator=] communicates with the network using
-    the [=Notifications=].
-</table>
-
-The network below demonstrates the CRUD privileges imagined for the different actors in this document. The first
-network demonstrates a typical Solid setup where the [=dashboard=] is a single page application that has direct access
-to the [=data pod=]. The [=Orchestrator=] is a software component that could be part of the [=dashboard=] 
-process, but in general is meant to be running as separate network service, always online
-working on behalf of the [=data pod owner=]. There can be other applications in the 
+The network below demonstrates the CRUD privileges imagined for the different [=agents=] in this document. 
+The first network demonstrates a typical Solid setup where the [=dashboard=] is a single page application that has direct access
+to the [=data pod=]. The [=Orchestrator=] could be a process that is part of the [=dashboard=], 
+but is runs here as a separate network service. 
+It is always online and works on behalf of the [=data pod owner=]. 
+Finally, there can be other applications in the 
 network (indicated by Something) that can read data from the [=data pod=] or send [=notifications=] to
 the [=data pod=], but without requiring direct privileges to change artifacts on the [=data pod=].
 
@@ -300,14 +290,13 @@ the [=data pod=], but without requiring direct privileges to change artifacts on
   </caption>
 </figure>
 
-
-The second network demonstrates a more classic setup with a browser [=Dashboard=] controlled by a server App which uses a
+The second network demonstrates a more classic setup with a browser [=Dashboard=] controlled by a server application which uses a
 [=data pod=] as backend storage.
 
 <figure>
   <img src="images/mellon-crud.svg" width="80%"></div>
   <caption>
-  CRUD operations in case the [=Dashboard=] and a [=Service Hub=] (which also runs to an 
+  CRUD operations in case the [=dashboard=] and a [=service node=] (which also runs to an 
   [=Orchestrator=] component) is a classic client/server application
   </caption>
 </figure>
@@ -317,9 +306,9 @@ Communication between Data Pods and domain-specific networks {#domain-specific-n
 
 ## Communication between Data Pod and Scholarly Community network ## {#scholarly-comm}
 
-[=Notifications=] can be sent from the researcher environment to [=Service Hub=] environments.
+[=Notifications=] can be sent from the researcher environment to [=Service Node=] environments.
 For instance, in case of a request to review an artifact that resides in the [=Data Pod=], an
-appropriate notification can be sent to a review [=Service Hub=]. The [=Service Hub=] can respond,
+appropriate [=notification=]] can be sent to a review [=Service Node=]. The [=Service Node=] can respond,
 for example, accepting or rejecting the review request, and, in the latter case, to relay
 the result of the review.
 
@@ -349,9 +338,9 @@ In between, there is a layer of facilitating services that
 - make data findable for portals and other applications, such as indexing metadata for search or disseminating collection information to other network members;
 - provide value-added services to institutions like enriching metadata by adding links to other collections, or doing digital preservation.
 
-Institutions use notifications to request services from the designated [=Service Hub=], eg. they can `Offer` a dataset to a enrichment service. 
+Institutions use notifications to request services from the designated [=Service Node=], eg. they can `Offer` a dataset to a enrichment service. 
 In addition, notifications are used by all parties to inform each other about relevant changes.
-A [=Service Hub=] can respond with, for example, an accept or reject of the request for digital preservation, or simply take note.
+A [=Service Node=] can respond with, for example, an accept or reject of the request for digital preservation, or simply take note.
 The result of a service, ie. the object is preserved digitally for the long term, is a new piece of metadata that augments the object's lifecycle.
 This event can be communicated with a new notification to the institution that made the requested or other interested [=agents=] in the network. 
 
@@ -362,8 +351,8 @@ These processes can be declared in a [=rulebook=] and executed in an automated m
 Services that help the chasm between the [=Data Pod=] and data consuming portals, can maintain a [=Data Pod=] of their own, 
 for storing and exposing derivatives to upper layers in the network. 
 For instance, 
-a [=Service Hub=] that collects datasets from institution's [=Data Pods=] to generate dataset summaries and enrichments can store these results.
-In turn, an end-user portal can use the data of this [=Service Hub=] to find [=Data Pods=] with relevant data. 
+a [=Service Node=] that collects datasets from institution's [=Data Pods=] to generate dataset summaries and enrichments can store these results.
+In turn, an end-user portal can use the data of this [=Service Node=] to find [=Data Pods=] with relevant data. 
 
 
 <pre class=biblio>
