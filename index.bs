@@ -186,7 +186,7 @@ The following terms are used across all specifications:
 :: Notifications are expressed in [[activitystreams-vocabulary|Activity Streams 2.0 (AS2.0)]] and their payload describes an [=activity=].
 
 : <dfn export>Activity</dfn>
-:: An activity describes some form of action directly or indirectly related to an [=artifact=] that is currently happening, or has already happened.
+:: An activity describes some form of action, directly or indirectly related to an [=artifact=], that is currently happening, or has already happened.
 :: Activities are conform with the [[activitystreams-vocabulary#activities|AS2.0 Activities]].
 
 : <dfn export>Service Result</dfn>
