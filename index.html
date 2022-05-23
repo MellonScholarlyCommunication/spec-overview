@@ -1223,7 +1223,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 5f7b0e20, updated Tue Aug 18 15:46:28 2020 -0700" name="generator">
   <link href="https://mellonscholarlycommunication.github.io/spec-overview" rel="canonical">
-  <meta content="157bddd11123f759e2d9b3b93cc7881327ca8de5" name="document-revision">
+  <meta content="455aff2f47f147ee846959195040cb60829ea084" name="document-revision">
 <style>
 table {
   margin: 25px auto;
@@ -1439,7 +1439,7 @@ dfn > a.self-link::before      { content: "#"; }</style>
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Overview of the ResearcherPod specifications</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Standard, <time class="dt-updated" datetime="2022-05-18">18 May 2022</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Standard, <time class="dt-updated" datetime="2022-05-23">23 May 2022</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1456,7 +1456,7 @@ dfn > a.self-link::before      { content: "#"; }</style>
    <div data-fill-with="warning"></div>
    <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" src="https://licensebuttons.net/p/zero/1.0/80x15.png"></a> To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 18 May 2022,
+In addition, as of 23 May 2022,
 the editors have made this specification available under the <a href="http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
 Parts of this work may be from another specification document.  If so, those parts are instead covered by the license of that specification document. </p>
@@ -1517,6 +1517,9 @@ Parts of this work may be from another specification document.  If so, those par
    </ol>
    <h2 class="heading settled" data-level="2" id="intro"><span class="secno">2. </span><span class="content">Introduction</span><a class="self-link" href="#intro"></a></h2>
    <p>This document introduces a set of technical reports that facilitate the implementation of a decentralized data exchange ecosystem using <a data-link-type="biblio" href="#biblio-solid-protocol">[solid-protocol]</a>.
+The intent is not to establish a network design for shipping data.
+Rather, it should enable (human or machine) agents to make artifacts available in the network, 
+add value to the available artifacts, and exchange messages about these activities.
 Essentially,
 these reports focus on two generic problems common to decentralized Web networks:</p>
    <ul>
@@ -1615,12 +1618,12 @@ Of course, you are invited to <a href="https://github.com/MellonScholarlyCommuni
    <dl>
     <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="agent">Agent</dfn>
     <dd data-md>
-     <p>An agent is a person, social entity, or software identified by a <a href="https://solidproject.org/TR/protocol/#uniform-resource-identifier">URI</a>; e.g., a WebID denotes an agent <a data-link-type="biblio" href="#biblio-webid">[webid]</a> (cited from <a data-link-type="biblio" href="#biblio-solid-protocol">[solid-protocol]</a>).</p>
+     <p>An agent is a person, an organization, or software identified by a <a href="https://solidproject.org/TR/protocol/#uniform-resource-identifier">URI</a>; e.g., a WebID denotes an agent <a data-link-type="biblio" href="#biblio-webid">[webid]</a> (cited from <a data-link-type="biblio" href="#biblio-solid-protocol">[solid-protocol]</a>).</p>
     <dd data-md>
      <p>Agents actively participate in the network: they perform actions, are identified by a <a data-link-type="biblio" href="#biblio-webid">[webid]</a>, and addressed through <a data-link-type="dfn" href="#notification" id="ref-for-notification">notification</a>.</p>
     <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="artifact">Artifact</dfn>
     <dd data-md>
-     <p>An artifact is a <a href="https://solidproject.org/TR/protocol/#resource">resource</a> identified by an <a href="https://solidproject.org/TR/protocol/#uniform-resource-identifier">URI</a> that serves as the main focus of interaction between <a data-link-type="dfn" href="#agent" id="ref-for-agent">agents</a>. Examples are a digitized image in an archive, the webpage of a scientific publication, a digital representation of a cultural heritage object, or a data set in a repository.</p>
+     <p>An artifact is a <a href="https://solidproject.org/TR/protocol/#resource">Web resource</a> identified by an <a href="https://solidproject.org/TR/protocol/#uniform-resource-identifier">URI</a> that serves as the main focus of interaction between <a data-link-type="dfn" href="#agent" id="ref-for-agent">agents</a>. Examples are a digitized image in an archive, the webpage of a scientific publication, a digital representation of a cultural heritage object, or a data set in a repository.</p>
     <dd data-md>
      <p>Artifacts can be atomic or arbitrarily complex. How they are organized is outside the scope of this document and is dependent on the implementing community.</p>
     <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="notification">Notification</dfn>
@@ -1630,14 +1633,19 @@ Of course, you are invited to <a href="https://github.com/MellonScholarlyCommuni
      <p>Notifications are expressed in <a data-link-type="biblio" href="#biblio-activitystreams-vocabulary">Activity Streams 2.0 (AS2.0)</a> and their payload describes an <a data-link-type="dfn" href="#activity" id="ref-for-activity">activity</a>.</p>
     <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="activity">Activity</dfn>
     <dd data-md>
-     <p>An activity describes some form of action, directly or indirectly related to an <a data-link-type="dfn" href="#artifact" id="ref-for-artifact">artifact</a>, that is currently happening, or has already happened.</p>
+     <p>An activity describes some form of past or present action that is directly or indirectly related to an <a data-link-type="dfn" href="#artifact" id="ref-for-artifact">artifact</a>.</p>
     <dd data-md>
      <p>Activities are conform with the <a href="https://www.w3.org/TR/activitystreams-vocabulary/#activities">AS2.0 Activities</a>.</p>
+    <dt data-md><dfn data-dfn-type="dfn" data-export id="value-added-service">Value-added service<a class="self-link" href="#value-added-service"></a></dfn>
+    <dd data-md>
+     <p>A service that somehow increases the social valuation of an <a data-link-type="dfn" href="#artifact" id="ref-for-artifact①">artifact</a> without modifiying it.</p>
+    <dd data-md>
+     <p>Examples are getting promoted, getting certification, gettin a good review ...</p>
     <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="service-result">Service Result</dfn>
     <dd data-md>
-     <p>A service result is any outcome of providing a value-added service for an <a data-link-type="dfn" href="#artifact" id="ref-for-artifact①">artifact</a>.</p>
+     <p>A service result is any outcome of providing a value-added service for an <a data-link-type="dfn" href="#artifact" id="ref-for-artifact②">artifact</a>.</p>
     <dd data-md>
-     <p>Service results can be <a href="https://solidproject.org/TR/protocol/#resource">resources</a> that are made available at a network address or mentioned inline in an <a data-link-type="dfn" href="#activity" id="ref-for-activity①">activity</a> addressed to the <a data-link-type="dfn" href="#agent" id="ref-for-agent②">agent</a> owning the <a data-link-type="dfn" href="#data-node" id="ref-for-data-node">data node</a> where the <a data-link-type="dfn" href="#artifact" id="ref-for-artifact②">artifact</a> is hosted.</p>
+     <p>Service results can be <a href="https://solidproject.org/TR/protocol/#resource">Web resources</a> that are made available at a network address or mentioned inline in an <a data-link-type="dfn" href="#activity" id="ref-for-activity①">activity</a> addressed to the <a data-link-type="dfn" href="#agent" id="ref-for-agent②">agent</a> owning the <a data-link-type="dfn" href="#data-node" id="ref-for-data-node">data node</a> where the <a data-link-type="dfn" href="#artifact" id="ref-for-artifact③">artifact</a> is hosted.</p>
     <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="node">Node</dfn>
     <dd data-md>
      <p>A node is the main component in the network. It provides artifacts or artifact-related services to the network, and is able to communicate with other nodes.</p>
@@ -1645,25 +1653,25 @@ Of course, you are invited to <a href="https://github.com/MellonScholarlyCommuni
      <p>A node is a <a href="https://solidproject.org/TR/protocol/#http-server">HTTP Server</a> that hosts two types of resources: an <a data-link-type="dfn" href="#inbox" id="ref-for-inbox">inbox</a> and a <a data-link-type="dfn" href="#lifecycle-event-log" id="ref-for-lifecycle-event-log">Lifecycle Event Log</a>. It is also an Linked Data Notifications <a href="https://www.w3.org/TR/ldn/#receiver">Sender</a>, <a href="https://www.w3.org/TR/ldn/#receiver">Receiver</a> and <a href="https://www.w3.org/TR/ldn/#receiver">Consumer</a>.</p>
     <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="data-node">Data Node</dfn>
     <dd data-md>
-     <p>A data node is a <a data-link-type="dfn" href="#node" id="ref-for-node">node</a> that hosts <a data-link-type="dfn" href="#artifact" id="ref-for-artifact③">artifacts</a>.</p>
+     <p>A data node is a <a data-link-type="dfn" href="#node" id="ref-for-node">node</a> that hosts <a data-link-type="dfn" href="#artifact" id="ref-for-artifact④">artifacts</a>.</p>
     <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="service-node">Service Node</dfn>
     <dd data-md>
-     <p>A service node is a <a data-link-type="dfn" href="#node" id="ref-for-node①">node</a> that provides value-added services for <a data-link-type="dfn" href="#artifact" id="ref-for-artifact④">artifacts</a> hosted by <a data-link-type="dfn" href="#data-node" id="ref-for-data-node①">data nodes</a>, but does not host <a data-link-type="dfn" href="#artifact" id="ref-for-artifact⑤">artifacts</a> itself. It can host <a data-link-type="dfn" href="#service-result" id="ref-for-service-result">service results</a>.</p>
+     <p>A service node is a <a data-link-type="dfn" href="#node" id="ref-for-node①">node</a> that provides value-added services for <a data-link-type="dfn" href="#artifact" id="ref-for-artifact⑤">artifacts</a> hosted by <a data-link-type="dfn" href="#data-node" id="ref-for-data-node①">data nodes</a>, but does not host <a data-link-type="dfn" href="#artifact" id="ref-for-artifact⑥">artifacts</a> itself. It can host <a data-link-type="dfn" href="#service-result" id="ref-for-service-result">service results</a>.</p>
     <dd data-md>
      <p>A service node minimally meets the <a data-link-type="dfn" href="#node" id="ref-for-node②">node</a> requirements, but can also be a (partial) implementation of the <a data-link-type="biblio" href="#biblio-solid-protocol">[solid-protocol]</a>.</p>
     <dd data-md>
-     <p>Note that when a service node creates a new <a data-link-type="dfn" href="#artifact" id="ref-for-artifact⑥">artifact</a> as a result of providing a value-added service for an artifact, then this new <a data-link-type="dfn" href="#artifact" id="ref-for-artifact⑦">artifact</a> can be made available in the network in its own right and can itself become the subject of <a data-link-type="dfn" href="#activity" id="ref-for-activity②">activities</a>. At that point, however, the service node must have an associated <a data-link-type="dfn" href="#data-node" id="ref-for-data-node②">data node</a> via which the new <a data-link-type="dfn" href="#artifact" id="ref-for-artifact⑧">artifact</a> is made available.</p>
+     <p>Note that when a service node creates a new <a data-link-type="dfn" href="#artifact" id="ref-for-artifact⑦">artifact</a> as a result of providing a value-added service for an artifact, then this new <a data-link-type="dfn" href="#artifact" id="ref-for-artifact⑧">artifact</a> can be made available in the network in its own right and can itself become the subject of <a data-link-type="dfn" href="#activity" id="ref-for-activity②">activities</a>. At that point, however, the service node must have an associated <a data-link-type="dfn" href="#data-node" id="ref-for-data-node②">data node</a> via which the new <a data-link-type="dfn" href="#artifact" id="ref-for-artifact⑨">artifact</a> is made available.</p>
     <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="inbox">Inbox</dfn>
     <dd data-md>
-     <p>An inbox is a <a href="https://solidproject.org/TR/protocol/#resource">resource</a> conform with the <a data-link-type="biblio" href="#biblio-ldn">Linked Data Notifications specification</a>. In case the <a data-link-type="dfn" href="#node" id="ref-for-node③">node</a> that hosts the inbox is a <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod">data pod</a>, this is usually implemented as an <a href="https://www.w3.org/TR/ldp/#ldpc-container">LDP Container</a>.</p>
+     <p>An inbox is a <a href="https://solidproject.org/TR/protocol/#resource">web resource</a> conform with the <a data-link-type="biblio" href="#biblio-ldn">Linked Data Notifications specification</a>. In case the <a data-link-type="dfn" href="#node" id="ref-for-node③">node</a> that hosts the inbox is a <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod">data pod</a>, this is usually implemented as an <a href="https://www.w3.org/TR/ldp/#ldpc-container">LDP Container</a>.</p>
     <dd data-md>
-     <p><a data-link-type="dfn" href="#agent" id="ref-for-agent③">Agents</a> can POST an <a data-link-type="dfn" href="#activity" id="ref-for-activity③">activity</a> in order to send information pertaining to an <a data-link-type="dfn" href="#artifact" id="ref-for-artifact⑨">artifact</a> to another <a data-link-type="dfn" href="#agent" id="ref-for-agent④">agent</a>, in order to inform the other party or request a service.</p>
+     <p><a data-link-type="dfn" href="#agent" id="ref-for-agent③">Agents</a> can POST an <a data-link-type="dfn" href="#activity" id="ref-for-activity③">activity</a> in order to send information pertaining to an <a data-link-type="dfn" href="#artifact" id="ref-for-artifact①⓪">artifact</a> to another <a data-link-type="dfn" href="#agent" id="ref-for-agent④">agent</a>, in order to inform the other party or request a service.</p>
     <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="lifecycle-event">Lifecycle Event</dfn>
     <dd data-md>
-     <p>A life cycle event is an <a data-link-type="dfn" href="#activity" id="ref-for-activity④">activity</a> pertaining to an <a data-link-type="dfn" href="#artifact" id="ref-for-artifact①⓪">artifact</a> that somehow impacts the artifact’s public lifecycle. It is communicated via a <a data-link-type="dfn" href="#notification" id="ref-for-notification①">notification</a> and that the <a data-link-type="dfn" href="#node" id="ref-for-node④">node</a> sending or receiving the <a data-link-type="dfn" href="#notification" id="ref-for-notification②">notification</a> deemed relevant to disclose.</p>
+     <p>A life cycle event is an <a data-link-type="dfn" href="#activity" id="ref-for-activity④">activity</a> pertaining to an <a data-link-type="dfn" href="#artifact" id="ref-for-artifact①①">artifact</a> that impacts the artifact’s lifecycle and is made public. It is communicated via a <a data-link-type="dfn" href="#notification" id="ref-for-notification①">notification</a> and that the <a data-link-type="dfn" href="#node" id="ref-for-node④">node</a> sending or receiving the <a data-link-type="dfn" href="#notification" id="ref-for-notification②">notification</a> deemed relevant to disclose.</p>
     <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="lifecycle-event-log">Lifecycle Event Log</dfn>
     <dd data-md>
-     <p>A lifecycle event log is an append-only public <a href="https://solidproject.org/TR/protocol/#resource">resource</a> that exposes a series of <a data-link-type="dfn" href="#lifecycle-event" id="ref-for-lifecycle-event">lifecycle events</a> related to <a data-link-type="dfn" href="#artifact" id="ref-for-artifact①①">artifacts</a> stored by <a data-link-type="dfn" href="#data-node" id="ref-for-data-node③">data nodes</a> and services provided by <a data-link-type="dfn" href="#service-node" id="ref-for-service-node">service nodes</a>.</p>
+     <p>A lifecycle event log is an append-only public <a href="https://solidproject.org/TR/protocol/#resource">web resource</a> that exposes a series of <a data-link-type="dfn" href="#lifecycle-event" id="ref-for-lifecycle-event">lifecycle events</a> related to <a data-link-type="dfn" href="#artifact" id="ref-for-artifact①②">artifacts</a> stored by <a data-link-type="dfn" href="#data-node" id="ref-for-data-node③">data nodes</a> and services provided by <a data-link-type="dfn" href="#service-node" id="ref-for-service-node">service nodes</a>.</p>
     <dd data-md>
      <p>It constructs a view over an <a data-link-type="dfn" href="#inbox" id="ref-for-inbox①">inbox</a>'s contents that is determined by a <a data-link-type="dfn" href="#selector" id="ref-for-selector">selector</a>, allowing a selected subset of <a data-link-type="dfn" href="#activity" id="ref-for-activity⑤">activities</a> (eg. grouped per artifact) to be consumed. A <a data-link-type="dfn" href="#node" id="ref-for-node⑤">node</a> is responsible for making the lifecycle event log publicly discoverable.</p>
     <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="selector">Selector</dfn>
@@ -1683,12 +1691,12 @@ Of course, you are invited to <a href="https://github.com/MellonScholarlyCommuni
     <dd data-md>
      <p>A data pod is a place for storing documents, with mechanisms for controlling who can access what (cited from <a data-link-type="biblio" href="#biblio-solid-protocol">[solid-protocol]</a>).</p>
     <dd data-md>
-     <p>A data pod can be used to construct a <a data-link-type="dfn" href="#data-node" id="ref-for-data-node⑥">data node</a> that is conform to the <a data-link-type="biblio" href="#biblio-solid-protocol">[solid-protocol]</a>. It stores <a data-link-type="dfn" href="#artifact" id="ref-for-artifact①②">artifacts</a> that are made available to the network and is a Linked Data Notifications <a href="https://www.w3.org/TR/ldn/#receiver">Receiver</a>.</p>
+     <p>A data pod can be used to construct a <a data-link-type="dfn" href="#data-node" id="ref-for-data-node⑥">data node</a> that is conform to the <a data-link-type="biblio" href="#biblio-solid-protocol">[solid-protocol]</a>. It stores <a data-link-type="dfn" href="#artifact" id="ref-for-artifact①③">artifacts</a> that are made available to the network and is a Linked Data Notifications <a href="https://www.w3.org/TR/ldn/#receiver">Receiver</a>.</p>
     <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="data-pod-owner">Data Pod owner</dfn>
     <dd data-md>
      <p>An owner is a person or a social entity that is considered to have the rights and responsibilities of a data storage. An owner is identified by a URI, and implicitly has control over all data in a storage. An owner is first set at storage provisioning time and can be changed (cited from <a data-link-type="biblio" href="#biblio-solid-protocol">[solid-protocol]</a>).</p>
     <dd data-md>
-     <p>A data pod owner is an <a data-link-type="dfn" href="#agent" id="ref-for-agent⑤">agent</a> that is responsible for maintaining the <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod①">data pod</a> and its <a data-link-type="dfn" href="#artifact" id="ref-for-artifact①③">artifacts</a>. The owner can be identified by its <a data-link-type="biblio" href="#biblio-webid">[webid]</a> and reached via an <a data-link-type="dfn" href="#inbox" id="ref-for-inbox②">inbox</a>.</p>
+     <p>A data pod owner is an <a data-link-type="dfn" href="#agent" id="ref-for-agent⑤">agent</a> that is responsible for maintaining the <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod①">data pod</a> and its <a data-link-type="dfn" href="#artifact" id="ref-for-artifact①④">artifacts</a>. The owner can be identified by its <a data-link-type="biblio" href="#biblio-webid">[webid]</a> and reached via an <a data-link-type="dfn" href="#inbox" id="ref-for-inbox②">inbox</a>.</p>
     <dd data-md>
      <p>For example: in case the data pod stores scholarly artifacts, the owner is typically an author or contributor to these artifacts. In case the data pod stores digital heritage objects, the owner is typically the institution or the institutional employee that curates and maintains these collections.</p>
     <dt data-md><dfn data-dfn-type="dfn" data-export id="service-node-owner">Service Node owner<a class="self-link" href="#service-node-owner"></a></dfn>
@@ -1964,6 +1972,7 @@ for the valuable input during this project.</p>
    <li><a href="#service-node">Service Node</a><span>, in §4</span>
    <li><a href="#service-node-owner">Service Node owner</a><span>, in §4</span>
    <li><a href="#service-result">Service Result</a><span>, in §4</span>
+   <li><a href="#value-added-service">Value-added service</a><span>, in §4</span>
   </ul>
   <h2 class="no-num no-ref heading settled" id="references"><span class="content">References</span><a class="self-link" href="#references"></a></h2>
   <h3 class="no-num no-ref heading settled" id="normative"><span class="content">Normative References</span><a class="self-link" href="#normative"></a></h3>
@@ -1995,7 +2004,7 @@ for the valuable input during this project.</p>
   <aside class="dfn-panel" data-for="artifact">
    <b><a href="#artifact">#artifact</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-artifact">4. Terminology</a> <a href="#ref-for-artifact①">(2)</a> <a href="#ref-for-artifact②">(3)</a> <a href="#ref-for-artifact③">(4)</a> <a href="#ref-for-artifact④">(5)</a> <a href="#ref-for-artifact⑤">(6)</a> <a href="#ref-for-artifact⑥">(7)</a> <a href="#ref-for-artifact⑦">(8)</a> <a href="#ref-for-artifact⑧">(9)</a> <a href="#ref-for-artifact⑨">(10)</a> <a href="#ref-for-artifact①⓪">(11)</a> <a href="#ref-for-artifact①①">(12)</a> <a href="#ref-for-artifact①②">(13)</a> <a href="#ref-for-artifact①③">(14)</a>
+    <li><a href="#ref-for-artifact">4. Terminology</a> <a href="#ref-for-artifact①">(2)</a> <a href="#ref-for-artifact②">(3)</a> <a href="#ref-for-artifact③">(4)</a> <a href="#ref-for-artifact④">(5)</a> <a href="#ref-for-artifact⑤">(6)</a> <a href="#ref-for-artifact⑥">(7)</a> <a href="#ref-for-artifact⑦">(8)</a> <a href="#ref-for-artifact⑧">(9)</a> <a href="#ref-for-artifact⑨">(10)</a> <a href="#ref-for-artifact①⓪">(11)</a> <a href="#ref-for-artifact①①">(12)</a> <a href="#ref-for-artifact①②">(13)</a> <a href="#ref-for-artifact①③">(14)</a> <a href="#ref-for-artifact①④">(15)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="notification">
