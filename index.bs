@@ -57,6 +57,9 @@ Introduction {#intro}
 =====================
 
 This document introduces a set of technical reports that facilitate the implementation of a decentralized data exchange ecosystem using [[solid-protocol]].
+The intent is not to establish a network design for shipping data.
+Rather, it should enable (human or machine) agents to make artifacts available in the network, 
+add value to the available artifacts, and exchange messages about these activities.
 Essentially,
 these reports focus on two generic problems common to decentralized Web networks:
 
@@ -174,11 +177,11 @@ Terminology used in the specifications.
 The following terms are used across all specifications:
 
 : <dfn export>Agent</dfn>
-:: An agent is a person, social entity, or software identified by a [[solid-protocol#uniform-resource-identifier|URI]]; e.g., a WebID denotes an agent [[webid]] (cited from [[solid-protocol]]).
+:: An agent is a person, an organization, or software identified by a [[solid-protocol#uniform-resource-identifier|URI]]; e.g., a WebID denotes an agent [[webid]] (cited from [[solid-protocol]]).
 :: Agents actively participate in the network: they perform actions, are identified by a [[webid]], and addressed through [=notification=].
 
 : <dfn export>Artifact</dfn>
-:: An artifact is a [[solid-protocol#resource|resource]] identified by an [[solid-protocol#uniform-resource-identifier|URI]] that serves as the main focus of interaction between [=agents=]. Examples are a digitized image in an archive, the webpage of a scientific publication, a digital representation of a cultural heritage object, or a data set in a repository. 
+:: An artifact is a [[solid-protocol#resource|Web resource]] identified by an [[solid-protocol#uniform-resource-identifier|URI]] that serves as the main focus of interaction between [=agents=]. Examples are a digitized image in an archive, the webpage of a scientific publication, a digital representation of a cultural heritage object, or a data set in a repository. 
 :: Artifacts can be atomic or arbitrarily complex. How they are organized is outside the scope of this document and is dependent on the implementing community.
 
 : <dfn export>Notification</dfn>
@@ -186,12 +189,16 @@ The following terms are used across all specifications:
 :: Notifications are expressed in [[activitystreams-vocabulary|Activity Streams 2.0 (AS2.0)]] and their payload describes an [=activity=].
 
 : <dfn export>Activity</dfn>
-:: An activity describes some form of action directly or indirectly related to an [=artifact=] that is currently happening, or has already happened.
+:: An activity describes some form of past or present action that is directly or indirectly related to an [=artifact=].
 :: Activities are conform with the [[activitystreams-vocabulary#activities|AS2.0 Activities]].
+
+: <dfn export>Value-added service</dfn>
+:: A service that somehow increases the social valuation of an [=artifact=] without modifiying it. 
+:: Examples are getting promoted, getting certification, gettin a good review ...
 
 : <dfn export>Service Result</dfn>
 :: A service result is any outcome of providing a value-added service for an [=artifact=]. 
-:: Service results can be [[solid-protocol#resource|resources]] that are made available at a network address or mentioned inline in an [=activity=] addressed to the [=agent=] owning the [=data node=] where the [=artifact=] is hosted.
+:: Service results can be [[solid-protocol#resource|Web resources]] that are made available at a network address or mentioned inline in an [=activity=] addressed to the [=agent=] owning the [=data node=] where the [=artifact=] is hosted.
 
 : <dfn export>Node</dfn>
 :: A node is the main component in the network. It provides artifacts or artifact-related services to the network, and is able to communicate with other nodes. 
@@ -206,14 +213,14 @@ The following terms are used across all specifications:
 :: Note that when a service node creates a new [=artifact=] as a result of providing a value-added service for an artifact, then this new [=artifact=] can be made available in the network in its own right and can itself become the subject of [=activities=]. At that point, however, the service node must have an associated [=data node=] via which the new [=artifact=] is made available.
 
 : <dfn export>Inbox</dfn>
-:: An inbox is a [[solid-protocol#resource|resource]] conform with the [[!ldn|Linked Data Notifications specification]]. In case the [=node=] that hosts the inbox is a [=data pod=], this is usually implemented as an [[ldp#ldpc-container|LDP Container]].
+:: An inbox is a [[solid-protocol#resource|web resource]] conform with the [[!ldn|Linked Data Notifications specification]]. In case the [=node=] that hosts the inbox is a [=data pod=], this is usually implemented as an [[ldp#ldpc-container|LDP Container]].
 :: [=Agents=] can POST an [=activity=] in order to send information pertaining to an [=artifact=] to another [=agent=], in order to inform the other party or request a service. 
 
 : <dfn export>Lifecycle Event</dfn>
-:: A life cycle event is an [=activity=] pertaining to an [=artifact=] that somehow impacts the artifact's public lifecycle. It is communicated via a [=notification=] and that the [=node=] sending or receiving the [=notification=] deemed relevant to disclose. 
+:: A life cycle event is an [=activity=] pertaining to an [=artifact=] that impacts the artifact's lifecycle and is made public. It is communicated via a [=notification=] and that the [=node=] sending or receiving the [=notification=] deemed relevant to disclose. 
 
 : <dfn export>Lifecycle Event Log</dfn>
-:: A lifecycle event log is an append-only public [[solid-protocol#resource|resource]] that exposes a series of [=lifecycle events=] related to [=artifacts=] stored by [=data nodes=] and services provided by [=service nodes=].
+:: A lifecycle event log is an append-only public [[solid-protocol#resource|web resource]] that exposes a series of [=lifecycle events=] related to [=artifacts=] stored by [=data nodes=] and services provided by [=service nodes=].
 :: It constructs a view over an [=inbox=]'s contents that is determined by a [=selector=], allowing a selected subset of [=activities=] (eg. grouped per artifact) to be consumed. A [=node=] is responsible for making the lifecycle event log publicly discoverable.
 
 : <dfn export>Selector</dfn>
@@ -255,6 +262,16 @@ Terminology specific to [=data nodes=] implemented with [[solid-protocol|Solid]]
 : <dfn export>Rulebook</dfn>
 :: A set of machine-readable business rules that instruct the [=orchestrator=] on what actions to take in response to incoming [=notifications=].
 
+<!--
+Agents, Artefacts and Service Results {#agents-arte}
+=======================================================
+
+TODO: korte bespreken van het 
+
+niet Artifact, maar beschrijving van artifact?
+ - black box 
+ - het netwerk gaat niet over het verschepen van artifacts
+ -->
 
 Dashboard and Orchestrator {#differences}
 =======================================================
