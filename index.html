@@ -1223,7 +1223,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 5f7b0e20, updated Tue Aug 18 15:46:28 2020 -0700" name="generator">
   <link href="https://mellonscholarlycommunication.github.io/spec-overview" rel="canonical">
-  <meta content="455aff2f47f147ee846959195040cb60829ea084" name="document-revision">
+  <meta content="2bd1a73f3f0f687e02403ee8e18edfe38d17548c" name="document-revision">
 <style>
 table {
   margin: 25px auto;
@@ -1439,7 +1439,7 @@ dfn > a.self-link::before      { content: "#"; }</style>
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Overview of the ResearcherPod specifications</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Standard, <time class="dt-updated" datetime="2022-05-23">23 May 2022</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Standard, <time class="dt-updated" datetime="2022-05-24">24 May 2022</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1456,7 +1456,7 @@ dfn > a.self-link::before      { content: "#"; }</style>
    <div data-fill-with="warning"></div>
    <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" src="https://licensebuttons.net/p/zero/1.0/80x15.png"></a> To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 23 May 2022,
+In addition, as of 24 May 2022,
 the editors have made this specification available under the <a href="http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
 Parts of this work may be from another specification document.  If so, those parts are instead covered by the license of that specification document. </p>
@@ -1474,14 +1474,15 @@ Parts of this work may be from another specification document.  If so, those par
     <li><a href="#intro"><span class="secno">2</span> <span class="content">Introduction</span></a>
     <li><a href="#work-items"><span class="secno">3</span> <span class="content">Work items</span></a>
     <li><a href="#definitions"><span class="secno">4</span> <span class="content">Terminology</span></a>
-    <li><a href="#differences"><span class="secno">5</span> <span class="content">Dashboard and Orchestrator</span></a>
+    <li><a href="#agents-arte"><span class="secno">5</span> <span class="content">Agents, Artefacts and Service Results</span></a>
+    <li><a href="#differences"><span class="secno">6</span> <span class="content">Dashboard and Orchestrator</span></a>
     <li>
-     <a href="#domain-specific-networks"><span class="secno">6</span> <span class="content">Communication between Data Pods and domain-specific networks</span></a>
+     <a href="#domain-specific-networks"><span class="secno">7</span> <span class="content">Communication between Data Pods and domain-specific networks</span></a>
      <ol class="toc">
-      <li><a href="#scholarly-comm"><span class="secno">6.1</span> <span class="content">Communication between Data Pod and Scholarly Community network</span></a>
-      <li><a href="#cultural-heritage"><span class="secno">6.2</span> <span class="content">Communication between Data Pod and Cultural Heritage network</span></a>
+      <li><a href="#scholarly-comm"><span class="secno">7.1</span> <span class="content">Communication between Data Pod and Scholarly Community network</span></a>
+      <li><a href="#cultural-heritage"><span class="secno">7.2</span> <span class="content">Communication between Data Pod and Cultural Heritage network</span></a>
      </ol>
-    <li><a href="#acknowledgement"><span class="secno">7</span> <span class="content">Acknowledgement</span></a>
+    <li><a href="#acknowledgement"><span class="secno">8</span> <span class="content">Acknowledgement</span></a>
     <li><a href="#conformance"><span class="secno"></span> <span class="content"> Conformance</span></a>
     <li>
      <a href="#index"><span class="secno"></span> <span class="content">Index</span></a>
@@ -1618,12 +1619,12 @@ Of course, you are invited to <a href="https://github.com/MellonScholarlyCommuni
    <dl>
     <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="agent">Agent</dfn>
     <dd data-md>
-     <p>An agent is a person, an organization, or software identified by a <a href="https://solidproject.org/TR/protocol/#uniform-resource-identifier">URI</a>; e.g., a WebID denotes an agent <a data-link-type="biblio" href="#biblio-webid">[webid]</a> (cited from <a data-link-type="biblio" href="#biblio-solid-protocol">[solid-protocol]</a>).</p>
+     <p>An agent is a person, an organization, or software identified by a <a href="https://solidproject.org/TR/protocol#uniform-resource-identifier">URI</a>; e.g., a WebID denotes an agent <a data-link-type="biblio" href="#biblio-webid">[webid]</a> (cited from <a data-link-type="biblio" href="#biblio-solid-protocol">[solid-protocol]</a>).</p>
     <dd data-md>
      <p>Agents actively participate in the network: they perform actions, are identified by a <a data-link-type="biblio" href="#biblio-webid">[webid]</a>, and addressed through <a data-link-type="dfn" href="#notification" id="ref-for-notification">notification</a>.</p>
     <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="artifact">Artifact</dfn>
     <dd data-md>
-     <p>An artifact is a <a href="https://solidproject.org/TR/protocol/#resource">Web resource</a> identified by an <a href="https://solidproject.org/TR/protocol/#uniform-resource-identifier">URI</a> that serves as the main focus of interaction between <a data-link-type="dfn" href="#agent" id="ref-for-agent">agents</a>. Examples are a digitized image in an archive, the webpage of a scientific publication, a digital representation of a cultural heritage object, or a data set in a repository.</p>
+     <p>An artifact is a <a href="https://solidproject.org/TR/protocol#resource">Web resource</a> identified by an <a href="https://solidproject.org/TR/protocol#uniform-resource-identifier">URI</a> that serves as the main focus of interaction between <a data-link-type="dfn" href="#agent" id="ref-for-agent">agents</a>. Examples are a digitized image in an archive, the webpage of a scientific publication, a digital representation of a cultural heritage object, or a data set in a repository.</p>
     <dd data-md>
      <p>Artifacts can be atomic or arbitrarily complex. How they are organized is outside the scope of this document and is dependent on the implementing community.</p>
     <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="notification">Notification</dfn>
@@ -1645,12 +1646,12 @@ Of course, you are invited to <a href="https://github.com/MellonScholarlyCommuni
     <dd data-md>
      <p>A service result is any outcome of providing a value-added service for an <a data-link-type="dfn" href="#artifact" id="ref-for-artifact②">artifact</a>.</p>
     <dd data-md>
-     <p>Service results can be <a href="https://solidproject.org/TR/protocol/#resource">Web resources</a> that are made available at a network address or mentioned inline in an <a data-link-type="dfn" href="#activity" id="ref-for-activity①">activity</a> addressed to the <a data-link-type="dfn" href="#agent" id="ref-for-agent②">agent</a> owning the <a data-link-type="dfn" href="#data-node" id="ref-for-data-node">data node</a> where the <a data-link-type="dfn" href="#artifact" id="ref-for-artifact③">artifact</a> is hosted.</p>
+     <p>Service results can be <a href="https://solidproject.org/TR/protocol#resource">Web resources</a> that are made available at a network address or mentioned inline in an <a data-link-type="dfn" href="#activity" id="ref-for-activity①">activity</a> addressed to the <a data-link-type="dfn" href="#agent" id="ref-for-agent②">agent</a> owning the <a data-link-type="dfn" href="#data-node" id="ref-for-data-node">data node</a> where the <a data-link-type="dfn" href="#artifact" id="ref-for-artifact③">artifact</a> is hosted.</p>
     <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="node">Node</dfn>
     <dd data-md>
      <p>A node is the main component in the network. It provides artifacts or artifact-related services to the network, and is able to communicate with other nodes.</p>
     <dd data-md>
-     <p>A node is a <a href="https://solidproject.org/TR/protocol/#http-server">HTTP Server</a> that hosts two types of resources: an <a data-link-type="dfn" href="#inbox" id="ref-for-inbox">inbox</a> and a <a data-link-type="dfn" href="#lifecycle-event-log" id="ref-for-lifecycle-event-log">Lifecycle Event Log</a>. It is also an Linked Data Notifications <a href="https://www.w3.org/TR/ldn/#receiver">Sender</a>, <a href="https://www.w3.org/TR/ldn/#receiver">Receiver</a> and <a href="https://www.w3.org/TR/ldn/#receiver">Consumer</a>.</p>
+     <p>A node is a <a href="https://solidproject.org/TR/protocol#http-server">HTTP Server</a> that hosts two types of resources: an <a data-link-type="dfn" href="#inbox" id="ref-for-inbox">inbox</a> and a <a data-link-type="dfn" href="#lifecycle-event-log" id="ref-for-lifecycle-event-log">Lifecycle Event Log</a>. It is also an Linked Data Notifications <a href="https://www.w3.org/TR/ldn/#receiver">Sender</a>, <a href="https://www.w3.org/TR/ldn/#receiver">Receiver</a> and <a href="https://www.w3.org/TR/ldn/#receiver">Consumer</a>.</p>
     <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="data-node">Data Node</dfn>
     <dd data-md>
      <p>A data node is a <a data-link-type="dfn" href="#node" id="ref-for-node">node</a> that hosts <a data-link-type="dfn" href="#artifact" id="ref-for-artifact④">artifacts</a>.</p>
@@ -1663,7 +1664,7 @@ Of course, you are invited to <a href="https://github.com/MellonScholarlyCommuni
      <p>Note that when a service node creates a new <a data-link-type="dfn" href="#artifact" id="ref-for-artifact⑦">artifact</a> as a result of providing a value-added service for an artifact, then this new <a data-link-type="dfn" href="#artifact" id="ref-for-artifact⑧">artifact</a> can be made available in the network in its own right and can itself become the subject of <a data-link-type="dfn" href="#activity" id="ref-for-activity②">activities</a>. At that point, however, the service node must have an associated <a data-link-type="dfn" href="#data-node" id="ref-for-data-node②">data node</a> via which the new <a data-link-type="dfn" href="#artifact" id="ref-for-artifact⑨">artifact</a> is made available.</p>
     <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="inbox">Inbox</dfn>
     <dd data-md>
-     <p>An inbox is a <a href="https://solidproject.org/TR/protocol/#resource">web resource</a> conform with the <a data-link-type="biblio" href="#biblio-ldn">Linked Data Notifications specification</a>. In case the <a data-link-type="dfn" href="#node" id="ref-for-node③">node</a> that hosts the inbox is a <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod">data pod</a>, this is usually implemented as an <a href="https://www.w3.org/TR/ldp/#ldpc-container">LDP Container</a>.</p>
+     <p>An inbox is a <a href="https://solidproject.org/TR/protocol#resource">web resource</a> conform with the <a data-link-type="biblio" href="#biblio-ldn">Linked Data Notifications specification</a>. In case the <a data-link-type="dfn" href="#node" id="ref-for-node③">node</a> that hosts the inbox is a <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod">data pod</a>, this is usually implemented as an <a href="https://www.w3.org/TR/ldp/#ldpc-container">LDP Container</a>.</p>
     <dd data-md>
      <p><a data-link-type="dfn" href="#agent" id="ref-for-agent③">Agents</a> can POST an <a data-link-type="dfn" href="#activity" id="ref-for-activity③">activity</a> in order to send information pertaining to an <a data-link-type="dfn" href="#artifact" id="ref-for-artifact①⓪">artifact</a> to another <a data-link-type="dfn" href="#agent" id="ref-for-agent④">agent</a>, in order to inform the other party or request a service.</p>
     <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="lifecycle-event">Lifecycle Event</dfn>
@@ -1671,7 +1672,7 @@ Of course, you are invited to <a href="https://github.com/MellonScholarlyCommuni
      <p>A life cycle event is an <a data-link-type="dfn" href="#activity" id="ref-for-activity④">activity</a> pertaining to an <a data-link-type="dfn" href="#artifact" id="ref-for-artifact①①">artifact</a> that impacts the artifact’s lifecycle and is made public. It is communicated via a <a data-link-type="dfn" href="#notification" id="ref-for-notification①">notification</a> and that the <a data-link-type="dfn" href="#node" id="ref-for-node④">node</a> sending or receiving the <a data-link-type="dfn" href="#notification" id="ref-for-notification②">notification</a> deemed relevant to disclose.</p>
     <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="lifecycle-event-log">Lifecycle Event Log</dfn>
     <dd data-md>
-     <p>A lifecycle event log is an append-only public <a href="https://solidproject.org/TR/protocol/#resource">web resource</a> that exposes a series of <a data-link-type="dfn" href="#lifecycle-event" id="ref-for-lifecycle-event">lifecycle events</a> related to <a data-link-type="dfn" href="#artifact" id="ref-for-artifact①②">artifacts</a> stored by <a data-link-type="dfn" href="#data-node" id="ref-for-data-node③">data nodes</a> and services provided by <a data-link-type="dfn" href="#service-node" id="ref-for-service-node">service nodes</a>.</p>
+     <p>A lifecycle event log is an append-only public <a href="https://solidproject.org/TR/protocol#resource">web resource</a> that exposes a series of <a data-link-type="dfn" href="#lifecycle-event" id="ref-for-lifecycle-event">lifecycle events</a> related to <a data-link-type="dfn" href="#artifact" id="ref-for-artifact①②">artifacts</a> stored by <a data-link-type="dfn" href="#data-node" id="ref-for-data-node③">data nodes</a> and services provided by <a data-link-type="dfn" href="#service-node" id="ref-for-service-node">service nodes</a>.</p>
     <dd data-md>
      <p>It constructs a view over an <a data-link-type="dfn" href="#inbox" id="ref-for-inbox①">inbox</a>'s contents that is determined by a <a data-link-type="dfn" href="#selector" id="ref-for-selector">selector</a>, allowing a selected subset of <a data-link-type="dfn" href="#activity" id="ref-for-activity⑤">activities</a> (eg. grouped per artifact) to be consumed. A <a data-link-type="dfn" href="#node" id="ref-for-node⑤">node</a> is responsible for making the lifecycle event log publicly discoverable.</p>
     <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="selector">Selector</dfn>
@@ -1708,7 +1709,7 @@ Of course, you are invited to <a href="https://github.com/MellonScholarlyCommuni
     <dd data-md>
      <p>The dashboard is a user-facing Web application that enables an <a data-link-type="dfn" href="#agent" id="ref-for-agent⑦">agent</a> to manually interact with other <a data-link-type="dfn" href="#agent" id="ref-for-agent⑧">agents</a> or <a data-link-type="dfn" href="#node" id="ref-for-node⑦">nodes</a> in the network.</p>
     <dd data-md>
-     <p>The dashboard is a Linked Data Notifications <a href="https://www.w3.org/TR/ldn/#receiver">Sender</a> and <a href="https://www.w3.org/TR/ldn/#receiver">Consumer</a>. In case it is used to manage a <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod②">data pod</a>, it will also be a compliant <a href="https://solidproject.org/TR/protocol/#solid-app">Solid App</a> implementation.</p>
+     <p>The dashboard is a Linked Data Notifications <a href="https://www.w3.org/TR/ldn/#receiver">Sender</a> and <a href="https://www.w3.org/TR/ldn/#receiver">Consumer</a>. In case it is used to manage a <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod②">data pod</a>, it will also be a compliant <a href="https://solidproject.org/TR/protocol#solid-app">Solid App</a> implementation.</p>
     <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="orchestrator">Orchestrator</dfn>
     <dd data-md>
      <p>The orchestrator is an autonomous Web application that operates on behalf of an agent <a data-link-type="dfn" href="#agent" id="ref-for-agent⑨">agent</a> and has access to a <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod③">data pod</a>. It interprets and executes business rules described in a <a data-link-type="dfn" href="#rulebook" id="ref-for-rulebook">rulebook</a>.</p>
@@ -1718,7 +1719,37 @@ Of course, you are invited to <a href="https://github.com/MellonScholarlyCommuni
     <dd data-md>
      <p>A set of machine-readable business rules that instruct the <a data-link-type="dfn" href="#orchestrator" id="ref-for-orchestrator">orchestrator</a> on what actions to take in response to incoming <a data-link-type="dfn" href="#notification" id="ref-for-notification③">notifications</a>.</p>
    </dl>
-   <h2 class="heading settled" data-level="5" id="differences"><span class="secno">5. </span><span class="content">Dashboard and Orchestrator</span><a class="self-link" href="#differences"></a></h2>
+   <h2 class="heading settled" data-level="5" id="agents-arte"><span class="secno">5. </span><span class="content">Agents, Artefacts and Service Results</span><a class="self-link" href="#agents-arte"></a></h2>
+   <p>Artifacts are the main focus of this decentralized network design.
+They are pieces of data (eg. a file, a document, ...) produced by the Agents that participate in the network and hosted on <a data-link-type="dfn" href="#data-node" id="ref-for-data-node⑦">data nodes</a> The goal is, however, not to enable the exchange the artifacts, but rather to facilitate discourse about them.</p>
+   <p>Artifacts hold potential value in the domain in which the Agents operate.
+Over the network, Agents can send messages to other Agents to request value-added services. 
+Each executed service increases the value-chain of an Artifact, which is published in an event log. 
+The contents of an artifact are considered out-of-scope, and therefore, they are viewed as black-boxes to the network’s design.</p>
+   <p>Services are performed by <a data-link-type="dfn" href="#service-node" id="ref-for-service-node②">service nodes</a> and can produce a <a data-link-type="dfn" href="#service-result" id="ref-for-service-result①">Service Result</a> after execution.
+Service results are hosted on <a data-link-type="dfn" href="#service-node" id="ref-for-service-node③">service nodes</a> and provide metadata about the service run.
+The difference with artifacts is that service results lack a relevant value-chain.
+If interesting, a service result can be promoted to artifact, 
+eg. when a review of a document itself becomes subject to review.
+In that case, however, the service node takes up the role of <a data-link-type="dfn" href="#data-node" id="ref-for-data-node⑧">data node</a> as well.</p>
+   <p>The following example illustrates a basic interaction for which this network design can be applied.</p>
+   <ol>
+    <li data-md>
+     <p>An Agent called Alice creates an artifact: a document. The document is stored in Alice’s Pod.</p>
+    <li data-md>
+     <p>Alice offers the artifact to a Reviewing Service (a Service Node and Agent) in order to review it.</p>
+    <li data-md>
+     <p>The Reviewing Service performs the service and produces a Service Result.</p>
+    <li data-md>
+     <p>The Reviewing Service informs Alice that the Service was performed.</p>
+    <li data-md>
+     <p>The value-chain of the document is enhanced with a reviewed event.</p>
+   </ol>
+   <figure>
+     <img src="./images/flow.svg"> 
+    <figcaption> example workflow. </figcaption>
+   </figure>
+   <h2 class="heading settled" data-level="6" id="differences"><span class="secno">6. </span><span class="content">Dashboard and Orchestrator</span><a class="self-link" href="#differences"></a></h2>
    <p>In a Solid implementation of these specifications,
 two software applications interact directly with the <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod④">Data Pod</a> with different privileges: the <a data-link-type="dfn" href="#orchestrator" id="ref-for-orchestrator①">Orchestrator</a> and the <a data-link-type="dfn" href="#dashboard" id="ref-for-dashboard">Dashboard</a>. 
 While these applications could overlap or might not be required at all (in
@@ -1754,13 +1785,13 @@ the <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod⑨">data pod</
    <p>The second network demonstrates a more classic setup with a browser <a data-link-type="dfn" href="#dashboard" id="ref-for-dashboard⑤">Dashboard</a> controlled by a server application which uses a <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod①①">data pod</a> as backend storage.</p>
    <figure>
      <img src="images/mellon-crud.svg" width="80%"> 
-    <figcaption> CRUD operations in case the <a data-link-type="dfn" href="#dashboard" id="ref-for-dashboard⑥">dashboard</a> and a <a data-link-type="dfn" href="#service-node" id="ref-for-service-node②">service node</a> (which also runs to an <a data-link-type="dfn" href="#orchestrator" id="ref-for-orchestrator⑥">Orchestrator</a> component) is a classic client/server application </figcaption>
+    <figcaption> CRUD operations in case the <a data-link-type="dfn" href="#dashboard" id="ref-for-dashboard⑥">dashboard</a> and a <a data-link-type="dfn" href="#service-node" id="ref-for-service-node④">service node</a> (which also runs to an <a data-link-type="dfn" href="#orchestrator" id="ref-for-orchestrator⑥">Orchestrator</a> component) is a classic client/server application </figcaption>
    </figure>
-   <h2 class="heading settled" data-level="6" id="domain-specific-networks"><span class="secno">6. </span><span class="content">Communication between Data Pods and domain-specific networks</span><a class="self-link" href="#domain-specific-networks"></a></h2>
-   <h3 class="heading settled" data-level="6.1" id="scholarly-comm"><span class="secno">6.1. </span><span class="content">Communication between Data Pod and Scholarly Community network</span><a class="self-link" href="#scholarly-comm"></a></h3>
-   <p><a data-link-type="dfn" href="#notification" id="ref-for-notification⑦">Notifications</a> can be sent from the researcher environment to <a data-link-type="dfn" href="#service-node" id="ref-for-service-node③">Service Node</a> environments.
+   <h2 class="heading settled" data-level="7" id="domain-specific-networks"><span class="secno">7. </span><span class="content">Communication between Data Pods and domain-specific networks</span><a class="self-link" href="#domain-specific-networks"></a></h2>
+   <h3 class="heading settled" data-level="7.1" id="scholarly-comm"><span class="secno">7.1. </span><span class="content">Communication between Data Pod and Scholarly Community network</span><a class="self-link" href="#scholarly-comm"></a></h3>
+   <p><a data-link-type="dfn" href="#notification" id="ref-for-notification⑦">Notifications</a> can be sent from the researcher environment to <a data-link-type="dfn" href="#service-node" id="ref-for-service-node⑤">Service Node</a> environments.
 For instance, in case of a request to review an artifact that resides in the <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod①②">Data Pod</a>, an
-appropriate <a data-link-type="dfn" href="#notification" id="ref-for-notification⑧">notification</a>] can be sent to a review <a data-link-type="dfn" href="#service-node" id="ref-for-service-node④">Service Node</a>. The <a data-link-type="dfn" href="#service-node" id="ref-for-service-node⑤">Service Node</a> can respond,
+appropriate <a data-link-type="dfn" href="#notification" id="ref-for-notification⑧">notification</a>] can be sent to a review <a data-link-type="dfn" href="#service-node" id="ref-for-service-node⑥">Service Node</a>. The <a data-link-type="dfn" href="#service-node" id="ref-for-service-node⑦">Service Node</a> can respond,
 for example, accepting or rejecting the review request, and, in the latter case, to relay
 the result of the review.</p>
    <p>The <a data-link-type="dfn" href="#orchestrator" id="ref-for-orchestrator⑦">Orchestrator</a> sends notifications in response to triggers that result from the execution of
@@ -1773,7 +1804,7 @@ automate the actual fulfillment of the function itself. For instance, when an <c
 we don’t envision that message contains all the steps to fully automate the submission process.
 It could contain enough metadata to enable simple workflows. In general out of band communication
 could be needed to perform all required steps.</p>
-   <h3 class="heading settled" data-level="6.2" id="cultural-heritage"><span class="secno">6.2. </span><span class="content">Communication between Data Pod and Cultural Heritage network</span><a class="self-link" href="#cultural-heritage"></a></h3>
+   <h3 class="heading settled" data-level="7.2" id="cultural-heritage"><span class="secno">7.2. </span><span class="content">Communication between Data Pod and Cultural Heritage network</span><a class="self-link" href="#cultural-heritage"></a></h3>
    <p>In the cultural heritage domain,
 institutions that manage collections, such as museums or libraries, and
 service providers, such as object registrars, user-facing portals or digital archives,
@@ -1787,9 +1818,9 @@ In between, there is a layer of facilitating services that</p>
     <li data-md>
      <p>provide value-added services to institutions like enriching metadata by adding links to other collections, or doing digital preservation.</p>
    </ul>
-   <p>Institutions use notifications to request services from the designated <a data-link-type="dfn" href="#service-node" id="ref-for-service-node⑥">Service Node</a>, eg. they can <code>Offer</code> a dataset to a enrichment service.
+   <p>Institutions use notifications to request services from the designated <a data-link-type="dfn" href="#service-node" id="ref-for-service-node⑧">Service Node</a>, eg. they can <code>Offer</code> a dataset to a enrichment service.
 In addition, notifications are used by all parties to inform each other about relevant changes.
-A <a data-link-type="dfn" href="#service-node" id="ref-for-service-node⑦">Service Node</a> can respond with, for example, an accept or reject of the request for digital preservation, or simply take note.
+A <a data-link-type="dfn" href="#service-node" id="ref-for-service-node⑨">Service Node</a> can respond with, for example, an accept or reject of the request for digital preservation, or simply take note.
 The result of a service, ie. the object is preserved digitally for the long term, is a new piece of metadata that augments the object’s lifecycle.
 This event can be communicated with a new notification to the institution that made the requested or other interested <a data-link-type="dfn" href="#agent" id="ref-for-agent①④">agents</a> in the network.</p>
    <p>Driven by a mix of policy derived from institutional and cooperation requirements,
@@ -1798,9 +1829,9 @@ These processes can be declared in a <a data-link-type="dfn" href="#rulebook" id
    <p>Services that help the chasm between the <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod①⑤">Data Pod</a> and data consuming portals, can maintain a <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod①⑥">Data Pod</a> of their own,
 for storing and exposing derivatives to upper layers in the network. 
 For instance, 
-a <a data-link-type="dfn" href="#service-node" id="ref-for-service-node⑧">Service Node</a> that collects datasets from institution’s <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod①⑦">Data Pods</a> to generate dataset summaries and enrichments can store these results.
-In turn, an end-user portal can use the data of this <a data-link-type="dfn" href="#service-node" id="ref-for-service-node⑨">Service Node</a> to find <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod①⑧">Data Pods</a> with relevant data.</p>
-   <h2 class="heading settled" data-level="7" id="acknowledgement"><span class="secno">7. </span><span class="content">Acknowledgement</span><a class="self-link" href="#acknowledgement"></a></h2>
+a <a data-link-type="dfn" href="#service-node" id="ref-for-service-node①⓪">Service Node</a> that collects datasets from institution’s <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod①⑦">Data Pods</a> to generate dataset summaries and enrichments can store these results.
+In turn, an end-user portal can use the data of this <a data-link-type="dfn" href="#service-node" id="ref-for-service-node①①">Service Node</a> to find <a data-link-type="dfn" href="#data-pod" id="ref-for-data-pod①⑧">Data Pods</a> with relevant data.</p>
+   <h2 class="heading settled" data-level="8" id="acknowledgement"><span class="secno">8. </span><span class="content">Acknowledgement</span><a class="self-link" href="#acknowledgement"></a></h2>
    <p>We thank Herbert Van de Sompel, <a href="https://dans.knaw.nl/nl/">DANS + Ghent University</a>, hvdsomp@gmail.com
 for the valuable input during this project.</p>
   </main>
@@ -1987,7 +2018,7 @@ for the valuable input during this project.</p>
    <dt id="biblio-activitystreams-vocabulary">[ACTIVITYSTREAMS-VOCABULARY]
    <dd>James Snell; Evan Prodromou. <a href="https://www.w3.org/TR/activitystreams-vocabulary/">Activity Vocabulary</a>. 23 May 2017. REC. URL: <a href="https://www.w3.org/TR/activitystreams-vocabulary/">https://www.w3.org/TR/activitystreams-vocabulary/</a>
    <dt id="biblio-solid-protocol">[SOLID-PROTOCOL]
-   <dd>Sarven Capadisli; et al. <a href="https://solidproject.org/TR/protocol/">The Solid Protocol</a>. Editor’s Draft. URL: <a href="https://solidproject.org/TR/protocol/">https://solidproject.org/TR/protocol/</a>
+   <dd>Sarven Capadisli; et al. <a href="https://solidproject.org/TR/protocol">The Solid Protocol</a>. Published. URL: <a href="https://solidproject.org/TR/protocol">https://solidproject.org/TR/protocol</a>
    <dt id="biblio-solid-tr">[SOLID-TR]
    <dd><a href="https://solidproject.org/TR/">Solid Technical Reports</a>. URL: <a href="https://solidproject.org/TR/">https://solidproject.org/TR/</a>
    <dt id="biblio-webid">[WEBID]
@@ -1997,8 +2028,8 @@ for the valuable input during this project.</p>
    <b><a href="#agent">#agent</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-agent">4. Terminology</a> <a href="#ref-for-agent①">(2)</a> <a href="#ref-for-agent②">(3)</a> <a href="#ref-for-agent③">(4)</a> <a href="#ref-for-agent④">(5)</a> <a href="#ref-for-agent⑤">(6)</a> <a href="#ref-for-agent⑥">(7)</a> <a href="#ref-for-agent⑦">(8)</a> <a href="#ref-for-agent⑧">(9)</a> <a href="#ref-for-agent⑨">(10)</a>
-    <li><a href="#ref-for-agent①⓪">5. Dashboard and Orchestrator</a> <a href="#ref-for-agent①①">(2)</a> <a href="#ref-for-agent①②">(3)</a> <a href="#ref-for-agent①③">(4)</a>
-    <li><a href="#ref-for-agent①④">6.2. Communication between Data Pod and Cultural Heritage network</a> <a href="#ref-for-agent①⑤">(2)</a>
+    <li><a href="#ref-for-agent①⓪">6. Dashboard and Orchestrator</a> <a href="#ref-for-agent①①">(2)</a> <a href="#ref-for-agent①②">(3)</a> <a href="#ref-for-agent①③">(4)</a>
+    <li><a href="#ref-for-agent①④">7.2. Communication between Data Pod and Cultural Heritage network</a> <a href="#ref-for-agent①⑤">(2)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="artifact">
@@ -2011,8 +2042,8 @@ for the valuable input during this project.</p>
    <b><a href="#notification">#notification</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-notification">4. Terminology</a> <a href="#ref-for-notification①">(2)</a> <a href="#ref-for-notification②">(3)</a> <a href="#ref-for-notification③">(4)</a>
-    <li><a href="#ref-for-notification④">5. Dashboard and Orchestrator</a> <a href="#ref-for-notification⑤">(2)</a> <a href="#ref-for-notification⑥">(3)</a>
-    <li><a href="#ref-for-notification⑦">6.1. Communication between Data Pod and Scholarly Community network</a> <a href="#ref-for-notification⑧">(2)</a> <a href="#ref-for-notification⑨">(3)</a>
+    <li><a href="#ref-for-notification④">6. Dashboard and Orchestrator</a> <a href="#ref-for-notification⑤">(2)</a> <a href="#ref-for-notification⑥">(3)</a>
+    <li><a href="#ref-for-notification⑦">7.1. Communication between Data Pod and Scholarly Community network</a> <a href="#ref-for-notification⑧">(2)</a> <a href="#ref-for-notification⑨">(3)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="activity">
@@ -2025,6 +2056,7 @@ for the valuable input during this project.</p>
    <b><a href="#service-result">#service-result</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-service-result">4. Terminology</a>
+    <li><a href="#ref-for-service-result①">5. Agents, Artefacts and Service Results</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="node">
@@ -2037,22 +2069,24 @@ for the valuable input during this project.</p>
    <b><a href="#data-node">#data-node</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-data-node">4. Terminology</a> <a href="#ref-for-data-node①">(2)</a> <a href="#ref-for-data-node②">(3)</a> <a href="#ref-for-data-node③">(4)</a> <a href="#ref-for-data-node④">(5)</a> <a href="#ref-for-data-node⑤">(6)</a> <a href="#ref-for-data-node⑥">(7)</a>
+    <li><a href="#ref-for-data-node⑦">5. Agents, Artefacts and Service Results</a> <a href="#ref-for-data-node⑧">(2)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="service-node">
    <b><a href="#service-node">#service-node</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-service-node">4. Terminology</a> <a href="#ref-for-service-node①">(2)</a>
-    <li><a href="#ref-for-service-node②">5. Dashboard and Orchestrator</a>
-    <li><a href="#ref-for-service-node③">6.1. Communication between Data Pod and Scholarly Community network</a> <a href="#ref-for-service-node④">(2)</a> <a href="#ref-for-service-node⑤">(3)</a>
-    <li><a href="#ref-for-service-node⑥">6.2. Communication between Data Pod and Cultural Heritage network</a> <a href="#ref-for-service-node⑦">(2)</a> <a href="#ref-for-service-node⑧">(3)</a> <a href="#ref-for-service-node⑨">(4)</a>
+    <li><a href="#ref-for-service-node②">5. Agents, Artefacts and Service Results</a> <a href="#ref-for-service-node③">(2)</a>
+    <li><a href="#ref-for-service-node④">6. Dashboard and Orchestrator</a>
+    <li><a href="#ref-for-service-node⑤">7.1. Communication between Data Pod and Scholarly Community network</a> <a href="#ref-for-service-node⑥">(2)</a> <a href="#ref-for-service-node⑦">(3)</a>
+    <li><a href="#ref-for-service-node⑧">7.2. Communication between Data Pod and Cultural Heritage network</a> <a href="#ref-for-service-node⑨">(2)</a> <a href="#ref-for-service-node①⓪">(3)</a> <a href="#ref-for-service-node①①">(4)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="inbox">
    <b><a href="#inbox">#inbox</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-inbox">4. Terminology</a> <a href="#ref-for-inbox①">(2)</a> <a href="#ref-for-inbox②">(3)</a> <a href="#ref-for-inbox③">(4)</a>
-    <li><a href="#ref-for-inbox④">5. Dashboard and Orchestrator</a>
+    <li><a href="#ref-for-inbox④">6. Dashboard and Orchestrator</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="lifecycle-event">
@@ -2065,8 +2099,8 @@ for the valuable input during this project.</p>
    <b><a href="#lifecycle-event-log">#lifecycle-event-log</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-lifecycle-event-log">4. Terminology</a> <a href="#ref-for-lifecycle-event-log①">(2)</a> <a href="#ref-for-lifecycle-event-log②">(3)</a>
-    <li><a href="#ref-for-lifecycle-event-log③">5. Dashboard and Orchestrator</a>
-    <li><a href="#ref-for-lifecycle-event-log④">6.1. Communication between Data Pod and Scholarly Community network</a>
+    <li><a href="#ref-for-lifecycle-event-log③">6. Dashboard and Orchestrator</a>
+    <li><a href="#ref-for-lifecycle-event-log④">7.1. Communication between Data Pod and Scholarly Community network</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="selector">
@@ -2079,38 +2113,38 @@ for the valuable input during this project.</p>
    <b><a href="#data-pod">#data-pod</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-data-pod">4. Terminology</a> <a href="#ref-for-data-pod①">(2)</a> <a href="#ref-for-data-pod②">(3)</a> <a href="#ref-for-data-pod③">(4)</a>
-    <li><a href="#ref-for-data-pod④">5. Dashboard and Orchestrator</a> <a href="#ref-for-data-pod⑤">(2)</a> <a href="#ref-for-data-pod⑥">(3)</a> <a href="#ref-for-data-pod⑦">(4)</a> <a href="#ref-for-data-pod⑧">(5)</a> <a href="#ref-for-data-pod⑨">(6)</a> <a href="#ref-for-data-pod①⓪">(7)</a> <a href="#ref-for-data-pod①①">(8)</a>
-    <li><a href="#ref-for-data-pod①②">6.1. Communication between Data Pod and Scholarly Community network</a> <a href="#ref-for-data-pod①③">(2)</a>
-    <li><a href="#ref-for-data-pod①④">6.2. Communication between Data Pod and Cultural Heritage network</a> <a href="#ref-for-data-pod①⑤">(2)</a> <a href="#ref-for-data-pod①⑥">(3)</a> <a href="#ref-for-data-pod①⑦">(4)</a> <a href="#ref-for-data-pod①⑧">(5)</a>
+    <li><a href="#ref-for-data-pod④">6. Dashboard and Orchestrator</a> <a href="#ref-for-data-pod⑤">(2)</a> <a href="#ref-for-data-pod⑥">(3)</a> <a href="#ref-for-data-pod⑦">(4)</a> <a href="#ref-for-data-pod⑧">(5)</a> <a href="#ref-for-data-pod⑨">(6)</a> <a href="#ref-for-data-pod①⓪">(7)</a> <a href="#ref-for-data-pod①①">(8)</a>
+    <li><a href="#ref-for-data-pod①②">7.1. Communication between Data Pod and Scholarly Community network</a> <a href="#ref-for-data-pod①③">(2)</a>
+    <li><a href="#ref-for-data-pod①④">7.2. Communication between Data Pod and Cultural Heritage network</a> <a href="#ref-for-data-pod①⑤">(2)</a> <a href="#ref-for-data-pod①⑥">(3)</a> <a href="#ref-for-data-pod①⑦">(4)</a> <a href="#ref-for-data-pod①⑧">(5)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="data-pod-owner">
    <b><a href="#data-pod-owner">#data-pod-owner</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-data-pod-owner">5. Dashboard and Orchestrator</a>
+    <li><a href="#ref-for-data-pod-owner">6. Dashboard and Orchestrator</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dashboard">
    <b><a href="#dashboard">#dashboard</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-dashboard">5. Dashboard and Orchestrator</a> <a href="#ref-for-dashboard①">(2)</a> <a href="#ref-for-dashboard②">(3)</a> <a href="#ref-for-dashboard③">(4)</a> <a href="#ref-for-dashboard④">(5)</a> <a href="#ref-for-dashboard⑤">(6)</a> <a href="#ref-for-dashboard⑥">(7)</a>
+    <li><a href="#ref-for-dashboard">6. Dashboard and Orchestrator</a> <a href="#ref-for-dashboard①">(2)</a> <a href="#ref-for-dashboard②">(3)</a> <a href="#ref-for-dashboard③">(4)</a> <a href="#ref-for-dashboard④">(5)</a> <a href="#ref-for-dashboard⑤">(6)</a> <a href="#ref-for-dashboard⑥">(7)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="orchestrator">
    <b><a href="#orchestrator">#orchestrator</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-orchestrator">4. Terminology</a>
-    <li><a href="#ref-for-orchestrator①">5. Dashboard and Orchestrator</a> <a href="#ref-for-orchestrator②">(2)</a> <a href="#ref-for-orchestrator③">(3)</a> <a href="#ref-for-orchestrator④">(4)</a> <a href="#ref-for-orchestrator⑤">(5)</a> <a href="#ref-for-orchestrator⑥">(6)</a>
-    <li><a href="#ref-for-orchestrator⑦">6.1. Communication between Data Pod and Scholarly Community network</a> <a href="#ref-for-orchestrator⑧">(2)</a> <a href="#ref-for-orchestrator⑨">(3)</a>
-    <li><a href="#ref-for-orchestrator①⓪">6.2. Communication between Data Pod and Cultural Heritage network</a>
+    <li><a href="#ref-for-orchestrator①">6. Dashboard and Orchestrator</a> <a href="#ref-for-orchestrator②">(2)</a> <a href="#ref-for-orchestrator③">(3)</a> <a href="#ref-for-orchestrator④">(4)</a> <a href="#ref-for-orchestrator⑤">(5)</a> <a href="#ref-for-orchestrator⑥">(6)</a>
+    <li><a href="#ref-for-orchestrator⑦">7.1. Communication between Data Pod and Scholarly Community network</a> <a href="#ref-for-orchestrator⑧">(2)</a> <a href="#ref-for-orchestrator⑨">(3)</a>
+    <li><a href="#ref-for-orchestrator①⓪">7.2. Communication between Data Pod and Cultural Heritage network</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="rulebook">
    <b><a href="#rulebook">#rulebook</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-rulebook">4. Terminology</a>
-    <li><a href="#ref-for-rulebook①">5. Dashboard and Orchestrator</a> <a href="#ref-for-rulebook②">(2)</a>
-    <li><a href="#ref-for-rulebook③">6.2. Communication between Data Pod and Cultural Heritage network</a>
+    <li><a href="#ref-for-rulebook①">6. Dashboard and Orchestrator</a> <a href="#ref-for-rulebook②">(2)</a>
+    <li><a href="#ref-for-rulebook③">7.2. Communication between Data Pod and Cultural Heritage network</a>
    </ul>
   </aside>
 <script>/* script-dfn-panel */

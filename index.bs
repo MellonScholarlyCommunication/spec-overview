@@ -262,16 +262,39 @@ Terminology specific to [=data nodes=] implemented with [[solid-protocol|Solid]]
 : <dfn export>Rulebook</dfn>
 :: A set of machine-readable business rules that instruct the [=orchestrator=] on what actions to take in response to incoming [=notifications=].
 
-<!--
 Agents, Artefacts and Service Results {#agents-arte}
 =======================================================
 
-TODO: korte bespreken van het 
+Artifacts are the main focus of this decentralized network design. 
+They are pieces of data (eg. a file, a document, ...) produced by the Agents that participate in the network and hosted on [=data nodes=]
+The goal is, however, not to enable the exchange the artifacts, but rather to facilitate discourse about them.
 
-niet Artifact, maar beschrijving van artifact?
- - black box 
- - het netwerk gaat niet over het verschepen van artifacts
- -->
+Artifacts hold potential value in the domain in which the Agents operate.
+Over the network, Agents can send messages to other Agents to request value-added services. 
+Each executed service increases the value-chain of an Artifact, which is published in an event log. 
+The contents of an artifact are considered out-of-scope, and therefore, they are viewed as black-boxes to the network's design.
+
+Services are performed by [=service nodes=] and can produce a [=Service Result=] after execution.
+Service results are hosted on [=service nodes=] and provide metadata about the service run.
+The difference with artifacts is that service results lack a relevant value-chain.
+If interesting, a service result can be promoted to artifact, 
+eg. when a review of a document itself becomes subject to review.
+In that case, however, the service node takes up the role of [=data node=] as well. 
+
+The following example illustrates a basic interaction for which this network design can be applied.
+
+1. An Agent called Alice creates an artifact: a document. The document is stored in Alice's Pod.
+2. Alice offers the artifact to a Reviewing Service (a Service Node and Agent) in order to review it.
+3. The Reviewing Service performs the service and produces a Service Result.
+4. The Reviewing Service informs Alice that the Service was performed.
+5. The value-chain of the document is enhanced with a reviewed event.
+
+<figure>
+  <img src="./images/flow.svg" />
+  <figcaption>
+  example workflow.
+  </figcaption>
+</figure>
 
 Dashboard and Orchestrator {#differences}
 =======================================================
@@ -386,13 +409,11 @@ for the valuable input during this project.
 			"Sarven Capadisli",
 			"Tim Berners-Lee",
 			"Ruben Verborgh",
-			"Kjetil Kjernsmo",
-			"Justin Bingham",
-			"Dmitri Zagidulin"
+			"Kjetil Kjernsmo"
 		],
-		"href": "https://solidproject.org/TR/protocol/",
+		"href": "https://solidproject.org/TR/protocol",
 		"title": "The Solid Protocol",
-		"status": "Editor’s Draft",
+		"status": "Published",
 		"publisher": "Solid project",
 		"deliveredBy": [
 			"https://www.w3.org/community/solid/"
